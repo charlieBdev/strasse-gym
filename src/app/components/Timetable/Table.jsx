@@ -11,34 +11,34 @@ const Table = () => {
 				<div className="border rounded-lg shadow-lg shadow-violet-600 p-3 hover:shadow-xl hover:shadow-violet-600">
 					<div className="flex flex-col gap-2">
 						<p className="font-semibold text-md italic border-b">
-							MON, WEDS, FRI
+							MON, WED, and FRI
 						</p>
 						<div className="grid grid-cols-2 gap-2">
 							<div className="flex items-center gap-1">
 								<EveningSVG />
 								18:30 - 19:30
 							</div>
-							<p>| Kickboxing</p>
+							<p>Kickboxing</p>
 
 							<div className="flex items-center gap-1">
 								<EveningSVG />
 								19:30 - 20:30
 							</div>
-							<p>| BJJ</p>
+							<p>BJJ</p>
 						</div>
 					</div>
 				</div>
 				{/* Tues */}
 				<div className="border rounded-lg shadow-lg shadow-violet-600 p-3 hover:shadow-xl hover:shadow-violet-600">
 					<div className="flex flex-col gap-2">
-						<p className="font-semibold text-md italic border-b">TUES</p>
+						<p className="font-semibold text-md italic border-b">TUE</p>
 						<div className="grid grid-cols-2 gap-2">
 							<div className="flex items-center gap-1">
 								<EveningSVG />
 								18:30 - 19:30
 							</div>
 							<p>
-								| BJJ <span className="text-neutral-500 italic">tbc</span>
+								BJJ <span className="text-neutral-500 italic">tbc</span>
 							</p>
 						</div>
 					</div>
@@ -46,33 +46,33 @@ const Table = () => {
 				{/* Weds
 				<div className="border rounded-lg shadow-lg shadow-violet-600 p-3 hover:shadow-xl hover:shadow-violet-600">
 					<div className="flex flex-col gap-2">
-						<p className="font-semibold text-md italic border-b">WEDS</p>
+						<p className="font-semibold text-md italic border-b">WED</p>
 						<div className="grid grid-cols-2 gap-2">
 							<div className="flex items-center gap-1">
 								<EveningSVG />
 								18:30 - 19:30
 							</div>
-							<p>| Kickboxing</p>
+							<p>Kickboxing</p>
 
 							<div className="flex items-center gap-1">
 								<EveningSVG />
 								19:30 - 20:30
 							</div>
-							<p>| BJJ</p>
+							<p>BJJ</p>
 						</div>
 					</div>
 				</div> */}
 				{/* Thurs */}
 				<div className="border rounded-lg shadow-lg shadow-violet-600 p-3 hover:shadow-xl hover:shadow-violet-600">
 					<div className="flex flex-col gap-2">
-						<p className="font-semibold text-md italic border-b">THURS</p>
+						<p className="font-semibold text-md italic border-b">THU</p>
 						<div className="grid grid-cols-2 gap-2">
 							<div className="flex items-center gap-1">
 								<EveningSVG />
 								18:30 - 19:30
 							</div>
 							<p>
-								| KAPAP <span className="text-neutral-500 italic">tbc</span>
+								KAPAP <span className="text-neutral-500 italic">tbc</span>
 							</p>
 
 							<div className="flex items-center gap-1">
@@ -80,8 +80,7 @@ const Table = () => {
 								19:30 - 20:30
 							</div>
 							<p>
-								| KB Sparring{' '}
-								<span className="text-neutral-500 italic">tbc</span>
+								KB Sparring <span className="text-neutral-500 italic">tbc</span>
 							</p>
 						</div>
 					</div>
@@ -114,19 +113,19 @@ const Table = () => {
 								<DaytimeSVG />
 								09:00 - 9:50
 							</div>
-							<p>| Kids KB & BJJ</p>
+							<p>Kids KB & BJJ</p>
 
 							<div className="flex items-center gap-1">
 								<DaytimeSVG />
 								13:00 - 14:00
 							</div>
-							<p>| KB Sparring</p>
+							<p>KB Sparring</p>
 
 							<div className="flex items-center gap-1">
 								<DaytimeSVG />
 								14:00 - 15:00
 							</div>
-							<p>| BJJ Sparring</p>
+							<p>BJJ Sparring</p>
 						</div>
 					</div>
 				</div>

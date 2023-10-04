@@ -6,15 +6,15 @@ import Link from 'next/link';
 export const Hero = () => {
 	return (
 		<div className="min-h-[calc(100vh-5rem)] w-full flex flex-col md:flex-row items-center justify-center p-6 gap-3 md:p-16 border-b-2">
-			<div className="flex flex-col gap-3 w-full min-w-64 select-none">
-				<h2>Based in Meersbrooke, Sheffield, we offer training in:</h2>
-				<ul className="text-xl">
+			<div className="flex flex-col gap-3 w-full select-none">
+				<h2 className="text-xl italic">Be the best YOU possible!</h2>
+				<h3>Located in Meersbrooke, Sheffield. We offer training in:</h3>
+				<ul className="text-neutral-500 text-xl">
 					<li>Kickboxing</li>
 					<li>BJJ</li>
 					<li>KAPAP</li>
 				</ul>
-				<h3>Be the best YOU possible!</h3>
-				<Link href="#contact">
+				<Link href="#contact" className="mx-auto">
 					<Button text="Get in touch" />
 				</Link>
 			</div>

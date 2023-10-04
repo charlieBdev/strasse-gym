@@ -47,7 +47,8 @@ export const Form = () => {
 					onChange={(e) => setMessage(e.target.value)}
 					type="text"
 					placeholder="Enter your message"
-					className="p-1 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
+					className="p-1 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic resize-none"
+					rows="6"
 				/>
 				<Button text="Send" />
 			</div>
