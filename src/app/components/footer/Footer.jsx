@@ -14,7 +14,7 @@ export const Footer = () => {
 	return (
 		<div className="min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-between border-b-2 p-8 md:p-16 gap-3">
 			<Map />
-			<div className="flex flex-col md:flex-row items-center justify-center gap-3">
+			<div className="flex flex-col md:flex-row items-center justify-center gap-6">
 				<motion.a
 					href={`tel:+44${Number(phone)}`}
 					className="flex items-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800"
@@ -30,7 +30,7 @@ export const Footer = () => {
 					whileTap={{ scale: 0.9 }}
 				>
 					<EmailSVG />
-					<p>Email us</p>
+					<p>Email</p>
 				</motion.a>
 
 				<motion.a
