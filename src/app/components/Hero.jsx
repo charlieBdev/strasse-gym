@@ -7,7 +7,7 @@ export const Hero = () => {
 	return (
 		<div className="min-h-[calc(100vh-5rem)] w-full flex flex-col md:flex-row items-center justify-center p-6 gap-3 md:p-16 border-b-2">
 			<div className="flex flex-col gap-3 w-full select-none">
-				<h2 className="text-xl italic">Be the best YOU possible!</h2>
+				<h2 className="text-xl italic">Insert catchy headline here!</h2>
 				<h3>Located in Meersbrooke, Sheffield. We offer training in:</h3>
 				<ul className="text-neutral-500 text-xl">
 					<li>Kickboxing</li>
