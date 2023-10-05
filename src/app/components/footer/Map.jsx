@@ -8,9 +8,9 @@ export const Map = () => {
 				width="300"
 				height="200"
 				className="border-none rounded-lg md:hidden"
-				allowfullscreen=""
+				allowFullScreen=""
 				loading="lazy"
-				referrerpolicy="no-referrer-when-downgrade"
+				referrerPolicy="no-referrer-when-downgrade"
 			></iframe>
 
 			<iframe
@@ -19,9 +19,9 @@ export const Map = () => {
 				height="300"
 				// className="border-none md:hidden"
 				className="border-none rounded-lg hidden md:block"
-				allowfullscreen=""
+				allowFullScreen=""
 				loading="lazy"
-				referrerpolicy="no-referrer-when-downgrade"
+				referrerPolicy="no-referrer-when-downgrade"
 			></iframe>
 
 			{/* <iframe
@@ -29,9 +29,9 @@ export const Map = () => {
 				width="600"
 				height="450"
 				className="border-none hidden lg:block"
-				allowfullscreen=""
+				allowFullScreen=""
 				loading="lazy"
-				referrerpolicy="no-referrer-when-downgrade"
+				referrerPolicy="no-referrer-when-downgrade"
 			></iframe> */}
 		</div>
 	);

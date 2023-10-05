@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '../Button';
+import { motion } from 'framer-motion';
 
 export const Form = () => {
 	const [name, setName] = useState('');
@@ -14,13 +14,19 @@ export const Form = () => {
 		message,
 	};
 
-	console.log(body, '<<< body');
+	const handleSend = (e) => {
+		e.preventDefault();
+		console.log(body);
+	};
 
 	return (
 		<div className="w-full md:max-w-lg flex flex-col gap-1">
 			<p className="font-bold text-center italic">Get in touch!</p>
-			<div className="flex flex-col border p-3 rounded-lg shadow-lg shadow-pink-600  hover:shadow-xl hover:shadow-pink-600">
-				<label htmlFor="name" className="">
+			<form
+				onSubmit={handleSend}
+				className="flex flex-col border p-3 rounded-lg shadow-lg shadow-pink-600  hover:shadow-xl hover:shadow-pink-600"
+			>
+				<label htmlFor="name" className="text-sm">
 					Name:
 				</label>
 				<input
@@ -31,7 +37,9 @@ export const Form = () => {
 					placeholder="Enter your name"
 					className="p-1 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
 				/>
-				<label htmlFor="email">Email:</label>
+				<label htmlFor="email" className="text-sm">
+					Email:
+				</label>
 				<input
 					id="email"
 					value={email}
@@ -40,7 +48,9 @@ export const Form = () => {
 					placeholder="Enter your email"
 					className="p-1 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
 				/>
-				<label htmlFor="name">Message:</label>
+				<label htmlFor="name" className="text-sm">
+					Message:
+				</label>
 				<textarea
 					id="message"
 					value={message}
@@ -50,8 +60,14 @@ export const Form = () => {
 					className="p-1 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic resize-none"
 					rows="6"
 				/>
-				<Button text="Send" />
-			</div>
+				<motion.button
+					className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto"
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.9 }}
+				>
+					Send
+				</motion.button>
+			</form>
 		</div>
 	);
 };
