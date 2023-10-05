@@ -16,7 +16,7 @@ export const Navbar = () => {
 			<Link href="#top">
 				{/* STRASSE <span className="hidden md:inline-block">GYM</span> */}
 				<motion.h1
-					className="font-black italic text-xl"
+					className="font-black italic text-xl font-headings"
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 				>
@@ -36,7 +36,7 @@ export const Navbar = () => {
 							damping: 20,
 						}}
 					>
-						<span className="hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800">
+						<span className="hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800 font-headings">
 							News
 						</span>
 						<NewsSVG />
@@ -54,7 +54,7 @@ export const Navbar = () => {
 							damping: 20,
 						}}
 					>
-						<span className="hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800">
+						<span className="hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800 font-headings">
 							Timetable
 						</span>
 						<CalendarSVG />

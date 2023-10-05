@@ -21,12 +21,14 @@ export const Form = () => {
 
 	return (
 		<div className="w-full md:max-w-lg flex flex-col gap-1">
-			<p className="font-bold text-center italic">Get in touch!</p>
+			<p className="font-bold text-center italic font-headings">
+				Get in touch!
+			</p>
 			<form
 				onSubmit={handleSend}
 				className="flex flex-col border p-3 rounded-lg shadow-lg shadow-pink-600  hover:shadow-xl hover:shadow-pink-600"
 			>
-				<label htmlFor="name" className="text-sm">
+				<label htmlFor="name" className="text-sm font-headings px-1">
 					Name:
 				</label>
 				<input
@@ -35,9 +37,9 @@ export const Form = () => {
 					onChange={(e) => setName(e.target.value)}
 					type="text"
 					placeholder="Enter your name"
-					className="p-1 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
+					className="p-2 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
 				/>
-				<label htmlFor="email" className="text-sm">
+				<label htmlFor="email" className="text-sm font-headings px-1">
 					Email:
 				</label>
 				<input
@@ -46,9 +48,9 @@ export const Form = () => {
 					onChange={(e) => setEmail(e.target.value)}
 					type="text"
 					placeholder="Enter your email"
-					className="p-1 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
+					className="p-2 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
 				/>
-				<label htmlFor="name" className="text-sm">
+				<label htmlFor="name" className="text-sm font-headings px-1">
 					Message:
 				</label>
 				<textarea
@@ -57,11 +59,11 @@ export const Form = () => {
 					onChange={(e) => setMessage(e.target.value)}
 					type="text"
 					placeholder="Enter your message"
-					className="p-1 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic resize-none"
+					className="p-2 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic resize-none"
 					rows="6"
 				/>
 				<motion.button
-					className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto"
+					className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto font-headings"
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 				>
