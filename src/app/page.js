@@ -4,6 +4,7 @@ import { News } from "./components/news/News";
 import { Timetable } from "./components/Timetable/Timetable";
 import { Contact } from "./components/contact/Contact";
 import { Footer } from "./components/footer/Footer";
+import { Toaster } from "sonner";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Timetable />
       <Contact />
       <Footer />
+      <Toaster richColors />
     </main>
   )
 }

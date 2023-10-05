@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 
 export const Form = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
+	const [isSent, setIsSent] = useState(true);
 
 	const body = {
 		name,
@@ -17,6 +19,12 @@ export const Form = () => {
 	const handleSend = (e) => {
 		e.preventDefault();
 		console.log(body);
+		setIsSent(!isSent);
+		if (isSent) {
+			toast.success('Message sent!');
+		} else {
+			toast.error('Please try again!');
+		}
 	};
 
 	return (
