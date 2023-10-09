@@ -29,9 +29,6 @@ export const Form = () => {
 
 	return (
 		<div className="w-full md:max-w-lg flex flex-col gap-1">
-			<p className="font-bold text-center italic font-headings">
-				Get in touch!
-			</p>
 			<form
 				onSubmit={handleSend}
 				className="flex flex-col border p-3 rounded-lg shadow-lg shadow-pink-600 hover:shadow-xl hover:shadow-pink-600"
