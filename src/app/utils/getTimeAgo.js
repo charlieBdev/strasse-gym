@@ -23,5 +23,3 @@ export function getTimeAgo(date) {
     return seconds <= 10 ? 'just now' : `${seconds} seconds ago`;
   }
 }
-
-console.log(getTimeAgo('2023-04-20T19:41:42Z'))
