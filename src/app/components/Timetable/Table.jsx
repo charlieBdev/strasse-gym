@@ -4,10 +4,7 @@ import { DaytimeSVG } from '../svg/DaytimeSVG';
 
 const Table = () => {
 	return (
-		<div className="flex flex-col w-full gap-1 select-none">
-			<p className="text-center italic font-semibold text-md font-headings">
-				Timetable
-			</p>
+		<section className="flex flex-col w-full gap-1 select-none">
 			<div className="flex flex-col md:grid md:grid-cols-2 gap-3">
 				{/* Mon */}
 				<div className="border rounded-lg shadow-lg shadow-violet-600 p-2 hover:shadow-xl hover:shadow-violet-600">
@@ -20,7 +17,7 @@ const Table = () => {
 								<EveningSVG />
 								<p>18:30 - 19:30</p>
 							</div>
-							<p>🥊 Kickboxing</p>
+							<p>Kickboxing</p>
 							{/* <p>🥊</p> */}
 						</div>
 						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg px-1">
@@ -28,7 +25,7 @@ const Table = () => {
 								<EveningSVG />
 								<p>19:30 - 20:30</p>
 							</div>
-							<p>🥋 BJJ</p>
+							<p>BJJ</p>
 							{/* <p>🥋</p> */}
 						</div>
 					</div>
@@ -44,7 +41,7 @@ const Table = () => {
 								<EveningSVG />
 								<p>18:30 - 19:30</p>
 							</div>
-							<p>🥋 BJJ</p>
+							<p>BJJ</p>
 							{/* <p>🥋</p> */}
 						</div>
 					</div>
@@ -76,29 +73,29 @@ const Table = () => {
 								<DaytimeSVG />
 								<p>09:00 - 10:00</p>
 							</div>
-							<p>🧒 Kids KB & BJJ</p>
-							{/* <p>🧒🥊🥋 </p> */}
+							<p>Kids KB & BJJ</p>
+							{/* <p>🧒🥊🥋</p> */}
 						</div>
 						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<DaytimeSVG />
 								<p>13:00 - 14:00</p>
 							</div>
-							<p>🥊 KB Sparring</p>
+							<p>KB Sparring</p>
 							{/* <p>🥊</p> */}
 						</div>
 						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<DaytimeSVG />
-								<p>14:00 - 14:00</p>
+								<p>14:00 - 15:00</p>
 							</div>
-							<p>🥋 BJJ Sparring</p>
+							<p>BJJ Sparring</p>
 							{/* <p>🥋</p> */}
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

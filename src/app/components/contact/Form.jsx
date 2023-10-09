@@ -34,7 +34,7 @@ export const Form = () => {
 			</p>
 			<form
 				onSubmit={handleSend}
-				className="flex flex-col border p-3 rounded-lg shadow-lg shadow-pink-600  hover:shadow-xl hover:shadow-pink-600"
+				className="flex flex-col border p-3 rounded-lg shadow-lg shadow-pink-600 hover:shadow-xl hover:shadow-pink-600"
 			>
 				<label htmlFor="name" className="text-sm font-headings px-1">
 					Name:

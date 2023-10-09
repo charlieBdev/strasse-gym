@@ -44,9 +44,8 @@ export const Footer = () => {
 				<div className="flex flex-col gap-3">
 					<Map />
 					<div className="text-center">
-						<p>Unit 208</p>
 						<p>Meersbrook Enterprise Centre</p>
-						<p>Valley Rd</p>
+						<p>Unit 208, Valley Rd</p>
 						<p>Sheffield </p>
 						<p>S8 9FT</p>
 					</div>

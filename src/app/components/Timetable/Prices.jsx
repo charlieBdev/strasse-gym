@@ -1,13 +1,8 @@
 import React from 'react';
-import { DaytimeSVG } from '../svg/DaytimeSVG';
-import { EveningSVG } from '../svg/EveningSVG';
 
 export const Prices = () => {
 	return (
 		<div className="flex flex-col w-full items-center gap-1 select-none">
-			<p className="text-center italic font-semibold text-md font-headings">
-				Prices
-			</p>
 			<div className="flex flex-col w-full max-w-lg">
 				<div className="border rounded-lg shadow-lg shadow-violet-600 p-2 hover:shadow-xl hover:shadow-violet-600">
 					<div className="flex flex-col gap-1">

@@ -4,24 +4,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const Hero = () => {
+	const mottos = [
+		'Be the best version of you!',
+		'Get fit, have fun, and learn how to protect yourself!',
+		'Insert catchy slogan here!',
+		'Stand up and fight!',
+	];
+
+	const randomMottoIndex = Math.floor(Math.random() * mottos.length);
+
 	return (
 		<div className="min-h-[calc(100vh-5rem)] w-full flex flex-col md:flex-row items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32 border-b-2">
 			<div className="flex flex-col gap-3 w-full select-none">
 				<h2 className="text-lg italic font-semibold uppercase font-headings">
-					Be the best version of you!
+					{`${mottos[randomMottoIndex]}`}
 				</h2>
 				<ul className="list-disc list-inside">
 					<li className="font-headings text-lg">Kickboxing</li>
 					<li className="font-headings text-lg">BJJ</li>
 					<li className="font-headings text-lg">KAPAP</li>
 				</ul>
-				<h3 className="text-sm">Located in Meersbrooke, Sheffield.</h3>
+				<h3 className="text-sm">@ Meersbrooke, Sheffield.</h3>
 				<Link href="#contact" className="mx-auto">
 					<Button text="Get in touch" />
 				</Link>
 			</div>
 			<Image
-				style={{ objectFit: 'fit' }}
+				// style={{ objectFit: 'fit' }}
 				// fill={true}
 				// placeholder="blur"
 				loading="lazy"
