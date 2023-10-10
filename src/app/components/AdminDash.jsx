@@ -22,7 +22,7 @@ export const AdminDash = () => {
 			return;
 		}
 		// else
-		toast.success('Logged out');
+		toast.success('Logout successful');
 		return router.push('/');
 	};
 

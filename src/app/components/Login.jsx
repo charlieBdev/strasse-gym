@@ -23,13 +23,13 @@ export const Login = () => {
 			return;
 		}
 		// else
-		toast.success('Logged in');
+		toast.success('Login successful');
 		router.push('/admin');
 	};
 
 	const handleReset = async (e) => {
 		e.preventDefault();
-		toast.error('Not available yet');
+		toast.error('No mwhuahahaha');
 	};
 
 	return (
