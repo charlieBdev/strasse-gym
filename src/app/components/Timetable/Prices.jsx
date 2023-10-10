@@ -4,7 +4,7 @@ export const Prices = () => {
 	return (
 		<div className="flex flex-col w-full items-center gap-1 select-none">
 			<div className="flex flex-col w-full max-w-lg">
-				<div className="border rounded-lg shadow-lg shadow-violet-600 p-2 hover:shadow-xl hover:shadow-violet-600">
+				<div className="border rounded-lg shadow-sm shadow-violet-600 p-2 hover:shadow-md hover:shadow-violet-600">
 					<div className="flex flex-col gap-1">
 						<div className="grid grid-cols-3 hover:bg-violet-500 rounded-lg px-1">
 							<p>Kids</p>
