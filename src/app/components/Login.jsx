@@ -20,12 +20,10 @@ export const Login = () => {
 
 		if (error) {
 			toast.error('Login error');
-			console.log(error, 'Login error');
 			return;
 		}
 		// else
 		toast.success('Logged in');
-		console.log(result, 'Login result');
 		router.push('/admin');
 	};
 

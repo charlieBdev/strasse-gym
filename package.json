@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/react": "18.2.27",
     "autoprefixer": "latest",
+    "encoding": "^0.1.13",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",

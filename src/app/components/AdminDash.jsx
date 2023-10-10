@@ -19,12 +19,10 @@ export const AdminDash = () => {
 
 		if (error) {
 			toast.error('Logout error');
-			console.log(error, 'Logout error');
 			return;
 		}
 		// else
 		toast.success('Logged out');
-		console.log(result, 'Logout result');
 		return router.push('/');
 	};
 
@@ -45,11 +43,11 @@ export const AdminDash = () => {
 					>
 						<HomeSVG />
 					</motion.button>
-					<h2>Admin Dashboard</h2>
+					<h2>Admin Area</h2>
 				</div>
 
 				<div className="flex items-center gap-3">
-					<p>User - {userChopped}</p>
+					<p>{userChopped}</p>
 					<motion.button
 						onClick={handleLogout}
 						whileTap={{ scale: 0.9 }}

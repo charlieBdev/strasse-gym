@@ -3,7 +3,7 @@
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { News } from "./components/news/News";
-import { Timetable } from "./components/timetable/Timetable";
+import { Timetable } from './components/timetable/Timetable'
 import { Contact } from "./components/contact/Contact";
 import { Footer } from "./components/footer/Footer";
 
