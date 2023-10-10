@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export const Button = ({ text }) => {
 	return (
 		<motion.button
-			className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto font-headings"
+			className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto"
 			whileHover={{ scale: 1.1 }}
 			whileTap={{ scale: 0.9 }}
 		>

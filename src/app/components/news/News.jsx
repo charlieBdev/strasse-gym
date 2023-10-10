@@ -23,16 +23,18 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="bg-cyan-400 min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-between border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="bg-violet-400 min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-between border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
-			<h2 className="text-center italic font-semibold text-md font-headings underline">
-				NEWS
-			</h2>
-			<div className="grid grid-cols-1 gap-3 w-full">
-				{displayedNews.map((item) => (
-					// <NewsCard key={item.title} page={currentPage} item={item} />
-					<NewsCard key={item.title} item={item} />
-				))}
+			<div className="flex flex-col gap-3">
+				<h2 className="text-center italic font-semibold text-md underline">
+					NEWS
+				</h2>
+				<div className="grid grid-cols-1 gap-3 w-full">
+					{displayedNews.map((item) => (
+						// <NewsCard key={item.title} page={currentPage} item={item} />
+						<NewsCard key={item.title} item={item} />
+					))}
+				</div>
 			</div>
 
 			<div className="flex gap-3">
@@ -41,7 +43,6 @@ export const News = () => {
 						onClick={() => handlePageChange(currentPage - 1)}
 						whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
-						className="p-1 rounded-full hover:bg-emerald-600"
 					>
 						<PreviousSVG />
 					</motion.button>
@@ -51,7 +52,6 @@ export const News = () => {
 						onClick={() => handlePageChange(currentPage + 1)}
 						whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
-						className="p-1 rounded-full hover:bg-cyan-600"
 					>
 						<NextSVG />
 					</motion.button>

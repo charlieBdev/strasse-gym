@@ -18,7 +18,6 @@ export const Form = () => {
 
 	const handleSend = (e) => {
 		e.preventDefault();
-		console.log(body);
 		setIsSent(!isSent);
 		if (isSent) {
 			toast.success('Message sent!');
