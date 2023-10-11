@@ -19,7 +19,7 @@ export const Navbar = () => {
 			<Link href="#top">
 				{/* STRASSE <span className="hidden md:inline-block">GYM</span> */}
 				<motion.h1
-					className="font-black italic text-xl"
+					className="font-black text-xl"
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 				>

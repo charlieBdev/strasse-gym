@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tinymce/tinymce-react": "^4.3.0",
     "firebase": "^10.4.0",
     "firebaseui": "^6.1.0",
     "framer-motion": "^10.16.4",
