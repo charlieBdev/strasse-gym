@@ -23,7 +23,7 @@ export const Navbar = () => {
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 				>
-					<div className="flex gap-3 items-center">
+					<div className="flex flex-col items-center justify-center">
 						STRASSE GYM
 						<BlackBelt />
 					</div>

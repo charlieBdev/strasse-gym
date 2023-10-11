@@ -6,6 +6,7 @@ import { SignoutSVG } from './svg/SignoutSVG';
 import { HomeSVG } from './svg/HomeSVG';
 import { useAuthContext } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
+import { NewsForm } from '../components/admin/NewsForm';
 
 export const AdminDash = () => {
 	const { user } = useAuthContext();
@@ -27,7 +28,7 @@ export const AdminDash = () => {
 	};
 
 	return (
-		<div className="flex flex-col min-h-screen items-center justify-between">
+		<div className="flex flex-col min-h-screen items-center">
 			<div className="w-full flex items-center justify-between border-b-2 h-20 px-6 md:px-16 lg:px-24 xl:px-32">
 				<div className="flex items-center gap-3">
 					<motion.button
@@ -62,6 +63,9 @@ export const AdminDash = () => {
 						<SignoutSVG />
 					</motion.button>
 				</div>
+			</div>
+			<div className="flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32">
+				<NewsForm />
 			</div>
 		</div>
 	);
