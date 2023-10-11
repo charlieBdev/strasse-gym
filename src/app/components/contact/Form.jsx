@@ -30,7 +30,7 @@ export const Form = () => {
 		<div className="w-full md:max-w-lg flex flex-col gap-1">
 			<form
 				onSubmit={handleSend}
-				className="flex flex-col border p-3 rounded-lg shadow-lg shadow-pink-600 hover:shadow-xl hover:shadow-pink-600"
+				className="flex flex-col border p-3 rounded-lg hover:shadow-sm hover:shadow-neutral-50"
 			>
 				<label htmlFor="name" className="text-sm font-headings px-1">
 					Name:
@@ -41,7 +41,7 @@ export const Form = () => {
 					onChange={(e) => setName(e.target.value)}
 					type="text"
 					placeholder="Enter your name"
-					className="p-2 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
+					className="p-2 rounded-lg mb-3 text-neutral-950 border-none placeholder:italic"
 				/>
 				<label htmlFor="email" className="text-sm font-headings px-1">
 					Email:
@@ -52,7 +52,7 @@ export const Form = () => {
 					onChange={(e) => setEmail(e.target.value)}
 					type="text"
 					placeholder="Enter your email"
-					className="p-2 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic"
+					className="p-2 rounded-lg mb-3 text-neutral-950 border-none placeholder:italic"
 				/>
 				<label htmlFor="name" className="text-sm font-headings px-1">
 					Message:
@@ -63,7 +63,7 @@ export const Form = () => {
 					onChange={(e) => setMessage(e.target.value)}
 					type="text"
 					placeholder="Enter your message"
-					className="p-2 rounded-lg mb-3 text-neutral-950 shadow shadow-pink-600 placeholder:italic resize-none"
+					className="p-2 rounded-lg mb-3 text-neutral-950 border-none placeholder:italic resize-none"
 					rows="6"
 				/>
 				<motion.button

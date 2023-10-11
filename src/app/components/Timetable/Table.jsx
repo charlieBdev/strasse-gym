@@ -7,7 +7,7 @@ const Table = () => {
 		<section className="flex flex-col w-full gap-1 select-none">
 			<div className="flex flex-col md:grid md:grid-cols-2 gap-3">
 				{/* Mon */}
-				<div className="border rounded-lg shadow-sm shadow-violet-600 p-2 hover:shadow-md hover:shadow-violet-600">
+				<div className="border rounded-lg p-2 hover:shadow-sm hover:shadow-neutral-50">
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							MON - WED - FRI
@@ -31,7 +31,7 @@ const Table = () => {
 					</div>
 				</div>
 				{/* Tues */}
-				<div className="border rounded-lg shadow-sm shadow-violet-600 p-2 hover:shadow-md hover:shadow-violet-600">
+				<div className="border rounded-lg p-2 hover:shadow-sm hover:shadow-neutral-50">
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							TUE
@@ -47,7 +47,7 @@ const Table = () => {
 					</div>
 				</div>
 				{/* Thurs */}
-				<div className="border rounded-lg shadow-sm shadow-violet-600 p-2 hover:shadow-md hover:shadow-violet-600">
+				<div className="border rounded-lg p-2 hover:shadow-sm hover:shadow-neutral-50">
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							THU
@@ -63,7 +63,7 @@ const Table = () => {
 					</div>
 				</div>
 				{/* Sat */}
-				<div className="border rounded-lg shadow-sm shadow-violet-600 p-2 hover:shadow-md hover:shadow-violet-600">
+				<div className="border rounded-lg p-2 hover:shadow-sm hover:shadow-neutral-50">
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							SAT

@@ -17,17 +17,17 @@ export const Footer = () => {
 			<div className="flex flex-col items-center justify-between gap-6 h-full">
 				<div className="flex flex-col gap-3">
 					<Map />
-					<div className="text-center">
+					<div className="">
 						<p>Meersbrook Enterprise Centre</p>
 						<p>Unit 208, Valley Rd</p>
 						<p>Sheffield </p>
 						<p>S8 9FT</p>
 					</div>
 				</div>
-				<div className="flex flex-col md:grid md:grid-cols-3 items-center justify-center gap-3 w-full">
+				<div className="-ml-6 md:ml-0 flex flex-col md:grid md:grid-cols-3 items-start justify-center gap-3 w-full">
 					<motion.a
 						href={`tel:+44${Number(phone)}`}
-						className="md:w-full mx-auto flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-blue-500"
+						className="md:w-full flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-blue-500"
 						whileTap={{ scale: 0.9 }}
 					>
 						<CallSVG />
@@ -35,7 +35,7 @@ export const Footer = () => {
 					</motion.a>
 					<motion.a
 						href={whatsApp}
-						className="md:w-full mx-auto flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-green-500"
+						className="md:w-full flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-green-500"
 						whileTap={{ scale: 0.9 }}
 					>
 						<AiOutlineWhatsApp className="w-6 h-6" />
@@ -43,7 +43,7 @@ export const Footer = () => {
 					</motion.a>
 					<motion.a
 						href={`mailto:${email}`}
-						className="md:w-full mx-auto flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-yellow-500"
+						className="md:w-full flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-yellow-500"
 						whileTap={{ scale: 0.9 }}
 					>
 						<EmailSVG />
