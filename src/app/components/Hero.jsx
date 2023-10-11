@@ -39,7 +39,7 @@ export const Hero = () => {
 				alt="Two men competing in a BJJ competition on the floor. One, on the bottom, looks like but isn't Craig."
 				width={500}
 				height={500}
-				className="rounded-lg border hover:shadow hover:shadow-neutral-50"
+				className="rounded-lg"
 			/>
 		</div>
 	);
