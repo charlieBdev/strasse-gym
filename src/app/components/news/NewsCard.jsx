@@ -20,6 +20,7 @@ export const NewsCard = ({
 				width={500}
 				height={500}
 				className="rounded-lg mx-auto"
+				// priority
 			/>
 		</div>
 	);

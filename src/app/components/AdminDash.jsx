@@ -43,7 +43,7 @@ export const AdminDash = () => {
 					>
 						<HomeSVG />
 					</motion.button>
-					<h2>Admin Area</h2>
+					<h2 className="font-black italic">STRASSE ADMIN</h2>
 				</div>
 
 				<div className="flex items-center gap-3">

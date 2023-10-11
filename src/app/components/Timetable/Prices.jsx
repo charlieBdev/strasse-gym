@@ -6,22 +6,22 @@ export const Prices = () => {
 			<div className="flex flex-col w-full max-w-lg">
 				<div className="border rounded-lg p-2 hover:shadow-sm hover:shadow-neutral-50">
 					<div className="flex flex-col gap-1">
-						<div className="grid grid-cols-3 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Kids</p>
 							<p>£5</p>
 							<p>50 mins</p>
 						</div>
-						<div className="grid grid-cols-3 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Adults</p>
 							<p>£6</p>
 							<p>1 hour</p>
 						</div>
-						<div className="grid grid-cols-3 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Adults</p>
 							<p>£10</p>
 							<p>2 hours</p>
 						</div>
-						<div className="grid grid-cols-3 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Adults</p>
 							<p>£60</p>
 							<p>Monthly</p>

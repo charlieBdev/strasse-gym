@@ -23,7 +23,7 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="bg-gradient-to-b from-neutral-950 via-violet-500 to-neutral-950 min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-between border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="bg-gradient-to-b from-blue-500 via-blue-950 to-neutral-950 min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-between border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<div className="flex flex-col gap-3">
 				<h2 className="text-center italic font-semibold text-md underline">

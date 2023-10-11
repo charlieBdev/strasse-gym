@@ -12,7 +12,7 @@ const Table = () => {
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							MON - WED - FRI
 						</p>
-						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<EveningSVG />
 								<p>18:30 - 19:30</p>
@@ -20,7 +20,7 @@ const Table = () => {
 							<p>Kickboxing</p>
 							{/* <p>🥊</p> */}
 						</div>
-						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<EveningSVG />
 								<p>19:30 - 20:30</p>
@@ -36,7 +36,7 @@ const Table = () => {
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							TUE
 						</p>
-						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg">
+						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg">
 							<div className="flex items-center gap-1 px-1">
 								<EveningSVG />
 								<p>18:30 - 19:30</p>
@@ -52,7 +52,7 @@ const Table = () => {
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							THU
 						</p>
-						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg">
+						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg">
 							<div className="flex items-center gap-1 px-1">
 								<EveningSVG />
 								<p>18:30 - 19:30</p>
@@ -68,7 +68,7 @@ const Table = () => {
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							SAT
 						</p>
-						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<DaytimeSVG />
 								<p>09:00 - 10:00</p>
@@ -76,7 +76,7 @@ const Table = () => {
 							<p>Kids KB & BJJ</p>
 							{/* <p>🧒🥊🥋</p> */}
 						</div>
-						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<DaytimeSVG />
 								<p>13:00 - 14:00</p>
@@ -84,7 +84,7 @@ const Table = () => {
 							<p>KB Sparring</p>
 							{/* <p>🥊</p> */}
 						</div>
-						<div className="grid grid-cols-2 hover:bg-violet-500 rounded-lg px-1">
+						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<DaytimeSVG />
 								<p>14:00 - 15:00</p>
