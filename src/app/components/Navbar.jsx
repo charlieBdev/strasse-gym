@@ -7,6 +7,7 @@ import { CalendarSVG } from './svg/CalendarSVG';
 import { motion } from 'framer-motion';
 import { AdminSVG } from './svg/AdminSVG';
 import { useAuthContext } from '../../context/AuthContext';
+import { BlackBelt } from '../components/BlackBelt';
 
 export const Navbar = () => {
 	const { user } = useAuthContext();
@@ -22,7 +23,10 @@ export const Navbar = () => {
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 				>
-					STRASSE GYM
+					<div className="flex gap-3 items-center">
+						STRASSE GYM
+						<BlackBelt />
+					</div>
 				</motion.h1>
 			</Link>
 			<div className="flex gap-1 items-center">

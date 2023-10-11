@@ -5,7 +5,7 @@ export const Contact = () => {
 	return (
 		<div
 			id="contact"
-			className="bg-gradient-to-b from-violet-500 via-violet950 to-neutral-950 from min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-center border-b-2 px-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="bg-gradient-to-b from-violet-500 to-neutral-950 from min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-center border-b-2 px-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<p className="font-bold text-center italic underline">CONTACT</p>
 			{/* <p>
