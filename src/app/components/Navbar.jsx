@@ -66,7 +66,8 @@ export const Navbar = () => {
 						<CalendarSVG />
 					</motion.div>
 				</Link>
-				<Link href={user ? '/admin' : '/login'}>
+				{/* <Link href={user ? '/admin' : '/login'}> */}
+				<Link href="/admin">
 					<motion.div
 						// whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
