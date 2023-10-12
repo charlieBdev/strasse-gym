@@ -1,22 +1,33 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { toast } from 'sonner';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../../../config';
+import { addDoc, collection } from 'firebase/firestore';
+import { storage, db } from '../../../../config';
 import Image from 'next/image';
 // import { TinyMCEEditor } from '../admin/TinyMCEEditor';
 
 export const NewsForm = () => {
+	const fileInputRef = useRef();
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
-	const [image, setImage] = useState(null);
 	const [imageUrl, setImageUrl] = useState(null);
+
+	const [image, setImage] = useState(null);
+
 	const [uploading, setUploading] = useState(false);
 	const [uploadError, setUploadError] = useState(null);
 
-	const handleImageUpload = async (file) => {
-		// const file = e.target.files[0];
+	const handleFileChange = (e) => {
+		const file = e.target.files[0];
+		if (file) {
+			setImage(file);
+		} else {
+			setImage(null);
+		}
+	};
 
+	const handleImageUpload = async (file) => {
 		if (!file) return;
 
 		setUploadError(null);
@@ -26,38 +37,46 @@ export const NewsForm = () => {
 
 		try {
 			const snapshot = await uploadBytes(storageRef, file);
-			const imageUrl = await getDownloadURL(snapshot.ref);
+			const firebaseImageUrl = await getDownloadURL(snapshot.ref);
 
-			setImage(imageUrl);
+			setImageUrl(firebaseImageUrl);
+
+			setUploadError(null);
 			setUploading(false);
 
-			console.log('Image URL:', imageUrl);
+			toast.success('News added!');
+
+			setTitle('');
+			setContent('');
+			setImage(null);
+			if (fileInputRef.current) {
+				fileInputRef.current.value = '';
+			}
 		} catch (error) {
-			console.error('Error uploading image:', error);
 			setUploadError('Error uploading image. Please try again');
 			setUploading(false);
 		}
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (title && content) {
 			if (image) {
 				handleImageUpload(image);
+				const newsRef = collection(db, 'news');
+				const created = new Date();
+				const newDoc = await addDoc(
+					newsRef,
+					{ title, content, imageUrl, created },
+					{ merge: true }
+				);
+				// alert(newDoc);
 			} else {
 				toast.error('Missing image');
 			}
-			console.log(title, content, image);
 		} else {
-			toast.error('Missing title or content');
-			console.log('Missing title or content');
+			toast.error('Missing title and/or content');
 		}
-	};
-
-	const handleFileChange = (e) => {
-		const file = e.target.files[0];
-		handleImageUpload(file);
-		setImageUrl(URL.createObjectURL(file));
 	};
 
 	return (
@@ -88,11 +107,18 @@ export const NewsForm = () => {
 					accept="image/*"
 					onChange={handleFileChange}
 					className="rounded-lg"
+					ref={fileInputRef}
 				/>
-				{uploading && <p>Oooooo Weeeee</p>}
+				{uploading && <p>Uploading...</p>}
 				{uploadError && <p className="text-red-800">{uploadError}</p>}
 				{image && (
-					<Image src={imageUrl} alt="To upload" width={150} height={150} />
+					<Image
+						src={URL.createObjectURL(image)}
+						alt="To upload"
+						width={150}
+						height={150}
+						className="w-1/5"
+					/>
 				)}
 
 				<motion.button
