@@ -11,6 +11,7 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 export const NewsForm = () => {
 	const fileInputRef = useRef(null);
 	const [isUploadingFile, setIsUploadingFile] = useState(false);
+	const [fileUploaded, setFileUploaded] = useState(false);
 	const [isSubmittingForm, setIsSubmittingForm] = useState(false);
 	const [progress, setProgress] = useState(null);
 	const [errors, setErrors] = useState({});
@@ -34,13 +35,15 @@ export const NewsForm = () => {
 			fileInputRef.current.value = null;
 		}
 		setFile(null);
+		setFileUploaded(false);
 	};
 
 	useEffect(() => {
 		const uploadFile = () => {
-			// const name = new Date().getTime() + file.name;
+			const name = new Date().getTime() + `_${file.name}`;
 			setIsUploadingFile(true);
-			const storageRef = ref(storage, '/news/' + file.name);
+			setFileUploaded(false);
+			const storageRef = ref(storage, '/news/' + name);
 			const uploadTask = uploadBytesResumable(storageRef, file);
 
 			uploadTask.on(
@@ -62,6 +65,7 @@ export const NewsForm = () => {
 				},
 				(error) => {
 					console.log(error);
+					setFileUploaded(false);
 				},
 				() => {
 					getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
@@ -70,6 +74,7 @@ export const NewsForm = () => {
 							return { ...prev, imageUrl: downloadURL };
 						});
 						toast.success('Image uploaded!');
+						setFileUploaded(true);
 						setIsUploadingFile(false);
 					});
 				}
@@ -97,6 +102,7 @@ export const NewsForm = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setFileUploaded(false);
 		setIsSubmittingForm(true);
 		setErrors({});
 
@@ -107,7 +113,7 @@ export const NewsForm = () => {
 		}
 
 		try {
-			const docRef = await addDoc(collection(db, 'news'), {
+			await addDoc(collection(db, 'news'), {
 				...data,
 				created: serverTimestamp(),
 			});
@@ -133,11 +139,12 @@ export const NewsForm = () => {
 				<input
 					type="text"
 					placeholder="Add a title"
-					className="rounded-lg px-2 py-1 text-neutral-950 w-full"
+					className={`${
+						title.length ? 'bg-green-500' : ''
+					} rounded-lg px-2 py-1 text-neutral-950 w-full`}
 					value={title}
 					name="title"
 					onChange={handleChange}
-					// error={errors.title ? { content: errors.title } : null}
 				/>
 				{errors.title && title.length === 0 && (
 					<p className="text-red-500">{errors.title}</p>
@@ -147,11 +154,12 @@ export const NewsForm = () => {
 					rows="9"
 					type="text"
 					placeholder="Add content"
-					className="rounded-lg px-2 py-1 text-neutral-950 w-full"
+					className={`${
+						content.length ? 'bg-green-500' : ''
+					} rounded-lg px-2 py-1 text-neutral-950 w-full`}
 					value={content}
 					name="content"
 					onChange={handleChange}
-					// error={errors.content ? { content: errors.content } : null}
 				/>
 				{errors.content && content.length === 0 && (
 					<p className="text-red-500">{errors.content}</p>
@@ -159,14 +167,13 @@ export const NewsForm = () => {
 				<input
 					type="file"
 					accept="image/*"
-					className="rounded-lg"
+					className={`${fileUploaded ? 'bg-green-500' : ''} rounded-lg`}
 					onChange={(e) => setFile(e.target.files[0])}
 					disabled={isUploadingFile || isSubmittingForm}
 					ref={fileInputRef}
 				/>
-				{/* {!file && <p className="text-red-500">{errors.file}</p>} */}
-				{errors.file && <p className="text-red-500">{errors.file}</p>}
-				{isUploadingFile && <p>Uploading image...${Math.floor(progress)}%</p>}
+				{errors.file && !file && <p className="text-red-500">{errors.file}</p>}
+				{isUploadingFile && <p>Uploading image... {Math.floor(progress)}%</p>}
 				<motion.button
 					className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto font-headings"
 					whileHover={{ scale: 1.1 }}
