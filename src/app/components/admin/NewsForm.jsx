@@ -1,86 +1,130 @@
 import { motion } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Loading } from '../Loading';
 import { toast } from 'sonner';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { addDoc, collection } from 'firebase/firestore';
 import { storage, db } from '../../../../config';
-import Image from 'next/image';
+import { ref, getDownloadURL, uploadBytesResumable } from '@firebase/storage';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+// import Image from 'next/image';
 // import { TinyMCEEditor } from '../admin/TinyMCEEditor';
 
 export const NewsForm = () => {
-	const fileInputRef = useRef();
-	const [title, setTitle] = useState('');
-	const [content, setContent] = useState('');
-	const [imageUrl, setImageUrl] = useState(null);
+	const fileInputRef = useRef(null);
+	const [isUploadingFile, setIsUploadingFile] = useState(false);
+	const [isSubmittingForm, setIsSubmittingForm] = useState(false);
+	const [progress, setProgress] = useState(null);
+	const [errors, setErrors] = useState({});
 
-	const [image, setImage] = useState(null);
+	const initialData = {
+		title: '',
+		content: '',
+	};
+	const [data, setData] = useState(initialData);
+	const { title, content } = data;
 
-	const [uploading, setUploading] = useState(false);
-	const [uploadError, setUploadError] = useState(null);
+	const [file, setFile] = useState(null);
 
-	const handleFileChange = (e) => {
-		const file = e.target.files[0];
-		if (file) {
-			setImage(file);
-		} else {
-			setImage(null);
-		}
+	const handleChange = (e) => {
+		setData({ ...data, [e.target.name]: e.target.value });
 	};
 
-	const handleImageUpload = async (file) => {
-		if (!file) return;
-
-		setUploadError(null);
-		setUploading(true);
-
-		const storageRef = ref(storage, 'images/' + file.name);
-
-		try {
-			const snapshot = await uploadBytes(storageRef, file);
-			const firebaseImageUrl = await getDownloadURL(snapshot.ref);
-
-			setImageUrl(firebaseImageUrl);
-
-			setUploadError(null);
-			setUploading(false);
-
-			toast.success('News added!');
-
-			setTitle('');
-			setContent('');
-			setImage(null);
-			if (fileInputRef.current) {
-				fileInputRef.current.value = '';
-			}
-		} catch (error) {
-			setUploadError('Error uploading image. Please try again');
-			setUploading(false);
+	const clearForm = () => {
+		setData(initialData);
+		if (fileInputRef.current) {
+			fileInputRef.current.value = null;
 		}
+		setFile(null);
+	};
+
+	useEffect(() => {
+		const uploadFile = () => {
+			// const name = new Date().getTime() + file.name;
+			setIsUploadingFile(true);
+			const storageRef = ref(storage, '/news/' + file.name);
+			const uploadTask = uploadBytesResumable(storageRef, file);
+
+			uploadTask.on(
+				'state_changed',
+				(snapshot) => {
+					const progress =
+						(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+					setProgress(progress);
+					switch (snapshot.state) {
+						case 'paused':
+							console.log('Upload is paused');
+							break;
+						case 'running':
+							console.log('Upload is running');
+							break;
+						default:
+							break;
+					}
+				},
+				(error) => {
+					console.log(error);
+				},
+				() => {
+					getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+						// console.log(downloadURL, '<<< downloadURL');
+						setData((prev) => {
+							return { ...prev, imageUrl: downloadURL };
+						});
+						toast.success('Image uploaded!');
+						setIsUploadingFile(false);
+					});
+				}
+			);
+		};
+		// file && uploadFile();
+		if (file) {
+			uploadFile();
+		}
+	}, [file]);
+
+	const validate = () => {
+		let errors = {};
+		if (!title) {
+			errors.title = 'Title is required';
+		}
+		if (!content) {
+			errors.content = 'Content is required';
+		}
+		if (!file) {
+			errors.file = 'Please choose an image file';
+		}
+		return errors;
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (title && content) {
-			if (image) {
-				handleImageUpload(image);
-				const newsRef = collection(db, 'news');
-				const created = new Date();
-				const newDoc = await addDoc(
-					newsRef,
-					{ title, content, imageUrl, created },
-					{ merge: true }
-				);
-				// alert(newDoc);
-			} else {
-				toast.error('Missing image');
-			}
-		} else {
-			toast.error('Missing title and/or content');
+		setIsSubmittingForm(true);
+		setErrors({});
+
+		let errors = validate();
+		if (Object.keys(errors).length) {
+			setIsSubmittingForm(false);
+			return setErrors(errors);
 		}
+
+		try {
+			const docRef = await addDoc(collection(db, 'news'), {
+				...data,
+				created: serverTimestamp(),
+			});
+			toast.success('News added!');
+			clearForm();
+		} catch (error) {
+			toast.error('Error adding news');
+		}
+		// navigate('/')
+		setIsSubmittingForm(false);
 	};
 
 	return (
 		<div className="w-full md:max-w-lg flex flex-col gap-1">
+			{/* {isSubmittingForm ? (
+				<Loading />
+			) : ( */}
 			<form
 				className="flex flex-col items-center justify-center gap-3 border rounded-lg p-3 w-full"
 				onSubmit={handleSubmit}
@@ -91,8 +135,13 @@ export const NewsForm = () => {
 					placeholder="Add a title"
 					className="rounded-lg px-2 py-1 text-neutral-950 w-full"
 					value={title}
-					onChange={(e) => setTitle(e.target.value)}
+					name="title"
+					onChange={handleChange}
+					// error={errors.title ? { content: errors.title } : null}
 				/>
+				{errors.title && title.length === 0 && (
+					<p className="text-red-500">{errors.title}</p>
+				)}
 				{/* <TinyMCEEditor content={content} setContent={setContent} /> */}
 				<textarea
 					rows="9"
@@ -100,35 +149,36 @@ export const NewsForm = () => {
 					placeholder="Add content"
 					className="rounded-lg px-2 py-1 text-neutral-950 w-full"
 					value={content}
-					onChange={(e) => setContent(e.target.value)}
+					name="content"
+					onChange={handleChange}
+					// error={errors.content ? { content: errors.content } : null}
 				/>
+				{errors.content && content.length === 0 && (
+					<p className="text-red-500">{errors.content}</p>
+				)}
 				<input
 					type="file"
 					accept="image/*"
-					onChange={handleFileChange}
 					className="rounded-lg"
+					onChange={(e) => setFile(e.target.files[0])}
+					disabled={isUploadingFile || isSubmittingForm}
 					ref={fileInputRef}
 				/>
-				{uploading && <p>Uploading...</p>}
-				{uploadError && <p className="text-red-800">{uploadError}</p>}
-				{image && (
-					<Image
-						src={URL.createObjectURL(image)}
-						alt="To upload"
-						width={150}
-						height={150}
-						className="w-1/5"
-					/>
-				)}
-
+				{/* {!file && <p className="text-red-500">{errors.file}</p>} */}
+				{errors.file && <p className="text-red-500">{errors.file}</p>}
+				{isUploadingFile && <p>Uploading image...</p>}
 				<motion.button
 					className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto font-headings"
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
+					// disabled={progress !== null && progress < 100}
+					disabled={isUploadingFile || isSubmittingForm}
 				>
 					Add
 				</motion.button>
+				{isSubmittingForm && <p>Adding news...</p>}
 			</form>
+			{/* )} */}
 		</div>
 	);
 };
