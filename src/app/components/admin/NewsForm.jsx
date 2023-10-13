@@ -166,7 +166,7 @@ export const NewsForm = () => {
 				/>
 				{/* {!file && <p className="text-red-500">{errors.file}</p>} */}
 				{errors.file && <p className="text-red-500">{errors.file}</p>}
-				{isUploadingFile && <p>Uploading image...</p>}
+				{isUploadingFile && <p>Uploading image...${Math.floor(progress)}%</p>}
 				<motion.button
 					className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto font-headings"
 					whileHover={{ scale: 1.1 }}
