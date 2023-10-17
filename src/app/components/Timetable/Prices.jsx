@@ -3,8 +3,8 @@ import React from 'react';
 export const Prices = () => {
 	return (
 		<div className="flex flex-col w-full items-center gap-1 select-none">
-			<div className="flex flex-col w-full max-w-lg">
-				<div className="border rounded-lg p-2 hover:shadow-sm hover:shadow-neutral-50">
+			<div className="flex flex-col w-full md:max-w-xl">
+				<div className="border rounded-lg p-2">
 					<div className="flex flex-col gap-1">
 						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Kids</p>

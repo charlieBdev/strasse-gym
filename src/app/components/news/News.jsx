@@ -40,9 +40,9 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="bg-gradient-to-b from-neutral-950 to-blue-500 min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-between border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="snap-center min-h-[100dvh] flex flex-col items-center justify-between border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
-			<div className="flex flex-col gap-3">
+			<div className="flex-grow flex flex-col items-center justify-center gap-3">
 				<h2 className="text-center italic font-semibold text-md underline">
 					NEWS
 				</h2>
@@ -50,7 +50,7 @@ export const News = () => {
 				{loadingNews ? (
 					<Loading />
 				) : (
-					<div className="grid gap-3 grid-flow-col auto-cols-[21%] overflow-x-auto overscroll-x-contain">
+					<div className="w-screen snap-x grid gap-3 grid-flow-col auto-cols-[34%] md:auto-cols-[21%] overflow-x-auto overscroll-x-contain p-6 md:px-16 lg:px-24 xl:px-32 scrollbar-hide">
 						{news.map((item) => (
 							<NewsCard key={item.id} item={item} />
 						))}

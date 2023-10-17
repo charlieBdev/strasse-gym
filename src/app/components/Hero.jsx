@@ -14,7 +14,7 @@ export const Hero = () => {
 	// const randomMottoIndex = Math.floor(Math.random() * mottos.length);
 
 	return (
-		<div className="min-h-[calc(100vh-5rem)] w-full flex flex-col md:flex-row items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32 border-b-2">
+		<div className="snap-center min-h-screen w-full flex flex-col md:flex-row items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32 border-b-2">
 			<div className="flex flex-col gap-3 w-full select-none">
 				<h2 className="text-lg italic font-semibold uppercase font-headings">
 					{/* {`${mottos[randomMottoIndex]}`} */}

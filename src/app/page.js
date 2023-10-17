@@ -11,10 +11,10 @@ export default function Home() {
 
   return (
     // <FirebaseContext.Provider value={firebaseConfig}>
-      <main className="flex min-h-screen flex-col items-center justify-between overflow-x-hidden">
+      <main className="snap-y flex h-[100dvh] flex-col items-center justify-between overflow-x-hidden">
         <Navbar />
-        <News />
         <Hero />
+        <News />
         <Timetable />
         <Contact />
         <Footer />

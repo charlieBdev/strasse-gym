@@ -4,6 +4,8 @@ import { ClockSVG } from '../svg/ClockSVG';
 import { EditSVG } from '../svg/EditSVG';
 import { DeleteSVG } from '../svg/DeleteSVG';
 import { useAuthContext } from '../../../context/AuthContext';
+import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 
 export const NewsCard = ({
 	item: { title, content, imageUrl, imageAlt, created },
@@ -17,16 +19,17 @@ export const NewsCard = ({
 			onClick={() => {
 				console.log(title, 'card clicked');
 			}}
-			className="flex flex-col justify-between gap-1 p-3 select-none hover:shadow hover:shadow-neutral-50"
+			className="shadow-lg shadow-neutral-950 hover:shadow-xl hover:shadow-neutral-950 rounded-sm snap-center bg-neutral-800 flex flex-col justify-between gap-1 p-3 select-none"
 		>
-			<div>
+			<div className="flex flex-col gap-1">
 				<Image
 					loading="lazy"
 					src={imageUrl}
 					alt={imageAlt}
-					width={250}
-					height={250}
-					className=" mx-auto w-full"
+					objectFit="cover"
+					width={320}
+					height={180}
+					className=" mx-auto w-full aspect-[16/9] rounded-sm"
 					// priority
 				/>
 				{/* <div className="flex items-center justify-between"> */}
@@ -40,8 +43,36 @@ export const NewsCard = ({
 			</div>
 			{user && (
 				<div className="flex justify-center gap-3">
-					<EditSVG />
-					<DeleteSVG />
+					<motion.div
+						// whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						initial={{ scale: 0 }}
+						animate={{ rotate: 360, scale: 1 }}
+						transition={{
+							type: 'spring',
+							stiffness: 260,
+							damping: 20,
+						}}
+						whileHover={{ scale: 1.1 }}
+						onClick={() => toast.error('You cannot edit yet')}
+					>
+						<EditSVG />
+					</motion.div>
+					<motion.div
+						// whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						initial={{ scale: 0 }}
+						animate={{ rotate: 360, scale: 1 }}
+						transition={{
+							type: 'spring',
+							stiffness: 260,
+							damping: 20,
+						}}
+						whileHover={{ scale: 1.1 }}
+						onClick={() => toast.error('You cannot delete yet')}
+					>
+						<DeleteSVG />
+					</motion.div>
 				</div>
 			)}
 		</div>
