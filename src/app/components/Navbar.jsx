@@ -5,12 +5,12 @@ import { Button } from './Button';
 import { NewsSVG } from './svg/NewsSVG';
 import { CalendarSVG } from './svg/CalendarSVG';
 import { motion } from 'framer-motion';
-import { AdminSVG } from './svg/AdminSVG';
 import { BlackBelt } from '../components/BlackBelt';
-import { useAuthContext } from '../../context/AuthContext';
+// import { AdminSVG } from './svg/AdminSVG';
+// import { useAuthContext } from '../../context/AuthContext';
 
 export const Navbar = () => {
-	const { user } = useAuthContext();
+	// const { user } = useAuthContext();
 	return (
 		<div
 			id="top"
@@ -66,7 +66,7 @@ export const Navbar = () => {
 						<CalendarSVG />
 					</motion.div>
 				</Link>
-				<Link href="/admin">
+				{/* <Link href="/admin">
 					<motion.div
 						// whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
@@ -84,7 +84,7 @@ export const Navbar = () => {
 						</span>
 						<AdminSVG />
 					</motion.div>
-				</Link>
+				</Link> */}
 				<Link href="#contact">
 					<Button text="Contact" />
 				</Link>
