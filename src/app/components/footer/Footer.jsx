@@ -15,7 +15,7 @@ export const Footer = () => {
 	return (
 		<div className="snap-center min-h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between border-b-2 gap-3 p-6 md:px-16 lg:px-24 xl:px-32">
 			<div className="flex flex-col items-center justify-between gap-8">
-				<div className="flex flex-col items-center gap-3">
+				<div className="flex flex-col items-center justify-center gap-3">
 					<Map />
 					<div className="flex flex-col">
 						<p>Meersbrook Enterprise Centre</p>

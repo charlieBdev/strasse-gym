@@ -13,14 +13,14 @@ export const Prices = () => {
 						</div>
 						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Adults</p>
-							<p>£6</p>
-							<p>1 hour</p>
+							<p>£6 / £10</p>
+							<p>1 hour / 2 hours</p>
 						</div>
-						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
+						{/* <div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Adults</p>
 							<p>£10</p>
 							<p>2 hours</p>
-						</div>
+						</div> */}
 						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Adults</p>
 							<p>£60</p>

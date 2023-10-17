@@ -5,7 +5,7 @@ import { DaytimeSVG } from '../svg/DaytimeSVG';
 const Table = () => {
 	return (
 		<section className="flex flex-col w-full gap-1 select-none">
-			<div className="flex flex-col md:grid md:grid-cols-2 gap-3 w-full">
+			<div className="flex flex-col md:grid md:grid-cols-2 gap-2 w-full">
 				{/* Mon */}
 				<div className="border rounded-lg p-2 w-full md:max-w-xl ml-auto">
 					<div className="flex flex-col gap-1">
