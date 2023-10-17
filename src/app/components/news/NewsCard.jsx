@@ -29,7 +29,7 @@ export const NewsCard = ({
 					objectFit="cover"
 					width={320}
 					height={180}
-					className=" mx-auto w-full aspect-[16/9] rounded-sm"
+					className="mx-auto w-full aspect-[16/9] rounded-sm"
 					// priority
 				/>
 				{/* <div className="flex items-center justify-between"> */}

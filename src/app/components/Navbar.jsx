@@ -14,7 +14,7 @@ export const Navbar = () => {
 	return (
 		<div
 			id="top"
-			className="z-10 fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2"
+			className="z-10 fixed left-0 top-0 w-full h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2"
 		>
 			<Link href="#top">
 				{/* STRASSE <span className="hidden md:inline-block">GYM</span> */}

@@ -40,7 +40,7 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="snap-end min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="snap-end min-h-[calc(100dvh-5rem)] flex flex-col items-center justify-center border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<div className="flex flex-col items-center justify-center gap-2">
 				<h2 className="text-center italic font-semibold text-md underline">
@@ -50,7 +50,7 @@ export const News = () => {
 				{loadingNews ? (
 					<Loading />
 				) : (
-					<div className="w-screen snap-x-start grid gap-2 grid-flow-col auto-cols-[46%] md:auto-cols-[21%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 scrollbar-hide">
+					<div className="w-screen snap-x grid gap-2 grid-flow-col auto-cols-[46%] md:auto-cols-[21%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 scrollbar-hide">
 						{news.map((item) => (
 							<NewsCard key={item.id} item={item} />
 						))}
