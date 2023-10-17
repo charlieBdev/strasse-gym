@@ -1,27 +1,49 @@
 import { getTimeAgo } from '../../utils/getTimeAgo';
 import Image from 'next/image';
-import React from 'react';
+import { ClockSVG } from '../svg/ClockSVG';
+import { EditSVG } from '../svg/EditSVG';
+import { DeleteSVG } from '../svg/DeleteSVG';
+import { useAuthContext } from '../../../context/AuthContext';
 
 export const NewsCard = ({
-	item: { title, body, imageUrl, imageAlt, date },
+	item: { title, content, imageUrl, imageAlt, created },
 }) => {
-	const timeAgo = getTimeAgo(new Date(date));
+	const { user } = useAuthContext();
+
+	const jsDate = new Date(created.seconds * 1000);
+	const timeAgo = getTimeAgo(jsDate);
 	return (
-		<div className="w-full md:max-w-lg flex flex-col gap-1 border p-3 rounded-lg select-none hover:shadow hover:shadow-neutral-50">
-			<div className="flex items-center justify-between">
-				<h2 className="text-lg font-semibold underline">{title}</h2>
-				<p className="text-xs text-center italic">{timeAgo}</p>
+		<div
+			onClick={() => {
+				console.log(title, 'card clicked');
+			}}
+			className="flex flex-col justify-between gap-1 p-3 select-none hover:shadow hover:shadow-neutral-50"
+		>
+			<div>
+				<Image
+					loading="lazy"
+					src={imageUrl}
+					alt={imageAlt}
+					width={250}
+					height={250}
+					className=" mx-auto w-full"
+					// priority
+				/>
+				{/* <div className="flex items-center justify-between"> */}
+				<h2 className="text-md font-semibold">{title}</h2>
+				<p>{content}</p>
+				{/* </div> */}
+				<div className="flex items-center gap-1 text-neutral-400 ">
+					<ClockSVG />
+					<p className="text-xs italic">{timeAgo}</p>
+				</div>
 			</div>
-			<p>{body}</p>
-			<Image
-				loading="lazy"
-				src={imageUrl}
-				alt={imageAlt}
-				width={500}
-				height={500}
-				className="rounded-lg mx-auto"
-				// priority
-			/>
+			{user && (
+				<div className="flex justify-center gap-3">
+					<EditSVG />
+					<DeleteSVG />
+				</div>
+			)}
 		</div>
 	);
 };

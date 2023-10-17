@@ -1,24 +1,41 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NewsCard } from './NewsCard';
 import { dummyNews } from '../../dummyData/dummyNews';
 import { motion } from 'framer-motion';
 import { PreviousSVG } from '../svg/PreviousSVG';
 import { NextSVG } from '../svg/NextSVG';
+import { fetchNews } from '../../utils/fetchNews';
+import { Loading } from '../Loading';
 
 export const News = () => {
-	const [currentPage, setCurrentPage] = useState(1);
-	const cardsPerPage = 1;
-	const totalCards = dummyNews.length;
+	const [news, setNews] = useState([]);
+	const [loadingNews, setLoadingNews] = useState(true);
+	const [errorFetchingNews, setErrorFetchingNews] = useState(null);
 
-	const handlePageChange = (newPage) => {
-		setCurrentPage(newPage);
-	};
+	useEffect(() => {
+		fetchNews()
+			.then((data) => {
+				setNews(data);
+				setLoadingNews(false);
+			})
+			.catch((error) => {
+				setErrorFetchingNews(true);
+			});
+	}, []);
 
-	const startIndex = (currentPage - 1) * cardsPerPage;
-	const endIndex = Math.min(startIndex + cardsPerPage, totalCards);
-	const displayedNews = dummyNews.slice(startIndex, endIndex);
+	// const [currentPage, setCurrentPage] = useState(1);
+	// const cardsPerPage = 1;
+	// const totalCards = news.length;
+
+	// const handlePageChange = (newPage) => {
+	// 	setCurrentPage(newPage);
+	// };
+
+	// const startIndex = (currentPage - 1) * cardsPerPage;
+	// const endIndex = Math.min(startIndex + cardsPerPage, totalCards);
+	// const displayedNews = news.slice(startIndex, endIndex);
 
 	return (
 		<section
@@ -29,15 +46,19 @@ export const News = () => {
 				<h2 className="text-center italic font-semibold text-md underline">
 					NEWS
 				</h2>
-				<div className="grid grid-cols-1 gap-3 w-full h-full">
-					{displayedNews.map((item) => (
-						// <NewsCard key={item.title} page={currentPage} item={item} />
-						<NewsCard key={item.title} item={item} />
-					))}
-				</div>
+				{/* <div className="grid grid-cols-1 gap-3 w-full h-full"> */}
+				{loadingNews ? (
+					<Loading />
+				) : (
+					<div className="grid gap-3 grid-flow-col auto-cols-[21%] overflow-x-auto overscroll-x-contain">
+						{news.map((item) => (
+							<NewsCard key={item.id} item={item} />
+						))}
+					</div>
+				)}
 			</div>
 
-			<div className="flex gap-3">
+			{/* <div className="flex gap-3">
 				{currentPage > 1 && (
 					<motion.button
 						onClick={() => handlePageChange(currentPage - 1)}
@@ -56,7 +77,7 @@ export const News = () => {
 						<NextSVG />
 					</motion.button>
 				)}
-			</div>
+			</div> */}
 		</section>
 	);
 };

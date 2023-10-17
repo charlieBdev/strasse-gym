@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Loading } from '../Loading';
 import { toast } from 'sonner';
 import { storage, db } from '../../../../config';
@@ -41,54 +41,6 @@ export const NewsForm = () => {
 		setErrors({});
 	};
 
-	// useEffect(() => {
-	// 	const uploadFile = () => {
-	// 		const name = new Date().getTime() + `_${file.name}`;
-	// 		setIsUploadingFile(true);
-	// 		setFileUploaded(false);
-	// 		const storageRef = ref(storage, '/news/' + name);
-	// 		const uploadTask = uploadBytesResumable(storageRef, file);
-
-	// 		uploadTask.on(
-	// 			'state_changed',
-	// 			(snapshot) => {
-	// 				const progress =
-	// 					(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-	// 				setProgress(progress);
-	// 				switch (snapshot.state) {
-	// 					case 'paused':
-	// 						console.log('Upload is paused');
-	// 						break;
-	// 					case 'running':
-	// 						console.log('Upload is running');
-	// 						break;
-	// 					default:
-	// 						break;
-	// 				}
-	// 			},
-	// 			(error) => {
-	// 				console.log(error);
-	// 				setFileUploaded(false);
-	// 			},
-	// 			() => {
-	// 				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-	// 					// console.log(downloadURL, '<<< downloadURL');
-	// 					setData((prev) => {
-	// 						return { ...prev, imageUrl: downloadURL };
-	// 					});
-	// 					toast.success('Image uploaded!');
-	// 					setFileUploaded(true);
-	// 					setIsUploadingFile(false);
-	// 				});
-	// 			}
-	// 		);
-	// 	};
-	// 	// file && uploadFile();
-	// 	if (file) {
-	// 		uploadFile();
-	// 	}
-	// }, [file]);
-
 	const validate = () => {
 		let errors = {};
 		if (!title) {
@@ -118,8 +70,6 @@ export const NewsForm = () => {
 		if (Object.keys(errors).length) {
 			return setErrors(errors);
 		}
-
-		// new
 
 		setIsUploadingFile(true);
 
@@ -173,19 +123,6 @@ export const NewsForm = () => {
 				}
 			}
 		);
-
-		// try {
-		// 	await addDoc(collection(db, 'news'), {
-		// 		...data,
-		// 		created: serverTimestamp(),
-		// 	});
-		// 	toast.success('News added!');
-		// 	clearForm();
-		// } catch (error) {
-		// 	toast.error('Error adding news');
-		// }
-		// // navigate('/')
-		// setIsSubmittingForm(false);
 	};
 
 	return (
