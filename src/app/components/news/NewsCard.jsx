@@ -15,18 +15,18 @@ export const NewsCard = ({
 	const jsDate = new Date(created.seconds * 1000);
 	const timeAgo = getTimeAgo(jsDate);
 	return (
-		<div
+		<motion.div
 			onClick={() => {
 				console.log(title, 'card clicked');
 			}}
-			className="shadow-lg shadow-neutral-950 hover:shadow-xl hover:shadow-neutral-950 rounded-sm snap-center bg-neutral-800 flex flex-col justify-between gap-1 p-3 select-none"
+			className="flex-grow shadow-lg shadow-neutral-950 hover:shadow-xl hover:shadow-neutral-950 rounded-sm snap-center bg-neutral-800 flex flex-col justify-between gap-1 p-3 select-none"
 		>
 			<div className="flex flex-col gap-1">
 				<Image
 					loading="lazy"
 					src={imageUrl}
 					alt={imageAlt}
-					objectFit="cover"
+					style={{ objectFit: 'cover' }}
 					width={500}
 					height={500}
 					className="mx-auto w-full aspect-[16/9] rounded-sm"
@@ -75,6 +75,6 @@ export const NewsCard = ({
 					</motion.div>
 				</div>
 			)}
-		</div>
+		</motion.div>
 	);
 };

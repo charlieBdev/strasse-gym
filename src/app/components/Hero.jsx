@@ -2,23 +2,19 @@ import React from 'react';
 import { Button } from './Button';
 import Image from 'next/image';
 import Link from 'next/link';
+// import hero from '/hero.jpg';
 
 export const Hero = () => {
-	// const mottos = [
-	// 	'Be the best version of you!',
-	// 	'Get fit, have fun, and learn how to protect yourself!',
-	// 	'Insert catchy slogan here!',
-	// 	'Stand up and fight!',
-	// ];
-
-	// const randomMottoIndex = Math.floor(Math.random() * mottos.length);
+	const mainText = 'Stand up and fight!';
 
 	return (
-		<div className="mt-20 snap-end min-h-[calc(100dvh-5rem)] w-full flex flex-col md:flex-row items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32 border-b-2">
+		<div
+			id="top"
+			className="mt-20 snap-end min-h-[calc(100dvh-5rem)] w-full flex flex-col md:flex-row items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32 border-b-2"
+		>
 			<div className="flex flex-col gap-3 w-full select-none">
 				<h2 className="text-lg italic font-semibold uppercase font-headings">
-					{/* {`${mottos[randomMottoIndex]}`} */}
-					Stand up and fight!
+					{mainText}
 				</h2>
 				<ul className="list-disc list-inside">
 					<li className="font-headings text-lg">Kickboxing</li>
@@ -31,15 +27,16 @@ export const Hero = () => {
 				</Link>
 			</div>
 			<Image
-				// style={{ objectFit: 'fit' }}
+				style={{ objectFit: 'cover' }}
 				// fill={true}
 				// placeholder="blur"
-				loading="lazy"
+				priority
+				// loading="lazy"
 				src="/hero.jpg"
 				alt="Two men competing in a BJJ competition on the floor. One, on the bottom, looks like but isn't Craig."
-				width={500}
-				height={500}
-				className="rounded-lg"
+				width={750}
+				height={750}
+				className="rounded-sm w-1/2 aspect-[16/9] shadow-xl shadow-neutral-950"
 			/>
 		</div>
 	);

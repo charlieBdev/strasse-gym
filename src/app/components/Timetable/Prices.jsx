@@ -1,10 +1,32 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
+import { useInView, motion, useAnimation } from 'framer-motion';
+import { onViewMotion } from '../../utils/onViewMotion';
 
 export const Prices = () => {
+	const ref = useRef(null);
+	const isInView = useInView(ref);
+
+	const controls = useAnimation();
+
+	useEffect(() => {
+		if (isInView) {
+			controls.start('visible');
+		}
+	}, [controls, isInView]);
+
 	return (
 		<div className="flex flex-col w-full items-center gap-1 select-none">
 			<div className="flex flex-col w-full md:max-w-xl">
-				<div className="border rounded-lg p-2">
+				<motion.div
+					ref={ref}
+					animate={controls}
+					initial="hidden"
+					variants={{
+						...onViewMotion,
+						visible: { ...onViewMotion.visible, transition: { delay: 1 } },
+					}}
+					className="border rounded-lg p-2"
+				>
 					<div className="flex flex-col gap-1">
 						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
 							<p>Kids</p>
@@ -27,7 +49,7 @@ export const Prices = () => {
 							<p>Monthly</p>
 						</div>
 					</div>
-				</div>
+				</motion.div>
 			</div>
 		</div>
 	);

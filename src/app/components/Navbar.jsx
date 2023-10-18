@@ -12,10 +12,7 @@ import { BlackBelt } from '../components/BlackBelt';
 export const Navbar = () => {
 	// const { user } = useAuthContext();
 	return (
-		<div
-			id="top"
-			className="z-10 fixed left-0 top-0 w-full h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2"
-		>
+		<div className="z-10 fixed left-0 top-0 w-full h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2">
 			<Link href="#top">
 				{/* STRASSE <span className="hidden md:inline-block">GYM</span> */}
 				<motion.h1

@@ -5,22 +5,12 @@
 // import { NextSVG } from '../svg/NextSVG';
 import { useEffect, useRef, useState } from 'react';
 import { NewsCard } from './NewsCard';
+import { ScrollingNews } from './ScrollingNews';
 import { fetchNews } from '../../utils/fetchNews';
 import { Loading } from '../Loading';
-import { useAnimation, motion, useInView } from 'framer-motion';
-import { onViewMotion } from '../../utils/onViewMotion';
+import { motion } from 'framer-motion';
 
 export const News = () => {
-	const controls = useAnimation();
-	const newsRef = useRef(null);
-	const isInView = useInView(newsRef);
-
-	// useEffect(() => {
-	// 	if (inView) {
-	// 		controls.start('visible');
-	// 	}
-	// }, [controls, inView]);
-
 	const [news, setNews] = useState([]);
 	const [loadingNews, setLoadingNews] = useState(true);
 	// const [errorFetchingNews, setErrorFetchingNews] = useState(null);
@@ -35,6 +25,9 @@ export const News = () => {
 				setErrorFetchingNews(true);
 			});
 	}, []);
+
+	const scrollingNews =
+		'Welcome to Strasse News! Scroll right below to see announcements, seminar pictures, plus more!';
 
 	// const [currentPage, setCurrentPage] = useState(1);
 	// const cardsPerPage = 1;
@@ -51,26 +44,17 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="snap-end min-h-[calc(100dvh-5rem)] flex flex-col items-center justify-center border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="bg-gradient-to-b from-blue-500 to-purple-500 snap-end min-h-[calc(100dvh-5rem)] flex flex-col items-center justify-center border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<div className="flex flex-col items-center justify-center gap-2">
-				<h2
-					// ref={ref}
-					// animate={controls}
-					// initial="hidden"
-					// variants={{
-					// 	...onViewMotion,
-					// 	visible: { ...onViewMotion.visible, transition: { duration: 1 } },
-					// }}
-					className="text-center italic font-semibold text-md underline"
-				>
+				<h2 className="text-center italic font-semibold text-md underline">
 					NEWS
 				</h2>
-				{/* <div className="grid grid-cols-1 gap-3 w-full h-full"> */}
+				<ScrollingNews text={scrollingNews} />
 				{loadingNews ? (
 					<Loading />
 				) : (
-					<motion.div className="w-screen snap-mandatory snap-x grid gap-2 grid-flow-col auto-cols-[96%] sm:auto-cols-[76%] md:auto-cols-[56%] lg:auto-cols-[36%] xl:auto-cols-[16%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 scrollbar-hide">
+					<motion.div className="h-full w-screen snap-mandatory snap-x grid gap-2 grid-flow-col auto-cols-[96%] sm:auto-cols-[76%] md:auto-cols-[56%] lg:auto-cols-[36%] xl:auto-cols-[16%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 scrollbar-hide">
 						{news.map((item) => (
 							<NewsCard key={item.id} item={item} />
 						))}

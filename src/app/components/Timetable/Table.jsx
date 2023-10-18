@@ -61,7 +61,7 @@ const Table = () => {
 					initial="hidden"
 					variants={{
 						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 0.5 } },
+						visible: { ...onViewMotion.visible, transition: { delay: 0.25 } },
 					}}
 					className="border rounded-lg p-2 w-full md:max-w-xl mr-auto"
 				>
@@ -86,7 +86,7 @@ const Table = () => {
 					initial="hidden"
 					variants={{
 						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 1 } },
+						visible: { ...onViewMotion.visible, transition: { delay: 0.5 } },
 					}}
 					className="border rounded-lg p-2 w-full md:max-w-xl ml-auto"
 				>
@@ -111,7 +111,7 @@ const Table = () => {
 					initial="hidden"
 					variants={{
 						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 1.5 } },
+						visible: { ...onViewMotion.visible, transition: { delay: 0.75 } },
 					}}
 					className="border rounded-lg p-2 w-full md:max-w-xl mr-auto"
 				>
