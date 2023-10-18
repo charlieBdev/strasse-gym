@@ -27,8 +27,8 @@ export const NewsCard = ({
 					src={imageUrl}
 					alt={imageAlt}
 					objectFit="cover"
-					width={320}
-					height={180}
+					width={500}
+					height={500}
 					className="mx-auto w-full aspect-[16/9] rounded-sm"
 					// priority
 				/>
@@ -54,7 +54,7 @@ export const NewsCard = ({
 							damping: 20,
 						}}
 						whileHover={{ scale: 1.1 }}
-						onClick={() => toast.error('You cannot edit yet')}
+						onClick={() => toast.success('You cannot edit yet')}
 					>
 						<EditSVG />
 					</motion.div>

@@ -1,13 +1,37 @@
-import React from 'react';
+'use client';
+
 import { EveningSVG } from '../svg/EveningSVG';
 import { DaytimeSVG } from '../svg/DaytimeSVG';
+import { useEffect, useRef } from 'react';
+import { useInView, motion, useAnimation } from 'framer-motion';
+import { onViewMotion } from '../../utils/onViewMotion';
 
 const Table = () => {
+	const ref = useRef(null);
+	const isInView = useInView(ref);
+
+	const controls = useAnimation();
+
+	useEffect(() => {
+		if (isInView) {
+			controls.start('visible');
+		}
+	}, [controls, isInView]);
+
 	return (
 		<section className="flex flex-col w-full gap-1 select-none">
 			<div className="flex flex-col md:grid md:grid-cols-2 gap-2 w-full">
 				{/* Mon */}
-				<div className="border rounded-lg p-2 w-full md:max-w-xl ml-auto">
+				<motion.div
+					ref={ref}
+					animate={controls}
+					initial="hidden"
+					variants={{
+						...onViewMotion,
+						visible: { ...onViewMotion.visible, transition: { delay: 0 } },
+					}}
+					className="border rounded-lg p-2 w-full md:max-w-xl ml-auto"
+				>
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							MON - WED - FRI
@@ -29,9 +53,18 @@ const Table = () => {
 							{/* <p>🥋</p> */}
 						</div>
 					</div>
-				</div>
+				</motion.div>
 				{/* Tues */}
-				<div className="border rounded-lg p-2 w-full md:max-w-xl mr-auto">
+				<motion.div
+					ref={ref}
+					animate={controls}
+					initial="hidden"
+					variants={{
+						...onViewMotion,
+						visible: { ...onViewMotion.visible, transition: { delay: 0.5 } },
+					}}
+					className="border rounded-lg p-2 w-full md:max-w-xl mr-auto"
+				>
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							TUE
@@ -45,9 +78,18 @@ const Table = () => {
 							{/* <p>🥋</p> */}
 						</div>
 					</div>
-				</div>
+				</motion.div>
 				{/* Thurs */}
-				<div className="border rounded-lg p-2 w-full md:max-w-xl ml-auto">
+				<motion.div
+					ref={ref}
+					animate={controls}
+					initial="hidden"
+					variants={{
+						...onViewMotion,
+						visible: { ...onViewMotion.visible, transition: { delay: 1 } },
+					}}
+					className="border rounded-lg p-2 w-full md:max-w-xl ml-auto"
+				>
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							THU
@@ -61,9 +103,18 @@ const Table = () => {
 							{/* <p></p> */}
 						</div>
 					</div>
-				</div>
+				</motion.div>
 				{/* Sat */}
-				<div className="border rounded-lg p-2 w-full md:max-w-xl mr-auto">
+				<motion.div
+					ref={ref}
+					animate={controls}
+					initial="hidden"
+					variants={{
+						...onViewMotion,
+						visible: { ...onViewMotion.visible, transition: { delay: 1.5 } },
+					}}
+					className="border rounded-lg p-2 w-full md:max-w-xl mr-auto"
+				>
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
 							SAT
@@ -93,7 +144,7 @@ const Table = () => {
 							{/* <p>🥋</p> */}
 						</div>
 					</div>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);

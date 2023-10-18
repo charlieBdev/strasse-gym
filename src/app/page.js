@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     // <FirebaseContext.Provider value={firebaseConfig}>
-      <main className="snap-y h-screen flex flex-col items-center justify-between overflow-x-hidden scrollbar-hide">
+      <main className="snap-proximity snap-y h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden scrollbar-hide">
         <Navbar />
         <Hero />
         <News />

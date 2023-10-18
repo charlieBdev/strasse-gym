@@ -14,7 +14,7 @@ export const Footer = () => {
 	const whatsApp = `https://wa.me/${phone}`;
 	return (
 		<div className="snap-end min-h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between border-b-2 gap-3 p-6 md:px-16 lg:px-24 xl:px-32">
-			<div className="flex flex-col items-center justify-between gap-8">
+			<div className="h-full flex flex-col items-center justify-center gap-8">
 				<div className="flex flex-col items-center justify-center gap-3">
 					<Map />
 					<div className="flex flex-col">

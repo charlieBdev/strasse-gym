@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+
 import Table from './Table';
 import { Prices } from './Prices';
 

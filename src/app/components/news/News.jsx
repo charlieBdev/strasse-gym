@@ -1,18 +1,29 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+// import { dummyNews } from '../../dummyData/dummyNews';
+// import { PreviousSVG } from '../svg/PreviousSVG';
+// import { NextSVG } from '../svg/NextSVG';
+import { useEffect, useRef, useState } from 'react';
 import { NewsCard } from './NewsCard';
-import { dummyNews } from '../../dummyData/dummyNews';
-import { motion } from 'framer-motion';
-import { PreviousSVG } from '../svg/PreviousSVG';
-import { NextSVG } from '../svg/NextSVG';
 import { fetchNews } from '../../utils/fetchNews';
 import { Loading } from '../Loading';
+import { useAnimation, motion, useInView } from 'framer-motion';
+import { onViewMotion } from '../../utils/onViewMotion';
 
 export const News = () => {
+	const controls = useAnimation();
+	const newsRef = useRef(null);
+	const isInView = useInView(newsRef);
+
+	// useEffect(() => {
+	// 	if (inView) {
+	// 		controls.start('visible');
+	// 	}
+	// }, [controls, inView]);
+
 	const [news, setNews] = useState([]);
 	const [loadingNews, setLoadingNews] = useState(true);
-	const [errorFetchingNews, setErrorFetchingNews] = useState(null);
+	// const [errorFetchingNews, setErrorFetchingNews] = useState(null);
 
 	useEffect(() => {
 		fetchNews()
@@ -43,18 +54,27 @@ export const News = () => {
 			className="snap-end min-h-[calc(100dvh-5rem)] flex flex-col items-center justify-center border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<div className="flex flex-col items-center justify-center gap-2">
-				<h2 className="text-center italic font-semibold text-md underline">
+				<h2
+					// ref={ref}
+					// animate={controls}
+					// initial="hidden"
+					// variants={{
+					// 	...onViewMotion,
+					// 	visible: { ...onViewMotion.visible, transition: { duration: 1 } },
+					// }}
+					className="text-center italic font-semibold text-md underline"
+				>
 					NEWS
 				</h2>
 				{/* <div className="grid grid-cols-1 gap-3 w-full h-full"> */}
 				{loadingNews ? (
 					<Loading />
 				) : (
-					<div className="w-screen snap-x grid gap-2 grid-flow-col auto-cols-[46%] md:auto-cols-[21%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 scrollbar-hide">
+					<motion.div className="w-screen snap-mandatory snap-x grid gap-2 grid-flow-col auto-cols-[96%] sm:auto-cols-[76%] md:auto-cols-[56%] lg:auto-cols-[36%] xl:auto-cols-[16%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 scrollbar-hide">
 						{news.map((item) => (
 							<NewsCard key={item.id} item={item} />
 						))}
-					</div>
+					</motion.div>
 				)}
 			</div>
 
