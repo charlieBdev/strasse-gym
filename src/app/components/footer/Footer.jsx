@@ -13,7 +13,10 @@ export const Footer = () => {
 	const email = 'craig@strassegym.co.uk';
 	const whatsApp = `https://wa.me/${phone}`;
 	return (
-		<div className="snap-end min-h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between border-b-2 gap-3 p-6 md:px-16 lg:px-24 xl:px-32">
+		<div
+			id="footer"
+			className="snap-end min-h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between border-b-2 gap-3 p-6 md:px-16 lg:px-24 xl:px-32"
+		>
 			<div className="h-full flex flex-col items-center justify-center gap-8">
 				<div className="flex flex-col items-center justify-center gap-3">
 					<Map />
@@ -24,7 +27,7 @@ export const Footer = () => {
 						<p>S8 9FT</p>
 					</div>
 				</div>
-				<div className="flex flex-col lg:flex-row items-center justify-center gap-6">
+				<div className="flex flex-col lg:flex-row lg:justify-between lg:w-full items-center justify-center gap-6">
 					<motion.a
 						href={`tel:+44${Number(phone)}`}
 						className="flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-blue-500"

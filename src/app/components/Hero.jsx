@@ -9,7 +9,7 @@ export const Hero = () => {
 
 	return (
 		<div
-			id="top"
+			id="hero"
 			className="mt-20 snap-end min-h-[calc(100dvh-5rem)] w-full flex flex-col md:flex-row items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32 border-b-2"
 		>
 			<div className="flex flex-col gap-3 w-full select-none">
@@ -36,7 +36,7 @@ export const Hero = () => {
 				alt="Two men competing in a BJJ competition on the floor. One, on the bottom, looks like but isn't Craig."
 				width={750}
 				height={750}
-				className="rounded-sm w-1/2 aspect-[16/9] shadow-xl shadow-neutral-950"
+				className="rounded-sm w-full md:w-1/2 aspect-[16/9] shadow-xl shadow-neutral-950"
 			/>
 		</div>
 	);

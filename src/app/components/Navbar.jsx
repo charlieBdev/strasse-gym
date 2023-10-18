@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from './Button';
 import { NewsSVG } from './svg/NewsSVG';
 import { CalendarSVG } from './svg/CalendarSVG';
+import { PinSVG } from './svg/PinSVG';
 import { motion } from 'framer-motion';
 import { BlackBelt } from '../components/BlackBelt';
 // import { AdminSVG } from './svg/AdminSVG';
@@ -13,8 +14,7 @@ export const Navbar = () => {
 	// const { user } = useAuthContext();
 	return (
 		<div className="z-10 fixed left-0 top-0 w-full h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2">
-			<Link href="#top">
-				{/* STRASSE <span className="hidden md:inline-block">GYM</span> */}
+			<Link href="#hero">
 				<motion.h1
 					className="font-black text-xl"
 					whileHover={{ scale: 1.1 }}
@@ -61,6 +61,24 @@ export const Navbar = () => {
 							Timetable
 						</span>
 						<CalendarSVG />
+					</motion.div>
+				</Link>
+				<Link href="#footer">
+					<motion.div
+						// whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						initial={{ scale: 0 }}
+						animate={{ rotate: 360, scale: 1 }}
+						transition={{
+							type: 'spring',
+							stiffness: 260,
+							damping: 20,
+						}}
+					>
+						<span className="hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800">
+							Location
+						</span>
+						<PinSVG />
 					</motion.div>
 				</Link>
 				{/* <Link href="/admin">

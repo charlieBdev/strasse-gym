@@ -44,7 +44,7 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="bg-gradient-to-b from-blue-500 to-purple-500 snap-end min-h-[calc(100dvh-5rem)] flex flex-col items-center justify-center border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="bg-gradient-to-b from-blue-500 to-neutral-900 snap-end min-h-[calc(100dvh-5rem)] flex flex-col items-center justify-center border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<div className="flex flex-col items-center justify-center gap-2">
 				<h2 className="text-center italic font-semibold text-md underline">

@@ -1,18 +1,34 @@
-import { motion } from 'framer-motion';
+'use client';
+
+import { useRef } from 'react';
+import { useInView, motion } from 'framer-motion';
 
 export const ScrollingNews = ({ text }) => {
+	const ref = useRef(null);
+	const isInView = useInView(ref);
+
 	return (
 		<motion.div
-			className="overflow-hidden relative whitespace-nowrap p-3 md:px-16 lg:px-24 xl:px-32 "
-			initial={{ x: '100%' }}
-			animate={{ x: '-100%' }}
+			ref={ref}
+			animate={isInView ? 'visible' : 'hidden'}
+			// initial="hidden"
+			variants={{
+				hidden: { x: '100vw' },
+				visible: { x: '-100vw' },
+			}}
+			className="overflow-hidden relative"
+			initial={{ x: '125vw' }}
+			// animate={{ x: '-100vw' }}
 			transition={{
+				delay: 1,
 				duration: 40,
 				type: 'linear',
 				repeat: 'infinite',
 			}}
 		>
-			<p className="italic text-md">{text}</p>
+			<div className="whitespace-nowrap">
+				<p className="italic text-md p-3">{text}</p>
+			</div>
 		</motion.div>
 	);
 };
