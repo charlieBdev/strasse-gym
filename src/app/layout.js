@@ -19,7 +19,7 @@ const headings = Play({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className='!scroll-smooth'>
       <body className={`${headings.className} ${headings.variable}`}>
         <AuthContextProvider>
           {children}

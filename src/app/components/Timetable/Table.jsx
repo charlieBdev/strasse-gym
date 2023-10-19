@@ -20,7 +20,7 @@ const Table = () => {
 
 	return (
 		<section className="flex flex-col w-full gap-1 select-none">
-			<div className="flex flex-col md:grid md:grid-cols-2 gap-2 w-full">
+			<div className="flex flex-col md:grid md:grid-cols-2 gap-3 w-full">
 				{/* Mon */}
 				<motion.div
 					ref={ref}

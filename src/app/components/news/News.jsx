@@ -44,17 +44,17 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="bg-gradient-to-b from-blue-500 to-neutral-900 snap-end min-h-[calc(100dvh-5rem)] flex flex-col items-center justify-center border-b-2 p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="snap-end bg-gradient-to-b from-neutral-900 via-blue-500 to-neutral-900 min-h-[100dvh] flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<div className="flex flex-col items-center justify-center gap-2">
 				<h2 className="text-center italic font-semibold text-md underline">
 					NEWS
 				</h2>
-				<ScrollingNews text={scrollingNews} />
+				{/* <ScrollingNews text={scrollingNews} /> */}
 				{loadingNews ? (
 					<Loading />
 				) : (
-					<motion.div className="h-full w-screen snap-mandatory snap-x grid gap-2 grid-flow-col auto-cols-[96%] sm:auto-cols-[76%] md:auto-cols-[56%] lg:auto-cols-[36%] xl:auto-cols-[16%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 scrollbar-hide">
+					<motion.div className="h-full w-screen snap-mandatory snap-x grid gap-2 grid-flow-col auto-cols-[96%] sm:auto-cols-[76%] md:auto-cols-[56%] lg:auto-cols-[36%] xl:auto-cols-[16%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 no-scrollbar">
 						{news.map((item) => (
 							<NewsCard key={item.id} item={item} />
 						))}

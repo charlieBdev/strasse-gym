@@ -10,8 +10,9 @@ import { Footer } from "./components/footer/Footer";
 export default function Home() {
 
   return (
-    // <FirebaseContext.Provider value={firebaseConfig}>
-      <main className="snap-y h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden scrollbar-hide">
+      // <main className="snap-y h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden scrollbar-hide">
+      // <main className="h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden no-scrollbar">
+      <main className="snap-y snap-proximity flex flex-col items-center justify-between overflow-x-hidden no-scrollbar">
         <Navbar />
         <Hero />
         <News />
@@ -19,6 +20,5 @@ export default function Home() {
         <Contact />
         <Footer />
       </main>
-    // </FirebaseContext.Provider>
   )
 }

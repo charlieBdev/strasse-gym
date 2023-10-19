@@ -10,7 +10,7 @@ export const Hero = () => {
 	return (
 		<div
 			id="hero"
-			className="mt-20 snap-end min-h-[calc(100dvh-5rem)] w-full flex flex-col md:flex-row items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32 border-b-2"
+			className="snap-end min-h-[calc(100dvh-5rem)] w-full flex flex-col md:flex-row items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32"
 		>
 			<div className="flex flex-col gap-3 w-full select-none">
 				<h2 className="text-lg italic font-semibold uppercase font-headings">

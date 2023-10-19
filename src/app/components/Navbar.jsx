@@ -13,8 +13,12 @@ import { BlackBelt } from '../components/BlackBelt';
 export const Navbar = () => {
 	// const { user } = useAuthContext();
 	return (
-		<div className="z-10 fixed left-0 top-0 w-full h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2">
-			<Link href="#hero">
+		// <div className="z-10 fixed left-0 top-0 w-full h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2">
+		<div
+			id="nav"
+			className="h-20 w-full flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 border-b-2"
+		>
+			<Link href="#nav">
 				<motion.h1
 					className="font-black text-xl"
 					whileHover={{ scale: 1.1 }}
