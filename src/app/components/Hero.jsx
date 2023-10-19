@@ -41,7 +41,7 @@ export const Hero = () => {
 					className="rounded-sm w-full md:w-1/2 aspect-[16/9] shadow-xl shadow-neutral-950"
 				/>
 			</div>
-			<UpDown href={'news'} direction={'down'} animate={'bounce'} />
+			<UpDown href={'news'} direction={'down'} bounce={true} />
 		</section>
 	);
 };

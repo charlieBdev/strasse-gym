@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-export const UpDown = ({ href, direction, animate }) => {
+export const UpDown = ({ href, direction, bounce }) => {
 	return (
 		<Link href={`#${href}`} className="mx-auto">
 			<motion.div
@@ -23,7 +23,7 @@ export const UpDown = ({ href, direction, animate }) => {
 						strokeWidth={1.5}
 						stroke="currentColor"
 						className={`${
-							animate ? `animate-${animate}` : ''
+							bounce ? 'animate-bounce' : ''
 						} w-8 h-8 p-1 rounded-full hover:bg-neutral-800`}
 					>
 						<path
@@ -40,7 +40,7 @@ export const UpDown = ({ href, direction, animate }) => {
 						strokeWidth={1.5}
 						stroke="currentColor"
 						className={`${
-							animate ? `animate-${animate}` : ''
+							bounce ? 'animate-bounce' : ''
 						} w-8 h-8 p-1 rounded-full hover:bg-neutral-800`}
 					>
 						<path
@@ -57,7 +57,7 @@ export const UpDown = ({ href, direction, animate }) => {
 						strokeWidth={1.5}
 						stroke="currentColor"
 						className={`${
-							animate ? `animate-${animate}` : ''
+							bounce ? 'animate-bounce' : ''
 						} w-8 h-8 p-1 rounded-full hover:bg-neutral-800`}
 					>
 						<path
