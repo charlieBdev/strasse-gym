@@ -12,13 +12,12 @@ export const Footer = () => {
 			id="footer"
 			className="snap-end min-h-[100dvh] w-full flex flex-col items-center justify-between border-b-2 p-6 md:px-16 lg:px-24 xl:px-32"
 		>
-			<UpDown href={'nav'} direction={'up'} />
+			<UpDown href={'nav'} direction={'top'} animate={'bounce'} />
 			<div className="flex flex-col items-center justify-center gap-6">
 				<div className="flex flex-col items-center justify-center gap-6">
 					<Map />
 					<Address />
 				</div>
-
 				<Contacts />
 			</div>
 

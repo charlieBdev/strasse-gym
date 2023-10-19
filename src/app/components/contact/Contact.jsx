@@ -1,4 +1,3 @@
-import React from 'react';
 import { Form } from './Form';
 import { UpDown } from '../UpDown';
 
@@ -14,7 +13,7 @@ export const Contact = () => {
 					CONTACT US
 				</p>
 				<p className="text-center">
-					Send us a message. We'd love to hear from you!
+					Send us a message. We would love to hear from you!
 				</p>
 				<Form />
 			</div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from './Button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -42,7 +41,7 @@ export const Hero = () => {
 					className="rounded-sm w-full md:w-1/2 aspect-[16/9] shadow-xl shadow-neutral-950"
 				/>
 			</div>
-			<UpDown href={'news'} direction={'down'} />
+			<UpDown href={'news'} direction={'down'} animate={'bounce'} />
 		</section>
 	);
 };
