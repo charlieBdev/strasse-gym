@@ -46,8 +46,8 @@ export const News = () => {
 			id="news"
 			className="snap-end bg-gradient-to-b from-neutral-900 via-blue-500 to-neutral-900 min-h-[100dvh] flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
-			<div className="flex flex-col items-center justify-center gap-2">
-				<h2 className="text-center italic font-semibold text-md underline">
+			<div className="flex flex-col items-center justify-center gap-3">
+				<h2 className="text-center italic font-semibold text-md bg-neutral-950 border-l border-b-2 border-neutral-50 p-3 -rotate-3 hover:rotate-0 select-none rounded-sm">
 					NEWS
 				</h2>
 				{/* <ScrollingNews text={scrollingNews} /> */}

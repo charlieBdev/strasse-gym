@@ -30,7 +30,7 @@ const Table = () => {
 						...onViewMotion,
 						visible: { ...onViewMotion.visible, transition: { delay: 0 } },
 					}}
-					className="border rounded-lg p-2 w-full md:max-w-xl ml-auto"
+					className="border rounded-sm p-2 w-full md:max-w-xl ml-auto"
 				>
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
@@ -63,7 +63,7 @@ const Table = () => {
 						...onViewMotion,
 						visible: { ...onViewMotion.visible, transition: { delay: 0.25 } },
 					}}
-					className="border rounded-lg p-2 w-full md:max-w-xl mr-auto"
+					className="border rounded-sm p-2 w-full md:max-w-xl mr-auto"
 				>
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
@@ -88,7 +88,7 @@ const Table = () => {
 						...onViewMotion,
 						visible: { ...onViewMotion.visible, transition: { delay: 0.5 } },
 					}}
-					className="border rounded-lg p-2 w-full md:max-w-xl ml-auto"
+					className="border rounded-sm p-2 w-full md:max-w-xl ml-auto"
 				>
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
@@ -113,7 +113,7 @@ const Table = () => {
 						...onViewMotion,
 						visible: { ...onViewMotion.visible, transition: { delay: 0.75 } },
 					}}
-					className="border rounded-lg p-2 w-full md:max-w-xl mr-auto"
+					className="border rounded-sm p-2 w-full md:max-w-xl mr-auto"
 				>
 					<div className="flex flex-col gap-1">
 						<p className="font-semibold text-md italic border-b font-headings mx-1">
