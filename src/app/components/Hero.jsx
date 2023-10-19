@@ -13,7 +13,7 @@ export const Hero = () => {
 			className="h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between gap-3 p-6 md:px-16 lg:px-24 xl:px-32"
 		>
 			<div></div>
-			<div className="flex flex-col md:flex-row w-full gap-3">
+			<div className="flex flex-col md:flex-row items-center w-full gap-3">
 				<div className="flex flex-col gap-6 w-full select-none">
 					<h2 className="text-lg italic font-semibold uppercase font-headings">
 						{mainText}
