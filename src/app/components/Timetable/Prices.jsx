@@ -25,7 +25,7 @@ export const Prices = () => {
 						...onViewMotion,
 						visible: { ...onViewMotion.visible, transition: { delay: 1 } },
 					}}
-					className="border rounded-sm p-2"
+					className="bg-neutral-800 rounded-lg p-2"
 				>
 					<div className="flex flex-col gap-1">
 						<div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">

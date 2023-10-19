@@ -1,20 +1,25 @@
 import React from 'react';
 import { Form } from './Form';
+import { UpDown } from '../UpDown';
 
 export const Contact = () => {
 	return (
 		<div
 			id="contact"
-			className="bg-gradient-to-b from-neutral-900 via-purple-500 to-neutral-900 snap-end min-h-[100dvh] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="bg-gradient-to-b from-neutral-900 via-purple-500 to-neutral-900 snap-end min-h-[100dvh] w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32"
 		>
-			<p className="text-center italic font-semibold text-md bg-purple-500 border-l border-b-2 border-neutral-50 p-3 -rotate-3 hover:rotate-0 select-none rounded-sm">
-				CONTACT
-			</p>
-			{/* <p>
-				We would love to hear from you if you have any queries about classes or
-				private classes.
-			</p> */}
-			<Form />
+			<UpDown href={'timetable'} direction={'up'} />
+			<div className="flex flex-col w-full gap-3">
+				<p className="mx-auto text-center italic font-semibold text-md bg-gradient-to-r from-purple-900 from-1% to-purple-500 border-l border-b-2 border-neutral-50 p-3 select-none rounded-sm -rotate-3 hover:rotate-0">
+					CONTACT US
+				</p>
+				<p className="text-center">
+					Send us a message. We'd love to hear from you!
+				</p>
+				<Form />
+			</div>
+
+			<UpDown href={'footer'} direction={'down'} />
 		</div>
 	);
 };

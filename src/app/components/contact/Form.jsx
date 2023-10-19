@@ -27,10 +27,10 @@ export const Form = () => {
 	};
 
 	return (
-		<div className="w-full md:max-w-lg flex flex-col gap-1">
+		<div className="w-full md:max-w-lg flex flex-col gap-1 mx-auto">
 			<form
 				onSubmit={handleSend}
-				className="flex flex-col p-3 border rounded-sm"
+				className="flex flex-col p-3 rounded-lg border"
 			>
 				<label htmlFor="name" className="text-sm font-headings px-1">
 					Name:
