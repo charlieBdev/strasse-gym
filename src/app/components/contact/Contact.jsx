@@ -5,7 +5,7 @@ export const Contact = () => {
 	return (
 		<div
 			id="contact"
-			className="bg-gradient-to-b from-neutral-900 via-purple-500 to-neutral-900 snap-end min-h-[100dvh] w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32"
+			className="bg-neutral-900 min-h-[100dvh] w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32"
 		>
 			<UpDown href={'timetable'} direction={'up'} />
 			<div className="flex flex-col w-full gap-3">

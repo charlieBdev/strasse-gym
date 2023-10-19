@@ -45,14 +45,14 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="snap-end bg-gradient-to-b from-neutral-900 via-blue-500 to-neutral-900 min-h-[100dvh] flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="bg-neutral-900 min-h-[100dvh] flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<UpDown href={'nav'} direction={'up'} />
 			<div className="flex flex-col items-center justify-center gap-3">
-				<h2 className="text-center italic font-semibold text-md bg-gradient-to-r from-blue-900 from-1% to-blue-500 border-l border-b-2 border-neutral-50 p-3 select-none rounded-sm -rotate-3 hover:rotate-0">
+				<h2 className="text-center italic font-semibold text-md bg-gradient-to-r from-blue-500 to-purple-500 border-l border-b-2 border-neutral-50 p-3 select-none rounded-sm -rotate-3 hover:rotate-0">
 					STRASSE NEWS
 				</h2>
-				<p>All the latest from the gym. Announcements, seminars, and more!</p>
+				<p>Announcements, seminars, and more!</p>
 				{/* <ScrollingNews text={scrollingNews} /> */}
 				{loadingNews ? (
 					<Loading />
