@@ -1,6 +1,7 @@
 import Table from './Table';
 import { Prices } from './Prices';
 import { UpDown } from '../UpDown';
+import { SectionHeading } from '../SectionHeading';
 
 export const Timetable = () => {
 	return (
@@ -10,11 +11,11 @@ export const Timetable = () => {
 		>
 			<UpDown href={'news'} direction={'up'} />
 			<div className="w-full flex flex-col gap-3">
-				<p className="mx-auto rounded-sm text-center italic font-semibold text-md bg-gradient-to-r from-blue-500 to-purple-500 border-l border-b-2 border-neutral-50 p-3 select-none -rotate-3 hover:rotate-0">
-					TIMETABLE & PRICES
-				</p>
-				<Table />
-				<Prices />
+				<SectionHeading heading={'TIMETABLE & PRICES'} />
+				<div className="flex flex-col gap-1">
+					<Table />
+					<Prices />
+				</div>
 			</div>
 
 			<UpDown href={'contact'} direction={'down'} />

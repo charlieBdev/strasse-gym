@@ -1,5 +1,6 @@
 import { Form } from './Form';
 import { UpDown } from '../UpDown';
+import { SectionHeading } from '../SectionHeading';
 
 export const Contact = () => {
 	return (
@@ -9,9 +10,7 @@ export const Contact = () => {
 		>
 			<UpDown href={'timetable'} direction={'up'} />
 			<div className="flex flex-col w-full gap-3">
-				<p className="mx-auto text-center italic font-semibold text-md bg-gradient-to-r from-purple-900 from-1% to-purple-500 border-l border-b-2 border-neutral-50 p-3 select-none rounded-sm -rotate-3 hover:rotate-0">
-					CONTACT US
-				</p>
+				<SectionHeading heading={'CONTACT US'} />
 				<p className="text-center">
 					Send us a message. We would love to hear from you!
 				</p>

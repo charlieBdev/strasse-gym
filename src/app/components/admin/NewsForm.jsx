@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import { useState, useRef } from 'react';
-import { Loading } from '../Loading';
 import { toast } from 'sonner';
 import { storage, db } from '../../../../config';
 import { ref, getDownloadURL, uploadBytesResumable } from '@firebase/storage';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+// import { Loading } from '../Loading';
 // import Image from 'next/image';
 // import { TinyMCEEditor } from '../admin/TinyMCEEditor';
 

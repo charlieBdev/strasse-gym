@@ -18,7 +18,7 @@ export const Navbar = () => {
 			id="nav"
 			className="h-20 w-full flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 border-b-2"
 		>
-			<Link href="#nav">
+			<Link href="/">
 				<motion.h1
 					className="font-black text-xl"
 					whileHover={{ scale: 1.1 }}
@@ -104,9 +104,9 @@ export const Navbar = () => {
 						<AdminSVG />
 					</motion.div>
 				</Link> */}
-				<Link href="#contact">
+				{/* <Link href="#contact">
 					<Button text="Contact" />
-				</Link>
+				</Link> */}
 			</div>
 		</div>
 	);

@@ -1,20 +1,23 @@
 'use client';
 
 // import { dummyNews } from '../../dummyData/dummyNews';
-// import { PreviousSVG } from '../svg/PreviousSVG';
-// import { NextSVG } from '../svg/NextSVG';
-import { useEffect, useRef, useState } from 'react';
-import { NewsCard } from './NewsCard';
 import { ScrollingNews } from './ScrollingNews';
+import { useEffect, useRef, useState } from 'react';
 import { fetchNews } from '../../utils/fetchNews';
 import { Loading } from '../Loading';
 import { motion } from 'framer-motion';
+import { NewsCard } from './NewsCard';
 import { UpDown } from '../UpDown';
+import { SectionHeading } from '../SectionHeading';
 
 export const News = () => {
 	const [news, setNews] = useState([]);
 	const [loadingNews, setLoadingNews] = useState(true);
 	// const [errorFetchingNews, setErrorFetchingNews] = useState(null);
+
+	const removeFromUI = (id) => {
+		setNews((prevNews) => prevNews.filter((item) => item.id !== id));
+	};
 
 	useEffect(() => {
 		fetchNews()
@@ -27,20 +30,8 @@ export const News = () => {
 			});
 	}, []);
 
-	const scrollingNews =
-		'Welcome to Strasse News! Scroll right below to see announcements, seminar pictures, plus more!';
-
-	// const [currentPage, setCurrentPage] = useState(1);
-	// const cardsPerPage = 1;
-	// const totalCards = news.length;
-
-	// const handlePageChange = (newPage) => {
-	// 	setCurrentPage(newPage);
-	// };
-
-	// const startIndex = (currentPage - 1) * cardsPerPage;
-	// const endIndex = Math.min(startIndex + cardsPerPage, totalCards);
-	// const displayedNews = news.slice(startIndex, endIndex);
+	// const scrollingNews =
+	// 	'Welcome to Strasse News! Scroll right below to see announcements, seminar pictures, plus more!';
 
 	return (
 		<section
@@ -49,9 +40,7 @@ export const News = () => {
 		>
 			<UpDown href={'nav'} direction={'up'} />
 			<div className="flex flex-col items-center justify-center gap-3">
-				<h2 className="text-center italic font-semibold text-md bg-gradient-to-r from-blue-500 to-purple-500 border-l border-b-2 border-neutral-50 p-3 select-none rounded-sm -rotate-3 hover:rotate-0">
-					STRASSE NEWS
-				</h2>
+				<SectionHeading heading={'STRASSE NEWS'} />
 				<p>Announcements, seminars, and more!</p>
 				{/* <ScrollingNews text={scrollingNews} /> */}
 				{loadingNews ? (
@@ -59,32 +48,15 @@ export const News = () => {
 				) : (
 					<motion.div className="h-full w-screen snap-mandatory snap-x grid gap-2 grid-flow-col auto-cols-[96%] sm:auto-cols-[76%] md:auto-cols-[56%] lg:auto-cols-[36%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 no-scrollbar">
 						{news.map((item) => (
-							<NewsCard key={item.id} item={item} />
+							<NewsCard key={item.id} item={item} removeFromUI={removeFromUI} />
 						))}
 					</motion.div>
 				)}
+				<p className="text-neutral-500 text-xs italic">
+					{news.length} articles found
+				</p>
 			</div>
 			<UpDown href={'timetable'} direction={'down'} />
-			{/* <div className="flex gap-3">
-				{currentPage > 1 && (
-					<motion.button
-						onClick={() => handlePageChange(currentPage - 1)}
-						whileHover={{ scale: 1.1 }}
-						whileTap={{ scale: 0.9 }}
-					>
-						<PreviousSVG />
-					</motion.button>
-				)}
-				{currentPage < Math.ceil(totalCards / cardsPerPage) && (
-					<motion.button
-						onClick={() => handlePageChange(currentPage + 1)}
-						whileHover={{ scale: 1.1 }}
-						whileTap={{ scale: 0.9 }}
-					>
-						<NextSVG />
-					</motion.button>
-				)}
-			</div> */}
 		</section>
 	);
 };
