@@ -6,7 +6,7 @@ import { Inter, Play } from 'next/font/google'
 import { Toaster } from 'sonner'
 
 // const inter = Inter({ subsets: ['latin'] })
-const headings = Play({
+const play = Play({
   subsets: ['latin'], 
   weight: '400',
   variable: '--font-headings'
@@ -20,7 +20,7 @@ const headings = Play({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className='!scroll-smooth'>
-      <body className={`${headings.className} ${headings.variable}`}>
+      <body className={play.className}>
         <AuthContextProvider>
           {children}
           <Toaster richColors />

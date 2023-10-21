@@ -15,6 +15,7 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../../../config';
 import { getStorage, ref, deleteObject } from 'firebase/storage';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export const NewsCard = ({
 	item: { id, title, content, imageUrl, imageAlt, created },
@@ -125,7 +126,6 @@ export const NewsCard = ({
 			) : user ? (
 				<div className="flex justify-center gap-3">
 					<motion.div
-						// whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
 						initial={{ scale: 0 }}
 						animate={{ rotate: 360, scale: 1 }}
@@ -137,10 +137,20 @@ export const NewsCard = ({
 						whileHover={{ scale: 1.1 }}
 						onClick={() => toast.success('You cannot edit yet')}
 					>
+						{/* <Link
+							href={`/admin?id=${id}&title=${encodeURIComponent(
+								title
+							)}&content=${encodeURIComponent(
+								content
+							)}&imageUrl=${encodeURIComponent(
+								imageUrl
+							)}&imageAlt=${encodeURIComponent(imageAlt)}`}
+							passHref
+						> */}
 						<EditSVG />
+						{/* </Link> */}
 					</motion.div>
 					<motion.div
-						// whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
 						initial={{ scale: 0 }}
 						animate={{ rotate: 360, scale: 1 }}

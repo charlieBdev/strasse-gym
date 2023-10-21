@@ -1,37 +1,29 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { useAuthContext } from '../../context/AuthContext';
 import { AdminDash } from '../components/AdminDash';
-// import { motion } from 'framer-motion';
-// import Link from 'next/link';
-// import { BackSVG } from '../components/svg/BackSVG';
 import { Login } from '../components/Login';
 
 export default function Admin() {
 	const { user } = useAuthContext();
+	const searchParams = useSearchParams();
+	const id = searchParams.get('id');
+	const title = searchParams.get('title');
+	const content = searchParams.get('content');
+	const imageAlt = searchParams.get('imageAlt');
+	const imageUrl = searchParams.get('imageUrl');
+	const newsToEdit = {
+		id,
+		title,
+		content,
+		imageAlt,
+		imageUrl,
+	};
 
 	if (user) {
-		return <AdminDash />;
+		return <AdminDash newsToEdit={newsToEdit} />;
 	} else {
-		return (
-			<Login />
-			// <div className="min-h-screen flex flex-col items-center justify-center gap-3">
-			// 	<p>Only logged in admins can view this page.</p>
-			// 	<motion.div
-			// 		whileTap={{ scale: 0.9 }}
-			// 		initial={{ scale: 0 }}
-			// 		animate={{ rotate: 360, scale: 1 }}
-			// 		transition={{
-			// 			type: 'spring',
-			// 			stiffness: 260,
-			// 			damping: 20,
-			// 		}}
-			// 	>
-			// 		<Link href="/">
-			// 			<BackSVG />
-			// 		</Link>
-			// 	</motion.div>
-			// </div>
-		);
+		return <Login />;
 	}
 }

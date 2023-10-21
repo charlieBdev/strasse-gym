@@ -10,13 +10,11 @@ export const Hero = () => {
 	return (
 		<section
 			id="hero"
-			className="h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between gap-3 p-6 md:px-16 lg:px-24 xl:px-32"
+			className="snap-center h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between gap-3 p-6 md:px-16 lg:px-24 xl:px-32"
 		>
 			<div className="h-full flex flex-col md:flex-row items-center justify-center w-full gap-3">
 				<div className="flex flex-col gap-6 w-full select-none">
-					<h2 className="text-lg italic font-semibold uppercase font-headings">
-						{mainText}
-					</h2>
+					<h2 className="text-lg italic font-semibold uppercase">{mainText}</h2>
 					<ul className="list-disc list-inside">
 						<li className="text-lg">Kickboxing</li>
 						<li className="text-lg">BJJ</li>

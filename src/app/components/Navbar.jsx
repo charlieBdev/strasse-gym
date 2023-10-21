@@ -43,7 +43,7 @@ export const Navbar = () => {
 							damping: 20,
 						}}
 					>
-						<span className="hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800 font-headings">
+						<span className="hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800">
 							News
 						</span>
 						<NewsSVG />

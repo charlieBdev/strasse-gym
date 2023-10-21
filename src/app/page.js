@@ -12,7 +12,7 @@ export default function Home() {
   return (
       // <main className="snap-y h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden scrollbar-hide">
       // <main className="h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden no-scrollbar">
-      <main className="flex flex-col items-center justify-between overflow-x-hidden no-scrollbar">
+      <main className="snap-mandatory snap-y flex flex-col items-center justify-between overflow-x-hidden no-scrollbar">
         <Navbar />
         <Hero />
         <News />

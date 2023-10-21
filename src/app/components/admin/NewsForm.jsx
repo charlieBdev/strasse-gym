@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { toast } from 'sonner';
 import { storage, db } from '../../../../config';
 import { ref, getDownloadURL, uploadBytesResumable } from '@firebase/storage';
@@ -8,7 +10,8 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 // import Image from 'next/image';
 // import { TinyMCEEditor } from '../admin/TinyMCEEditor';
 
-export const NewsForm = () => {
+export const NewsForm = ({ newsToEdit }) => {
+	const isEditMode = !!newsToEdit;
 	const fileInputRef = useRef(null);
 
 	const [isUploadingFile, setIsUploadingFile] = useState(false);
@@ -18,14 +21,24 @@ export const NewsForm = () => {
 	const [errors, setErrors] = useState({});
 
 	const initialData = {
-		title: '',
-		content: '',
-		imageAlt: '',
+		title: newsToEdit.title || '',
+		content: newsToEdit.content || '',
+		imageAlt: newsToEdit.imageAlt || '',
 	};
 	const [data, setData] = useState(initialData);
 	const { title, content, imageAlt } = data;
 
 	const [file, setFile] = useState(null);
+
+	// useEffect(() => {
+	// 	if (newsToEdit) {
+	// 		setData({
+	// 			title: newsToEdit.title || '',
+	// 			content: newsToEdit.content || '',
+	// 			imageAlt: newsToEdit.imageAlt || '',
+	// 		});
+	// 	}
+	// }, [newsToEdit]);
 
 	const handleChange = (e) => {
 		setData({ ...data, [e.target.name]: e.target.value });
@@ -126,15 +139,15 @@ export const NewsForm = () => {
 	};
 
 	return (
-		<div className="w-full md:max-w-lg flex flex-col gap-1">
+		<div className="w-full md:max-w-lg flex flex-col items-center justify center gap-1">
 			{/* {isSubmittingForm ? (
 				<Loading />
 			) : ( */}
 			<form
-				className="flex flex-col items-center justify-center gap-3 border rounded-lg p-3 w-full"
+				className="bg-neutral-800 flex flex-col items-center justify-center gap-3 rounded-lg p-3 w-full"
 				onSubmit={handleSubmit}
 			>
-				<h2>Add News</h2>
+				<h2>{isEditMode ? 'Edit' : 'Add'} News</h2>
 				<input
 					type="text"
 					placeholder="Add a title"
@@ -150,7 +163,7 @@ export const NewsForm = () => {
 				)}
 				{/* <TinyMCEEditor content={content} setContent={setContent} /> */}
 				<textarea
-					rows="9"
+					rows="4"
 					type="text"
 					placeholder="Add content"
 					className={`${
@@ -168,13 +181,15 @@ export const NewsForm = () => {
 					accept="image/*"
 					className={`${
 						file ? 'bg-green-500 text-neutral-950' : ''
-					} rounded-lg`}
+					} rounded-lg w-full`}
 					onChange={(e) => setFile(e.target.files[0])}
 					disabled={isUploadingFile || isSubmittingForm}
 					ref={fileInputRef}
 				/>
 				{errors.file && !file && <p className="text-red-500">{errors.file}</p>}
-				{isUploadingFile && <p>Uploading image... {Math.floor(progress)}%</p>}
+				{isUploadingFile && progress < 100 && (
+					<p>Uploading image... {Math.floor(progress)}%</p>
+				)}
 				<input
 					type="text"
 					placeholder="Add an image description"
@@ -189,15 +204,17 @@ export const NewsForm = () => {
 					<p className="text-red-500">{errors.imageAlt}</p>
 				)}
 				<motion.button
-					className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto font-headings"
+					className="bg-neutral-50 text-neutral-950 font-medium rounded-full px-3 py-1 mx-auto"
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 					// disabled={progress !== null && progress < 100}
 					disabled={isUploadingFile || isSubmittingForm}
 				>
-					Add
+					{isEditMode ? 'Edit' : 'Add'}
 				</motion.button>
-				{isSubmittingForm && <p>Adding news...</p>}
+				{isSubmittingForm && (
+					<p>{isEditMode ? 'Editing' : ' Adding'} news...</p>
+				)}
 			</form>
 			{/* )} */}
 		</div>

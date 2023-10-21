@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
@@ -8,7 +10,9 @@ import { useAuthContext } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
 import { NewsForm } from '../components/admin/NewsForm';
 
-export const AdminDash = () => {
+export const AdminDash = (props) => {
+	const newsToEdit = props;
+	console.log(newsToEdit);
 	const { user } = useAuthContext();
 	const userChopped = user.email.split('@')[0];
 	const router = useRouter();
@@ -16,19 +20,22 @@ export const AdminDash = () => {
 	const handleLogout = async (e) => {
 		e.preventDefault();
 
-		const { result, error } = await logout();
+		try {
+			const { result, error } = await logout();
 
-		if (error) {
-			toast.error('Logout error');
-			return;
+			if (error) {
+				throw new Error('Logout error');
+			}
+
+			toast.success('Logout successful');
+			router.push('/');
+		} catch (error) {
+			toast.error('Logout failed. Please try again.');
 		}
-		// else
-		toast.success('Logout successful');
-		return router.push('/');
 	};
 
 	return (
-		<div className="flex flex-col min-h-screen items-center">
+		<div className="flex flex-col items-center justify-center">
 			<div className="w-full flex items-center justify-between border-b-2 h-20 px-6 md:px-16 lg:px-24 xl:px-32">
 				<div className="flex items-center gap-3">
 					<motion.button
@@ -64,8 +71,8 @@ export const AdminDash = () => {
 					</motion.button>
 				</div>
 			</div>
-			<div className="flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32">
-				<NewsForm />
+			<div className="h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32">
+				<NewsForm {...newsToEdit} />
 			</div>
 		</div>
 	);

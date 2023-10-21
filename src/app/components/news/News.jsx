@@ -36,7 +36,7 @@ export const News = () => {
 	return (
 		<section
 			id="news"
-			className="bg-neutral-900 h-[100dvh] flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="snap-center h-[100svh] bg-neutral-900 flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
 			<UpDown href={'nav'} direction={'up'} />
 			<div className="flex flex-col items-center justify-center gap-3">

@@ -33,7 +33,7 @@ const Table = () => {
 					className="bg-neutral-800 p-2 w-full rounded-t-lg md:rounded-tr-none md:rounded-tl-lg md:max-w-xl ml-auto"
 				>
 					<div className="flex flex-col gap-1">
-						<p className="font-semibold text-md italic border-b font-headings mx-1">
+						<p className="font-semibold text-md italic border-b mx-1">
 							MON - WED - FRI
 						</p>
 						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
@@ -70,9 +70,7 @@ const Table = () => {
 					className="bg-neutral-800 p-2 w-full md:max-w-xl mr-auto md:rounded-tr-lg"
 				>
 					<div className="flex flex-col gap-1">
-						<p className="font-semibold text-md italic border-b font-headings px-1">
-							TUE
-						</p>
+						<p className="font-semibold text-md italic border-b px-1">TUE</p>
 						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<EveningSVG />
@@ -97,9 +95,7 @@ const Table = () => {
 					className="bg-neutral-800 p-2 w-full md:max-w-xl ml-auto md:rounded-bl-lg"
 				>
 					<div className="flex flex-col gap-1">
-						<p className="font-semibold text-md italic border-b font-headings px-1">
-							THU
-						</p>
+						<p className="font-semibold text-md italic border-b px-1">THU</p>
 						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
 							<div className="flex items-center gap-1 px-1">
 								<EveningSVG />
@@ -124,9 +120,7 @@ const Table = () => {
 					className="bg-neutral-800 p-2 w-full md:max-w-xl mr-auto rounded-b-lg md:rounded-bl-none md:rounded-br-lg"
 				>
 					<div className="flex flex-col gap-1">
-						<p className="font-semibold text-md italic border-b font-headings mx-1">
-							SAT
-						</p>
+						<p className="font-semibold text-md italic border-b mx-1">SAT</p>
 						<div className="grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1">
 							<div className="flex items-center gap-1">
 								<DaytimeSVG />
