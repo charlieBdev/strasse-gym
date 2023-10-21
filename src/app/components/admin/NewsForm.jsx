@@ -11,7 +11,7 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 // import { TinyMCEEditor } from '../admin/TinyMCEEditor';
 
 export const NewsForm = ({ newsToEdit }) => {
-	const isEditMode = !!newsToEdit;
+	const isEditMode = !!newsToEdit.id;
 	const fileInputRef = useRef(null);
 
 	const [isUploadingFile, setIsUploadingFile] = useState(false);

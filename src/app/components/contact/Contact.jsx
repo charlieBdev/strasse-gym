@@ -6,9 +6,9 @@ export const Contact = () => {
 	return (
 		<div
 			id="contact"
-			className="snap-center bg-neutral-900 h-[100svh] w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32"
+			className="snap-center min-h-[100dvh] bg-neutral-900 w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32"
 		>
-			<UpDown href={'timetable'} direction={'up'} />
+			{/* <UpDown href={'timetable'} direction={'up'} /> */}
 			<div className="flex flex-col w-full gap-3">
 				<SectionHeading heading={'CONTACT US'} />
 				<p className="text-center">
@@ -17,7 +17,7 @@ export const Contact = () => {
 				<Form />
 			</div>
 
-			<UpDown href={'footer'} direction={'down'} />
+			{/* <UpDown href={'footer'} direction={'down'} /> */}
 		</div>
 	);
 };

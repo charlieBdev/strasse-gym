@@ -10,7 +10,7 @@ export const Footer = () => {
 	return (
 		<div
 			id="footer"
-			className="snap-center h-[100svh] w-full flex flex-col items-center justify-between border-b-2 p-6 md:px-16 lg:px-24 xl:px-32"
+			className="snap-center min-h-[100dvh] w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32"
 		>
 			<UpDown href={'nav'} direction={'top'} bounce={true} />
 			<div className="flex flex-col items-center justify-center gap-6">
@@ -20,7 +20,6 @@ export const Footer = () => {
 				</div>
 				<Contacts />
 			</div>
-
 			<Bottom />
 		</div>
 	);

@@ -2,6 +2,7 @@ import { Button } from './Button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { UpDown } from './UpDown';
+import { Navbar } from './Navbar';
 // import hero from '/hero.jpg';
 
 export const Hero = () => {
@@ -10,9 +11,10 @@ export const Hero = () => {
 	return (
 		<section
 			id="hero"
-			className="snap-center h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between gap-3 p-6 md:px-16 lg:px-24 xl:px-32"
+			className="flex-grow snap-center min-h-[100dvh] w-full flex flex-col items-center justify-between gap-3 px-6 md:px-16 lg:px-24 xl:px-32"
 		>
-			<div className="h-full flex flex-col md:flex-row items-center justify-center w-full gap-3">
+			<Navbar />
+			<div className="flex flex-col md:flex-row items-center justify-center w-full gap-3">
 				<div className="flex flex-col gap-6 w-full select-none">
 					<h2 className="text-lg italic font-semibold uppercase">{mainText}</h2>
 					<ul className="list-disc list-inside">

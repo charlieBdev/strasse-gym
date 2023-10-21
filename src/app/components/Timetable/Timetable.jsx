@@ -7,9 +7,9 @@ export const Timetable = () => {
 	return (
 		<div
 			id="timetable"
-			className="snap-center h-[100svh] w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
+			className="snap-center min-h-[100dvh] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3"
 		>
-			<UpDown href={'news'} direction={'up'} />
+			{/* <UpDown href={'news'} direction={'up'} /> */}
 			<div className="w-full flex flex-col gap-3">
 				<SectionHeading heading={'TIMETABLE & PRICES'} />
 				<div className="flex flex-col gap-1">
@@ -18,7 +18,7 @@ export const Timetable = () => {
 				</div>
 			</div>
 
-			<UpDown href={'contact'} direction={'down'} />
+			{/* <UpDown href={'contact'} direction={'down'} /> */}
 		</div>
 	);
 };
