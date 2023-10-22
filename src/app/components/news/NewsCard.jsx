@@ -15,6 +15,7 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../../../config';
 import { getStorage, ref, deleteObject } from 'firebase/storage';
 import { useState } from 'react';
+import { NewsCardModal } from './NewsCardModal';
 import Link from 'next/link';
 
 export const NewsCard = ({
@@ -22,6 +23,8 @@ export const NewsCard = ({
 	removeFromUI,
 }) => {
 	const [isDeleteConfirmed, setDeleteConfirmed] = useState(false);
+	const [isModalOpen, setModalOpen] = useState(false);
+
 	const { user } = useAuthContext();
 	const storage = getStorage();
 
@@ -72,18 +75,30 @@ export const NewsCard = ({
 					style={{ objectFit: 'cover' }}
 					width={500}
 					height={500}
-					className="mx-auto w-full aspect-[16/9] rounded-sm"
+					className="mx-auto w-full aspect-[16/9] rounded-sm hover:cursor-pointer hover:shadow-xl"
+					onClick={() => setModalOpen(true)}
 					// priority
 				/>
 				{/* <div className="flex items-center justify-between"> */}
 				<h2 className="text-md font-semibold">{title}</h2>
-				<p>{content}</p>
+				{/* <p>{content}</p> */}
 				{/* </div> */}
 				<div className="flex items-center gap-1 text-neutral-400 ">
 					<ClockSVG />
 					<p className="text-xs italic">{timeAgo}</p>
 				</div>
 			</div>
+			{isModalOpen && (
+				<NewsCardModal
+					setModalOpen={setModalOpen}
+					imageUrl={imageUrl}
+					imageAlt={imageAlt}
+					title={title}
+					content={content}
+					timeAgo={timeAgo}
+					onClose={() => setModalOpen(false)}
+				/>
+			)}
 			{user && isDeleteConfirmed ? (
 				<div className="flex justify-between gap-3">
 					<p className="italic">Are you sure?</p>

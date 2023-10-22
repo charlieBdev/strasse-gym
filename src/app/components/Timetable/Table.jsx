@@ -19,7 +19,7 @@ const Table = () => {
 	}, [controls, isInView]);
 
 	return (
-		<section className="flex flex-col w-full gap-1 select-none">
+		<section className="flex flex-col w-full gap-3 select-none">
 			<div className="flex flex-col md:grid md:grid-cols-2 gap-1 w-full">
 				{/* Mon */}
 				<motion.div

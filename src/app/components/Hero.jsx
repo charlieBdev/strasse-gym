@@ -11,7 +11,7 @@ export const Hero = () => {
 	return (
 		<section
 			id="hero"
-			className="h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between gap-3 px-6 md:px-16 lg:px-24 xl:px-32"
+			className="min-h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-between gap-3 px-6 md:px-16 lg:px-24 xl:px-32"
 		>
 			<div></div>
 			<div className="flex flex-col md:flex-row items-center justify-center w-full gap-3">

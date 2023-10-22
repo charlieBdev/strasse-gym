@@ -12,7 +12,7 @@ export const Timetable = () => {
 			{/* <UpDown href={'news'} direction={'up'} /> */}
 			<div className="w-full flex flex-col gap-3">
 				<SectionHeading heading={'TIMETABLE & PRICES'} />
-				<div className="flex flex-col gap-1">
+				<div className="flex flex-col gap-3">
 					<Table />
 					<Prices />
 				</div>

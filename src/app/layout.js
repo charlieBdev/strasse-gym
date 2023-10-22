@@ -1,5 +1,7 @@
 'use client'
 
+import * as React from "react";
+import {NextUIProvider} from "@nextui-org/react";
 import { AuthContextProvider } from '../context/AuthContext'
 import './globals.css'
 import { Inter, Play } from 'next/font/google'
@@ -22,10 +24,12 @@ export default function RootLayout({ children }) {
     <html lang="en" className='!scroll-smooth'>
     {/* <html lang="en" className='!scroll-smooth'> */}
       <body className={play.className}>
+      <NextUIProvider>
         <AuthContextProvider>
           {children}
           <Toaster richColors />
         </AuthContextProvider>
+      </NextUIProvider>
       </body>
     </html>
   )
