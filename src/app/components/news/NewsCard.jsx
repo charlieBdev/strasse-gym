@@ -116,7 +116,6 @@ export const NewsCard = ({
 									damping: 20,
 								}}
 								whileHover={{ scale: 1.1 }}
-								onClick={handleConfirmDelete}
 							>
 								<CancelDeleteSVG />
 							</motion.div>

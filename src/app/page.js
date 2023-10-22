@@ -5,14 +5,16 @@ import { News } from "./components/news/News";
 import { Timetable } from './components/Timetable/Timetable'
 import { Contact } from "./components/contact/Contact";
 import { Footer } from "./components/footer/Footer";
+import { Navbar } from './components/Navbar'
 
 export default function Home() {
 
   return (
-      // <main className="snap-y h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden scrollbar-hide">
-      // <main className="h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden no-scrollbar">
-      <main className="snap-mandatory snap-y h-[100dvh] flex flex-col items-center justify-between overflow-x-hidden no-scrollbar">
-        <Hero />
+      <main className="!snap-y !snap-mandatory flex flex-col items-center justify-between overflow-x-hidden">
+        <div className='!snap-center h-[100dvh] w-full'>
+          <Navbar />
+          <Hero />
+        </div>
         <News />
         <Timetable />
         <Contact />

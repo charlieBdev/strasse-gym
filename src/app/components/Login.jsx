@@ -35,7 +35,7 @@ export const Login = () => {
 	return (
 		<form
 			onSubmit={handleLogin}
-			className="w-full min-h-screen flex flex-col items-center justify-center rounded-lg shadow-lg gap-6 p-6 md:px-16 lg:px-24 xl:px-32 mx-auto"
+			className="w-full h-[100dvh] flex flex-col items-center justify-center rounded-lg shadow-lg gap-6 p-6 md:px-16 lg:px-24 xl:px-32 mx-auto"
 		>
 			<p>Admin Login</p>
 			<input
