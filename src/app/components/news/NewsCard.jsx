@@ -65,7 +65,7 @@ export const NewsCard = ({
 			onClick={() => {
 				console.log('Card clicked');
 			}}
-			className="flex-grow shadow-lg shadow-neutral-950 hover:shadow-xl hover:shadow-neutral-950 rounded-sm snap-center bg-neutral-800 flex flex-col justify-between gap-1 p-3 select-none"
+			className="shadow-lg shadow-neutral-950 hover:shadow-xl hover:shadow-neutral-950 rounded-sm snap-center bg-neutral-800 flex flex-col justify-between gap-1 p-3 select-none"
 		>
 			<div className="flex flex-col gap-1">
 				<Image

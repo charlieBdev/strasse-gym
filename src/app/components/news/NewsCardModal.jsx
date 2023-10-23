@@ -28,7 +28,7 @@ export const NewsCardModal = ({
 				isOpen
 				shouldBlockScroll
 				hideCloseButton
-				className="bg-neutral-900 h-2/3 rounded-sm"
+				className="bg-neutral-800 h-2/3 rounded-lg"
 				backdrop="blur"
 				placement="center"
 				// radius="small"
