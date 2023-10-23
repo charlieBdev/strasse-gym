@@ -105,9 +105,9 @@ export const Navbar = () => {
 					</motion.div>
 				)} */}
 				{/* </Link> */}
-				<Link href="#contact">
+				{/* <Link href="#contact">
 					<Button text="Contact" />
-				</Link>
+				</Link> */}
 			</div>
 		</div>
 	);
