@@ -10,8 +10,8 @@ import { Navbar } from './components/Navbar'
 export default function Home() {
 
   return (
-      <main className="!snap-y !snap-mandatory flex flex-col items-center justify-between overflow-x-hidden">
-        <div className='!snap-center h-[100dvh] w-full'>
+      <main className="snap-y snap-proximity flex flex-col items-center justify-between overflow-x-hidden">
+        <div className='snap-center h-[100dvh] w-full'>
           <Navbar />
           <Hero />
         </div>

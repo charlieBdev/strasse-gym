@@ -7,13 +7,12 @@ import { CalendarSVG } from './svg/CalendarSVG';
 import { PinSVG } from './svg/PinSVG';
 import { motion } from 'framer-motion';
 import { BlackBelt } from '../components/BlackBelt';
-// import { AdminSVG } from './svg/AdminSVG';
-// import { useAuthContext } from '../../context/AuthContext';
+import { AdminSVG } from './svg/AdminSVG';
+import { useAuthContext } from '../../context/AuthContext';
 
 export const Navbar = () => {
-	// const { user } = useAuthContext();
+	const { user } = useAuthContext();
 	return (
-		// <div className="z-10 fixed left-0 top-0 w-full h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2">
 		<div
 			id="nav"
 			className="h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2"
@@ -85,7 +84,8 @@ export const Navbar = () => {
 						<PinSVG />
 					</motion.div>
 				</Link>
-				{/* <Link href="/admin">
+				{/* <Link href="/admin"> */}
+				{/* {user && (
 					<motion.div
 						// whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
@@ -103,10 +103,11 @@ export const Navbar = () => {
 						</span>
 						<AdminSVG />
 					</motion.div>
-				</Link> */}
-				{/* <Link href="#contact">
+				)} */}
+				{/* </Link> */}
+				<Link href="#contact">
 					<Button text="Contact" />
-				</Link> */}
+				</Link>
 			</div>
 		</div>
 	);

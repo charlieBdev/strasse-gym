@@ -35,7 +35,7 @@ export const AdminDash = (props) => {
 	};
 
 	return (
-		<div className="h-[calc(100dvh-5rem)] flex flex-col items-center justify-center">
+		<div className="h-[100dvh] flex flex-col items-center justify-center">
 			<div className="w-full flex items-center justify-between border-b-2 h-20 px-6 md:px-16 lg:px-24 xl:px-32">
 				<div className="flex items-center gap-3">
 					<motion.button
@@ -71,7 +71,7 @@ export const AdminDash = (props) => {
 					</motion.button>
 				</div>
 			</div>
-			<div className="h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32">
+			<div className="h-[calc(100%-5rem)] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32">
 				<NewsForm {...newsToEdit} />
 			</div>
 		</div>
