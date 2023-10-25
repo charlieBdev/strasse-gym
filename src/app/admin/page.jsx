@@ -18,11 +18,11 @@ export default function Admin() {
 		title,
 		content,
 		imageAlt,
-		imageUrl,
+		// imageUrl,
 	};
 
 	if (user) {
-		return <AdminDash newsToEdit={newsToEdit} />;
+		return <AdminDash newsToEdit={newsToEdit} imageUrl={imageUrl} />;
 	} else {
 		return <Login />;
 	}

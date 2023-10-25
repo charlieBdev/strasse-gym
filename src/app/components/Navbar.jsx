@@ -84,27 +84,27 @@ export const Navbar = () => {
 						<PinSVG />
 					</motion.div>
 				</Link>
-				{/* <Link href="/admin"> */}
-				{user && (
-					<motion.div
-						// whileHover={{ scale: 1.1 }}
-						// whileTap={{ scale: 0.9 }}
-						initial={{ scale: 0 }}
-						animate={{ rotate: 360, scale: 1 }}
-						transition={{
-							type: 'spring',
-							stiffness: 260,
-							damping: 20,
-						}}
-						className={`${user ? 'text-green-500' : 'text-neutral-500'}`}
-					>
-						<span className='hidden md:block rounded-full px-3 py-1 select-none'>
-							Admin
-						</span>
-						<AdminSVG />
-					</motion.div>
-				)}
-				{/* </Link> */}
+				<Link href='/admin'>
+					{user && (
+						<motion.div
+							// whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.9 }}
+							initial={{ scale: 0 }}
+							animate={{ rotate: 360, scale: 1 }}
+							transition={{
+								type: 'spring',
+								stiffness: 260,
+								damping: 20,
+							}}
+							className={`${user ? 'text-green-500' : 'text-neutral-500'}`}
+						>
+							<span className='hidden md:block rounded-full px-3 py-1 select-none hover:bg-neutral-800'>
+								Admin
+							</span>
+							<AdminSVG />
+						</motion.div>
+					)}
+				</Link>
 				{/* <Link href="#contact">
 					<Button text="Contact" />
 				</Link> */}

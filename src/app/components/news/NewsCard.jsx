@@ -7,6 +7,7 @@ import { EditSVG } from '../svg/EditSVG';
 import { DeleteSVG } from '../svg/DeleteSVG';
 import { ConfirmDeleteSVG } from '../svg/ConfirmDeleteSVG';
 import { CancelDeleteSVG } from '../svg/CancelDeleteSVG';
+import { SwapImageSVG } from '../svg/SwapImageSVG';
 
 import { useAuthContext } from '../../../context/AuthContext';
 import { motion } from 'framer-motion';
@@ -65,27 +66,46 @@ export const NewsCard = ({
 			onClick={() => {
 				console.log('Card clicked');
 			}}
-			className="shadow-lg shadow-neutral-950 hover:shadow-xl hover:shadow-neutral-950 rounded-sm snap-center bg-neutral-800 flex flex-col justify-between gap-1 p-3 select-none"
+			className='shadow-lg shadow-neutral-950 hover:shadow-xl hover:shadow-neutral-950 rounded-sm snap-center bg-neutral-800 flex flex-col justify-between gap-1 p-3 select-none'
 		>
-			<div className="flex flex-col gap-1">
+			<div className='flex flex-col gap-1'>
 				<Image
-					loading="lazy"
+					loading='lazy'
 					src={imageUrl}
 					alt={imageAlt}
 					style={{ objectFit: 'cover' }}
 					width={500}
 					height={500}
-					className="mx-auto w-full aspect-[16/9] rounded-sm hover:cursor-pointer hover:shadow-xl"
+					className='mx-auto w-full aspect-[16/9] rounded-sm hover:cursor-pointer hover:shadow-xl'
 					onClick={() => setModalOpen(true)}
 					// priority
 				/>
-				{/* <div className="flex items-center justify-between"> */}
-				<h2 className="text-md font-semibold">{title}</h2>
-				{/* <p>{content}</p> */}
-				{/* </div> */}
-				<div className="flex items-center gap-1 text-neutral-400 ">
+				<div className='flex items-center justify-between'>
+					<h2 className='text-md font-semibold'>{title}</h2>
+					{user && (
+						<motion.div
+							whileTap={{ scale: 0.9 }}
+							initial={{ scale: 0 }}
+							animate={{ rotate: 360, scale: 1 }}
+							transition={{
+								type: 'spring',
+								stiffness: 260,
+								damping: 20,
+							}}
+							whileHover={{ scale: 1.1 }}
+						>
+							<Link
+								href={`/admin?imageUrl=${encodeURIComponent(imageUrl)}`}
+								passHref
+							>
+								<SwapImageSVG />
+							</Link>
+						</motion.div>
+					)}
+				</div>
+				<div className='flex items-center gap-1 text-neutral-400 '>
 					<ClockSVG />
-					<p className="text-xs italic">{timeAgo}</p>
+					<p className='text-xs italic'>{timeAgo}</p>
 				</div>
 			</div>
 			{isModalOpen && (
@@ -100,9 +120,9 @@ export const NewsCard = ({
 				/>
 			)}
 			{user && isDeleteConfirmed ? (
-				<div className="flex justify-between gap-3">
-					<p className="italic">Are you sure?</p>
-					<div className="flex items-center justify-center gap-3">
+				<div className='flex justify-between gap-3'>
+					<p className='italic animate-pulse text-red-500'>Are you sure?</p>
+					<div className='flex items-center justify-center gap-3 animate-pulse'>
 						<button onClick={handleDelete}>
 							<motion.div
 								// whileHover={{ scale: 1.1 }}
@@ -138,7 +158,7 @@ export const NewsCard = ({
 					</div>
 				</div>
 			) : user ? (
-				<div className="flex justify-center gap-3">
+				<div className='flex justify-center items-center gap-3'>
 					<motion.div
 						whileTap={{ scale: 0.9 }}
 						initial={{ scale: 0 }}
@@ -149,15 +169,14 @@ export const NewsCard = ({
 							damping: 20,
 						}}
 						whileHover={{ scale: 1.1 }}
-						// onClick={() => toast.success('You cannot edit yet')}
 					>
 						<Link
 							href={`/admin?id=${id}&title=${encodeURIComponent(
 								title
 							)}&content=${encodeURIComponent(
 								content
-							)}&imageUrl=${encodeURIComponent(
-								imageUrl
+								// )}&imageUrl=${encodeURIComponent(
+								// 	imageUrl
 							)}&imageAlt=${encodeURIComponent(imageAlt)}`}
 							passHref
 						>

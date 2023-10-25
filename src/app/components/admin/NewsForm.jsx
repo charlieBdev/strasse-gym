@@ -16,11 +16,13 @@ import {
 // import Image from 'next/image';
 // import { TinyMCEEditor } from '../admin/TinyMCEEditor';
 
-export const NewsForm = ({ newsToEdit }) => {
+export const NewsForm = ({ newsToEdit, imageUrl }) => {
 	const isEditMode = !!newsToEdit.id;
+	const isImageEditMode = !!imageUrl;
 	const fileInputRef = useRef(null);
 
-	console.log(newsToEdit.imageUrl);
+	console.log(isImageEditMode, 'isImageEditMode');
+	console.log(isEditMode, 'isEditMode');
 
 	const [isUploadingFile, setIsUploadingFile] = useState(false);
 	const [fileUploaded, setFileUploaded] = useState(false);
@@ -54,19 +56,21 @@ export const NewsForm = ({ newsToEdit }) => {
 
 	const validate = () => {
 		let errors = {};
-		if (!title) {
-			errors.title = 'Title is required';
-		}
-		if (!content) {
-			errors.content = 'Content is required';
+		if (!isImageEditMode) {
+			if (!title) {
+				errors.title = 'Title is required';
+			}
+			if (!content) {
+				errors.content = 'Content is required';
+			}
+			if (!imageAlt) {
+				errors.imageAlt = 'Image alt is required';
+			}
 		}
 		if (!isEditMode) {
 			if (!file) {
 				errors.file = 'Please choose an image file';
 			}
-		}
-		if (!imageAlt) {
-			errors.imageAlt = 'Image alt is required';
 		}
 		return errors;
 	};
@@ -80,7 +84,11 @@ export const NewsForm = ({ newsToEdit }) => {
 			return setErrors(errors);
 		}
 
-		if (!isEditMode) {
+		// Edit Image
+		if (isImageEditMode) {
+			toast.success('Edit Image Mode - not done yet');
+			// Add News
+		} else if (!isEditMode && !isImageEditMode) {
 			// if (!file) {
 			// 	setErrors({ file: 'Please choose an image file' });
 			// }
@@ -137,6 +145,7 @@ export const NewsForm = ({ newsToEdit }) => {
 					}
 				}
 			);
+			// Edit News
 		} else if (isEditMode) {
 			setIsSubmittingForm(true);
 			try {
@@ -152,7 +161,6 @@ export const NewsForm = ({ newsToEdit }) => {
 			} finally {
 				setIsSubmittingForm(false);
 			}
-			// toast.success('In edit mode!');
 		}
 	};
 
@@ -165,34 +173,42 @@ export const NewsForm = ({ newsToEdit }) => {
 				className='bg-neutral-800 flex flex-col items-center justify-center gap-3 rounded-lg p-3 w-full'
 				onSubmit={handleSubmit}
 			>
-				<h2>{isEditMode ? 'Edit' : 'Add'} News</h2>
-				<input
-					type='text'
-					placeholder='Add a title'
-					className={`${
-						title.length ? ' bg-green-500' : ''
-					} rounded-lg px-2 py-1 text-neutral-950 w-full`}
-					value={title}
-					name='title'
-					onChange={handleChange}
-				/>
-				{errors.title && title.length === 0 && (
-					<p className='text-red-500'>{errors.title}</p>
-				)}
-				{/* <TinyMCEEditor content={content} setContent={setContent} /> */}
-				<textarea
-					rows='9'
-					type='text'
-					placeholder='Add content'
-					className={`${
-						content.length ? 'bg-green-500' : ''
-					} rounded-lg px-2 py-1 text-neutral-950 w-full resize-none`}
-					value={content}
-					name='content'
-					onChange={handleChange}
-				/>
-				{errors.content && content.length === 0 && (
-					<p className='text-red-500'>{errors.content}</p>
+				<h2>
+					{isEditMode && 'Edit News'}
+					{isImageEditMode && 'Change Image'}
+					{!isEditMode && !isImageEditMode && 'Add News'}
+				</h2>
+				{!isImageEditMode && (
+					<>
+						<input
+							type='text'
+							placeholder='Add a title'
+							className={`${
+								title.length ? ' bg-green-500' : ''
+							} rounded-lg px-2 py-1 text-neutral-950 w-full`}
+							value={title}
+							name='title'
+							onChange={handleChange}
+						/>
+						{errors.title && title.length === 0 && (
+							<p className='text-red-500'>{errors.title}</p>
+						)}
+						{/* <TinyMCEEditor content={content} setContent={setContent} /> */}
+						<textarea
+							rows='9'
+							type='text'
+							placeholder='Add content'
+							className={`${
+								content.length ? 'bg-green-500' : ''
+							} rounded-lg px-2 py-1 text-neutral-950 w-full resize-none`}
+							value={content}
+							name='content'
+							onChange={handleChange}
+						/>
+						{errors.content && content.length === 0 && (
+							<p className='text-red-500'>{errors.content}</p>
+						)}
+					</>
 				)}
 				{!isEditMode && (
 					<input
@@ -210,19 +226,24 @@ export const NewsForm = ({ newsToEdit }) => {
 				{isUploadingFile && progress < 100 && (
 					<p>Uploading image... {Math.floor(progress)}%</p>
 				)}
-				<input
-					type='text'
-					placeholder='Add an image description'
-					className={`${
-						imageAlt.length ? 'bg-green-500' : ''
-					} rounded-lg px-2 py-1 text-neutral-950 w-full`}
-					value={imageAlt}
-					name='imageAlt'
-					onChange={handleChange}
-				/>
-				{errors.imageAlt && imageAlt.length === 0 && (
-					<p className='text-red-500'>{errors.imageAlt}</p>
+				{!isImageEditMode && (
+					<>
+						<input
+							type='text'
+							placeholder='Add an image description'
+							className={`${
+								imageAlt.length ? 'bg-green-500' : ''
+							} rounded-lg px-2 py-1 text-neutral-950 w-full`}
+							value={imageAlt}
+							name='imageAlt'
+							onChange={handleChange}
+						/>
+						{errors.imageAlt && imageAlt.length === 0 && (
+							<p className='text-red-500'>{errors.imageAlt}</p>
+						)}
+					</>
 				)}
+
 				<motion.button
 					className='bg-neutral-50 hover:bg-neutral-900 text-neutral-900 hover:text-neutral-50 hover:ring-2 hover:ring-neutral-50 ring-inset font-medium rounded-full px-3 py-1 mx-auto'
 					// whileHover={{ scale: 1.1 }}
@@ -230,10 +251,16 @@ export const NewsForm = ({ newsToEdit }) => {
 					// disabled={progress !== null && progress < 100}
 					disabled={isUploadingFile || isSubmittingForm}
 				>
-					{isEditMode ? 'Edit' : 'Add'}
+					{isEditMode ? 'Edit' : isImageEditMode ? 'Change Image' : 'Add'}
 				</motion.button>
 				{isSubmittingForm && (
-					<p>{isEditMode ? 'Editing' : ' Adding'} news...</p>
+					<p>
+						{isEditMode
+							? 'Editing news...'
+							: isImageEditMode
+							? 'Changing image...'
+							: 'Adding news...'}
+					</p>
 				)}
 			</form>
 			{/* )} */}

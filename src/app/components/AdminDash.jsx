@@ -11,8 +11,6 @@ import { motion } from 'framer-motion';
 import { NewsForm } from '../components/admin/NewsForm';
 
 export const AdminDash = (props) => {
-	const newsToEdit = props;
-	console.log(newsToEdit);
 	const { user } = useAuthContext();
 	const userChopped = user.email.split('@')[0];
 	const router = useRouter();
@@ -35,9 +33,9 @@ export const AdminDash = (props) => {
 	};
 
 	return (
-		<div className="h-[100dvh] flex flex-col items-center justify-center">
-			<div className="w-full flex items-center justify-between border-b-2 h-20 px-6 md:px-16 lg:px-24 xl:px-32">
-				<div className="flex items-center gap-3">
+		<div className='h-[100dvh] flex flex-col items-center justify-center'>
+			<div className='w-full flex items-center justify-between border-b-2 h-20 px-6 md:px-16 lg:px-24 xl:px-32'>
+				<div className='flex items-center gap-3'>
 					<motion.button
 						onClick={() => router.push('/')}
 						whileTap={{ scale: 0.9 }}
@@ -51,10 +49,10 @@ export const AdminDash = (props) => {
 					>
 						<HomeSVG />
 					</motion.button>
-					<h2 className="font-black text-xl">STRASSE ADMIN</h2>
+					<h2 className='font-black text-xl'>ADMIN</h2>
 				</div>
 
-				<div className="flex items-center gap-3">
+				<div className='flex items-center gap-3'>
 					<p>{userChopped}</p>
 					<motion.button
 						onClick={handleLogout}
@@ -71,8 +69,8 @@ export const AdminDash = (props) => {
 					</motion.button>
 				</div>
 			</div>
-			<div className="h-[calc(100%-5rem)] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32">
-				<NewsForm {...newsToEdit} />
+			<div className='h-[calc(100%-5rem)] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32'>
+				<NewsForm {...props} />
 			</div>
 		</div>
 	);

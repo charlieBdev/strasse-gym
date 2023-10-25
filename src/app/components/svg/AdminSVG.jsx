@@ -6,7 +6,7 @@ export const AdminSVG = () => {
 			viewBox='0 0 24 24'
 			strokeWidth={1.5}
 			stroke='currentColor'
-			className='w-8 h-8 md:hidden p-1 rounded-full'
+			className='w-8 h-8 md:hidden p-1 rounded-full hover:bg-neutral-800'
 		>
 			<path
 				strokeLinecap='round'
