@@ -181,12 +181,12 @@ export const NewsForm = ({ newsToEdit }) => {
 				)}
 				{/* <TinyMCEEditor content={content} setContent={setContent} /> */}
 				<textarea
-					rows='4'
+					rows='9'
 					type='text'
 					placeholder='Add content'
 					className={`${
 						content.length ? 'bg-green-500' : ''
-					} rounded-lg px-2 py-1 text-neutral-950 w-full`}
+					} rounded-lg px-2 py-1 text-neutral-950 w-full resize-none`}
 					value={content}
 					name='content'
 					onChange={handleChange}
