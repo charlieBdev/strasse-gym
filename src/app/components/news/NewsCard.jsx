@@ -149,9 +149,9 @@ export const NewsCard = ({
 							damping: 20,
 						}}
 						whileHover={{ scale: 1.1 }}
-						onClick={() => toast.success('You cannot edit yet')}
+						// onClick={() => toast.success('You cannot edit yet')}
 					>
-						{/* <Link
+						<Link
 							href={`/admin?id=${id}&title=${encodeURIComponent(
 								title
 							)}&content=${encodeURIComponent(
@@ -160,9 +160,9 @@ export const NewsCard = ({
 								imageUrl
 							)}&imageAlt=${encodeURIComponent(imageAlt)}`}
 							passHref
-						> */}
-						<EditSVG />
-						{/* </Link> */}
+						>
+							<EditSVG />
+						</Link>
 					</motion.div>
 					<motion.div
 						whileTap={{ scale: 0.9 }}
