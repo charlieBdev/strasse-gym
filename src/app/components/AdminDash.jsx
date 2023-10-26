@@ -5,14 +5,12 @@ import { motion } from 'framer-motion';
 import { NewsForm } from '../components/admin/NewsForm';
 import Link from 'next/link';
 import { AdminNav } from './admin/AdminNav';
-import { ImagePrompt } from './admin/ImagePrompt';
 
 export const AdminDash = (props) => {
 	return (
-		<div className='min-h-[100dvh] flex flex-col items-center justify-center'>
+		<div className='flex flex-col items-center justify-center'>
 			<AdminNav />
-			<div className='h-[calc(100%-5rem)] w-full flex flex-col items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32'>
-				<ImagePrompt />
+			<div className='min-h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32'>
 				<NewsForm {...props} />
 				{/* Back button */}
 				<motion.div

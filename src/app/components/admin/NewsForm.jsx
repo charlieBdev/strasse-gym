@@ -1,5 +1,6 @@
 'use client';
 
+import { ChangeHero } from '../admin/ChangeHero';
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { toast } from 'sonner';
@@ -234,10 +235,13 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 	};
 
 	return (
-		<div className='w-full md:max-w-lg flex flex-col items-center justify center gap-1'>
+		<div className='w-full md:max-w-lg flex flex-col items-center justify center gap-3'>
 			{/* {isSubmittingForm ? (
 				<Loading />
 			) : ( */}
+
+			{!isEditMode && !isImageEditMode && <ChangeHero />}
+
 			<form
 				className='bg-neutral-800 flex flex-col items-center justify-center gap-3 rounded-lg p-3 w-full'
 				onSubmit={handleSubmit}
