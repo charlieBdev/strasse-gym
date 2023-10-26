@@ -25,7 +25,7 @@ export const Hero = () => {
 							</li>
 						))}
 					</ul>
-					<h3 className='text-sm'>@ Meersbrooke, Sheffield.</h3>
+					<h3 className='text-sm'>@ Meersbrooke, Sheffield</h3>
 					<Link href='#contact' className='mx-auto'>
 						<Button text='Get in touch' />
 					</Link>

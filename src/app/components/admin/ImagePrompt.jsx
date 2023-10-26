@@ -36,8 +36,9 @@ export const ImagePrompt = () => {
 			try {
 				const generatedImages = await generateImg(imagePrompt);
 				setGeneratedImages(generatedImages);
-				console.log(generatedImages, '<<< generatedImages');
-				toast.success('Images generated!');
+				if (generatedImages) {
+					toast.success('Images generated!');
+				}
 			} catch (error) {
 				toast.error('Error generating images');
 			} finally {
@@ -64,18 +65,22 @@ export const ImagePrompt = () => {
 					<p>Please enter a prompt</p>
 				</div>
 			)}
-			{generatedImages?.data?.length &&
-				generatedImages.data.map((image) => (
-					<Image
-						key={image.url}
-						src={image.url}
-						alt={imagePrompt}
-						height={500}
-						width={500}
-					/>
-				))}
+			<div className='grid grid-cols-3 gap-3'>
+				{generatedImages?.data?.length &&
+					generatedImages.data.map((image) => (
+						<Image
+							key={image.url}
+							src={image.url}
+							alt={imagePrompt}
+							height={400}
+							width={400}
+							className='hover:cursor-pointer'
+						/>
+					))}
+			</div>
+
 			{isGenerating && (
-				<p className='animate-pulse text-yellow-500'>Generating image...</p>
+				<p className='animate-pulse text-yellow-500'>Generating images...</p>
 			)}
 			<motion.button
 				onClick={handleClick}
