@@ -253,8 +253,8 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 							type='text'
 							placeholder='Add a title'
 							className={`${
-								title.length ? ' bg-green-500' : ''
-							} rounded-lg px-2 py-1 text-neutral-950 w-full`}
+								title.length ? ' border-2 border-green-500' : ''
+							} rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
 							value={title}
 							name='title'
 							onChange={handleChange}
@@ -271,8 +271,8 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 							type='text'
 							placeholder='Add content'
 							className={`${
-								content.length ? 'bg-green-500' : ''
-							} rounded-lg px-2 py-1 text-neutral-950 w-full resize-none`}
+								content.length ? 'border-2 border-green-500' : ''
+							} rounded-lg px-2 py-1 text-neutral-950 w-full resize-none focus:outline-none  bg-neutral-200 focus:bg-neutral-50`}
 							value={content}
 							name='content'
 							onChange={handleChange}
@@ -290,7 +290,7 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 						type='file'
 						accept='image/*'
 						className={`${
-							file ? 'bg-green-500 text-neutral-950' : ''
+							file ? 'border-2 border-green-500' : ''
 						} rounded-lg w-full`}
 						onChange={(e) => setFile(e.target.files[0])}
 						disabled={isUploadingFile || isSubmittingForm}
@@ -312,8 +312,8 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 							type='text'
 							placeholder='Add an image description'
 							className={`${
-								imageAlt.length ? 'bg-green-500' : ''
-							} rounded-lg px-2 py-1 text-neutral-950 w-full`}
+								imageAlt.length ? 'border-2 border-green-500' : ''
+							} rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
 							value={imageAlt}
 							name='imageAlt'
 							onChange={handleChange}
