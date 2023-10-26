@@ -20,9 +20,13 @@ export default function Admin() {
 		imageAlt,
 		// imageUrl,
 	};
+	const imageToEdit = {
+		id,
+		imageUrl,
+	};
 
 	if (user) {
-		return <AdminDash newsToEdit={newsToEdit} imageUrl={imageUrl} />;
+		return <AdminDash newsToEdit={newsToEdit} imageToEdit={imageToEdit} />;
 	} else {
 		return <Login />;
 	}

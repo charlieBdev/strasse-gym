@@ -4,7 +4,12 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { toast } from 'sonner';
 import { storage, db } from '../../../../config';
-import { ref, getDownloadURL, uploadBytesResumable } from '@firebase/storage';
+import {
+	ref,
+	getDownloadURL,
+	uploadBytesResumable,
+	deleteObject,
+} from '@firebase/storage';
 import {
 	addDoc,
 	collection,
@@ -12,17 +17,18 @@ import {
 	doc,
 	updateDoc,
 } from 'firebase/firestore';
+import { WarningSVG } from '../svg/WarningSVG';
 // import { Loading } from '../Loading';
 // import Image from 'next/image';
 // import { TinyMCEEditor } from '../admin/TinyMCEEditor';
 
-export const NewsForm = ({ newsToEdit, imageUrl }) => {
-	const isEditMode = !!newsToEdit.id;
-	const isImageEditMode = !!imageUrl;
+export const NewsForm = ({ newsToEdit, imageToEdit }) => {
+	const isEditMode = !!newsToEdit.title;
+	const isImageEditMode = !!imageToEdit.imageUrl;
 	const fileInputRef = useRef(null);
 
-	console.log(isImageEditMode, 'isImageEditMode');
-	console.log(isEditMode, 'isEditMode');
+	// console.log(isImageEditMode, 'isImageEditMode');
+	// console.log(isEditMode, 'isEditMode');
 
 	const [isUploadingFile, setIsUploadingFile] = useState(false);
 	const [fileUploaded, setFileUploaded] = useState(false);
@@ -86,7 +92,70 @@ export const NewsForm = ({ newsToEdit, imageUrl }) => {
 
 		// Edit Image
 		if (isImageEditMode) {
-			toast.success('Edit Image Mode - not done yet');
+			setIsUploadingFile(true);
+
+			const name = new Date().getTime() + `_${file.name}`;
+			const storageRef = ref(storage, '/news/' + name);
+			const uploadTask = uploadBytesResumable(storageRef, file);
+
+			uploadTask.on(
+				'state_changed',
+				(snapshot) => {
+					const progress =
+						(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+					setProgress(progress);
+					// switch (snapshot.state) {
+					// 	case 'paused':
+					// 		console.log('Upload is paused');
+					// 		break;
+					// 	case 'running':
+					// 		console.log('Upload is running');
+					// 		break;
+					// 	default:
+					// 		break;
+					// }
+				},
+				// unnsuccessful image uploads
+				(error) => {
+					console.log(error);
+					setIsUploadingFile(false);
+					return toast.error('Error uploading image file');
+				},
+				// successful image uploads
+				async () => {
+					setIsUploadingFile(false);
+					setFileUploaded(true);
+					setIsSubmittingForm(true);
+
+					try {
+						const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+						const newsRef = doc(db, 'news', imageToEdit.id);
+						await updateDoc(newsRef, {
+							imageUrl: downloadURL,
+						});
+
+						// Delete old image
+						if (imageToEdit.imageUrl !== downloadURL) {
+							try {
+								const deleteRef = ref(storage, imageToEdit.imageUrl);
+								await deleteObject(deleteRef);
+								toast.success('Old image deleted!');
+							} catch (error) {
+								toast.error('Error deleting old image');
+							}
+						}
+
+						toast.success('Image updated!');
+						clearForm();
+					} catch (error) {
+						return toast.error('Error updating news in Firestore');
+					} finally {
+						setIsSubmittingForm(false);
+					}
+				}
+			);
+
 			// Add News
 		} else if (!isEditMode && !isImageEditMode) {
 			// if (!file) {
@@ -191,7 +260,10 @@ export const NewsForm = ({ newsToEdit, imageUrl }) => {
 							onChange={handleChange}
 						/>
 						{errors.title && title.length === 0 && (
-							<p className='text-red-500'>{errors.title}</p>
+							<div className='flex justify-center items-center gap-1 text-orange-500'>
+								<WarningSVG />
+								<p>{errors.title}</p>
+							</div>
 						)}
 						{/* <TinyMCEEditor content={content} setContent={setContent} /> */}
 						<textarea
@@ -206,7 +278,10 @@ export const NewsForm = ({ newsToEdit, imageUrl }) => {
 							onChange={handleChange}
 						/>
 						{errors.content && content.length === 0 && (
-							<p className='text-red-500'>{errors.content}</p>
+							<div className='flex justify-center items-center gap-1 text-orange-500'>
+								<WarningSVG />
+								<p>{errors.content}</p>
+							</div>
 						)}
 					</>
 				)}
@@ -222,7 +297,12 @@ export const NewsForm = ({ newsToEdit, imageUrl }) => {
 						ref={fileInputRef}
 					/>
 				)}
-				{errors.file && !file && <p className='text-red-500'>{errors.file}</p>}
+				{errors.file && !file && (
+					<div className='flex justify-center items-center gap-1 text-orange-500'>
+						<WarningSVG />
+						<p>{errors.file}</p>
+					</div>
+				)}
 				{isUploadingFile && progress < 100 && (
 					<p>Uploading image... {Math.floor(progress)}%</p>
 				)}
@@ -239,7 +319,10 @@ export const NewsForm = ({ newsToEdit, imageUrl }) => {
 							onChange={handleChange}
 						/>
 						{errors.imageAlt && imageAlt.length === 0 && (
-							<p className='text-red-500'>{errors.imageAlt}</p>
+							<div className='flex justify-center items-center gap-1 text-orange-500'>
+								<WarningSVG />
+								<p>{errors.imageAlt}</p>
+							</div>
 						)}
 					</>
 				)}

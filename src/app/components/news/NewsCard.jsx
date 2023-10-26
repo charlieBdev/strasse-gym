@@ -95,7 +95,9 @@ export const NewsCard = ({
 							whileHover={{ scale: 1.1 }}
 						>
 							<Link
-								href={`/admin?imageUrl=${encodeURIComponent(imageUrl)}`}
+								href={`/admin?id=${id}&imageUrl=${encodeURIComponent(
+									imageUrl
+								)}`}
 								passHref
 							>
 								<SwapImageSVG />

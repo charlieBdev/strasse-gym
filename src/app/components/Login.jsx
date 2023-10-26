@@ -29,38 +29,38 @@ export const Login = () => {
 
 	const handleReset = async (e) => {
 		e.preventDefault();
-		toast.error('No mwhuahahaha');
+		toast.error('Cannot do this yet');
 	};
 
 	return (
 		<form
 			onSubmit={handleLogin}
-			className="w-full h-[100dvh] flex flex-col items-center justify-center rounded-lg shadow-lg gap-6 p-6 md:px-16 lg:px-24 xl:px-32 mx-auto"
+			className='w-full h-[100dvh] flex flex-col items-center justify-center rounded-lg shadow-lg gap-6 p-6 md:px-16 lg:px-24 xl:px-32 mx-auto'
 		>
 			<p>Admin Login</p>
 			<input
-				type="email"
-				placeholder="Email"
+				type='email'
+				placeholder='Email'
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
-				className="w-72 p-2 rounded-lg mb-3 text-neutral-950 placeholder:italic"
+				className='w-72 p-2 rounded-lg mb-3 text-neutral-950 placeholder:italic'
 			/>
 			<input
-				type="password"
-				placeholder="Password"
+				type='password'
+				placeholder='Password'
 				value={password}
 				onChange={(e) => setPassword(e.target.value)}
-				className="w-72 p-2 rounded-lg mb-3 text-neutral-950 placeholder:italic"
+				className='w-72 p-2 rounded-lg mb-3 text-neutral-950 placeholder:italic'
 			/>
 			<motion.button
-				className="bg-blue-600 hover:bg-blue-400 text-neutral-50 font-medium rounded-full px-3 py-1 mx-auto"
+				className='bg-blue-600 hover:bg-blue-400 text-neutral-50 font-medium rounded-full px-3 py-1 mx-auto'
 				whileHover={{ scale: 1.1 }}
 				whileTap={{ scale: 0.9 }}
 			>
 				Log In
 			</motion.button>
 			<motion.button
-				className="text-blue-600 hover:underline"
+				className='text-blue-600 hover:underline'
 				// whileHover={{ scale: 1.1 }}
 				// whileTap={{ scale: 0.9 }}
 				onClick={handleReset}
@@ -77,7 +77,7 @@ export const Login = () => {
 					damping: 20,
 				}}
 			>
-				<Link href="/">
+				<Link href='/'>
 					<BackSVG />
 				</Link>
 			</motion.div>
