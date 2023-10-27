@@ -18,16 +18,37 @@ export const News = () => {
 
 	const [news, setNews] = useState([]);
 	const [loadingNews, setLoadingNews] = useState(true);
-	// const [errorFetchingNews, setErrorFetchingNews] = useState(null);
+	const [errorFetchingNews, setErrorFetchingNews] = useState(null);
+	const [lastDocument, setLastDocument] = useState(null);
+	const [lastDocId, setLastDocId] = useState(null);
+
+	const hasMore = lastDocument && lastDocument.id !== lastDocId;
+	console.log(lastDocument?.id, lastDocId, hasMore, '<<< hasMore');
 
 	const removeFromUI = (id) => {
 		setNews((prevNews) => prevNews.filter((item) => item.id !== id));
 	};
 
+	const handleLoadMore = async () => {
+		try {
+			if (lastDocument && hasMore) {
+				const { data: additionalNews } = await fetchNews(lastDocument);
+				setNews((prevNews) => [...prevNews, ...additionalNews]);
+				setLastDocument(additionalNews[additionalNews.length - 1]);
+			}
+		} catch (error) {
+			setErrorFetchingNews(true);
+		}
+	};
+
 	useEffect(() => {
 		fetchNews()
-			.then((data) => {
-				setNews(data);
+			.then(({ data, lastId }) => {
+				setLastDocId(lastId);
+				if (data.length > 0) {
+					setNews(data);
+					setLastDocument(data[data.length - 1]);
+				}
 				setLoadingNews(false);
 			})
 			.catch((error) => {
@@ -54,9 +75,17 @@ export const News = () => {
 						))}
 					</motion.div>
 				)}
-				<p className='text-neutral-500 text-xs italic'>
-					{news.length} articles loaded
-				</p>
+				{loadingNews ? (
+					<p>Loading news...</p>
+				) : (
+					<>
+						<p className='text-neutral-500 text-xs italic'>
+							{hasMore ? `${news.length} articles loaded` : 'All news loaded'}
+						</p>
+						{hasMore && <button onClick={handleLoadMore}>Load More</button>}
+					</>
+				)}
+
 				{user && (
 					<motion.div
 						whileTap={{ scale: 0.9 }}
