@@ -23,7 +23,6 @@ export const News = () => {
 	const [lastDocId, setLastDocId] = useState(null);
 
 	const hasMore = lastDocument && lastDocument.id !== lastDocId;
-	console.log(lastDocument?.id, lastDocId, hasMore, '<<< hasMore');
 
 	const removeFromUI = (id) => {
 		setNews((prevNews) => prevNews.filter((item) => item.id !== id));
@@ -82,7 +81,16 @@ export const News = () => {
 						<p className='text-neutral-500 text-xs italic'>
 							{hasMore ? `${news.length} articles loaded` : 'All news loaded'}
 						</p>
-						{hasMore && <button onClick={handleLoadMore}>Load More</button>}
+						<motion.button
+							className={`rounded-full px-3 py-1 ${
+								!hasMore ? 'text-neutral-500' : 'hover:bg-neutral-800'
+							}`}
+							onClick={handleLoadMore}
+							whileTap={{ scale: 0.9 }}
+							disabled={!hasMore}
+						>
+							{hasMore ? 'Load more' : 'No more'}
+						</motion.button>
 					</>
 				)}
 
