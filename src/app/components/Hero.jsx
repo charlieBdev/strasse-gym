@@ -22,7 +22,7 @@ export const Hero = () => {
 		>
 			<div></div>
 			<div className='flex flex-col md:flex-row items-center justify-center w-full gap-3'>
-				<div className='flex flex-col gap-6 w-full select-none bg-neutral-950 opacity-90 p-3 rounded-lg'>
+				<div className='flex flex-col gap-6 w-full select-none bg-neutral-950 opacity-90 p-3 drop-shadow-xl rounded-lg'>
 					<h2 className='text-xl md:text-2xl lg:text-3xl xl:text-4xl italic uppercase'>
 						{mainText}
 					</h2>
