@@ -40,7 +40,7 @@ export const Hero = () => {
 					alt="Two men competing in a BJJ competition on the floor. One, on the bottom, looks like but isn't Craig."
 					width={750}
 					height={750}
-					className='rounded-sm w-full md:w-1/2 aspect-[16/9] shadow-xl shadow-neutral-950'
+					className='rounded-sm h-full w-full md:w-1/2 aspect-[16/9] shadow-xl shadow-neutral-950'
 				/>
 			</div>
 			<UpDown href={'news'} direction={'down'} bounce={true} />
