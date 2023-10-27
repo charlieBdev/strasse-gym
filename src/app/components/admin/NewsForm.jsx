@@ -30,9 +30,9 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 	// console.log(isImageEditMode, 'isImageEditMode');
 	// console.log(isEditMode, 'isEditMode');
 
-	const [isUploadingFile, setIsUploadingFile] = useState(false);
 	const [fileUploaded, setFileUploaded] = useState(false);
 	const [isSubmittingForm, setIsSubmittingForm] = useState(false);
+	const [isUploadingFile, setIsUploadingFile] = useState(false);
 	const [progress, setProgress] = useState(null);
 	const [errors, setErrors] = useState({});
 
@@ -271,7 +271,6 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 								<p>{errors.title}</p>
 							</div>
 						)}
-						{/* <TinyMCEEditor content={content} setContent={setContent} /> */}
 						<textarea
 							rows='9'
 							type='text'
@@ -310,7 +309,13 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 					</div>
 				)}
 				{isUploadingFile && progress < 100 && (
-					<p>Uploading image... {Math.floor(progress)}%</p>
+					// <p>Uploading image... {Math.floor(progress)}%</p>
+					<progress
+						value={Math.floor(progress)}
+						max='100'
+						className='w-full'
+						aria-label='Content loading…'
+					></progress>
 				)}
 				{!isImageEditMode && (
 					<>
