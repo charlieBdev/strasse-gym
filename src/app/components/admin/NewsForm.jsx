@@ -21,7 +21,6 @@ import {
 import { WarningSVG } from '../svg/WarningSVG';
 // import { Loading } from '../Loading';
 // import Image from 'next/image';
-// import { TinyMCEEditor } from '../admin/TinyMCEEditor';
 
 export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 	const isEditMode = !!newsToEdit.title;
