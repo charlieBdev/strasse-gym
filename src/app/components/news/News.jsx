@@ -1,7 +1,6 @@
 'use client';
 
 // import { dummyNews } from '../../dummyData/dummyNews';
-import { ScrollingNews } from './ScrollingNews';
 import { useEffect, useRef, useState } from 'react';
 import { fetchNews } from '../../utils/fetchNews';
 import { Loading } from '../Loading';
@@ -36,9 +35,6 @@ export const News = () => {
 			});
 	}, []);
 
-	// const scrollingNews =
-	// 	'Welcome to Strasse News! Scroll right below to see announcements, seminar pictures, plus more!';
-
 	return (
 		<section
 			id='news'
@@ -49,7 +45,6 @@ export const News = () => {
 			<div className='flex flex-col items-center justify-center gap-3'>
 				<SectionHeading heading={'STRASSE NEWS'} />
 				<p>{subheading}</p>
-				{/* <ScrollingNews text={scrollingNews} /> */}
 				{loadingNews ? (
 					<Loading />
 				) : (
@@ -60,7 +55,7 @@ export const News = () => {
 					</motion.div>
 				)}
 				<p className='text-neutral-500 text-xs italic'>
-					{news.length} articles found
+					{news.length} articles loaded
 				</p>
 				{user && (
 					<motion.div

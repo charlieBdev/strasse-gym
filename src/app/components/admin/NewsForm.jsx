@@ -185,6 +185,9 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 					// 	default:
 					// 		break;
 					// }
+					if (progress === 100) {
+						toast.success('Image uploaded!');
+					}
 				},
 				// unnsuccessful image uploads
 				(error) => {
@@ -209,7 +212,7 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 						toast.success('News added!');
 						clearForm();
 					} catch (error) {
-						return toast.error('Error adding news (Firestore)');
+						return toast.error('Error adding news to Firestore');
 					} finally {
 						setIsSubmittingForm(false);
 					}
