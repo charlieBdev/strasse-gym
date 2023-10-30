@@ -14,7 +14,7 @@ export const Hero = () => {
 	const [heroUrl, setHeroUrl] = useState('');
 	const backgroundImageUrl = '/hero.jpg';
 	const mainText = 'Unleash Your Inner Warrior!';
-	const classes = ['Kickboxing', 'BJJ', 'KAPAP'];
+	const classes = ['BJJ', 'Kickboxing', 'KAPAP'];
 
 	useEffect(() => {
 		const loadHero = async () => {
@@ -40,10 +40,8 @@ export const Hero = () => {
 		>
 			<div></div>
 			<div className='flex flex-col md:flex-row items-center justify-center w-full gap-3'>
-				<div className='flex flex-col gap-10 w-full select-none bg-neutral-950 opacity-90 p-3 drop-shadow-xl rounded-lg'>
-					<h2 className='text-lg md:text-xl lg:text-2xl xl:text-3xl italic uppercase'>
-						"{mainText}"
-					</h2>
+				<div className='text-center text-lg md:text-xl lg:text-2xl xl:text-3xl flex flex-col gap-10 w-full select-none bg-neutral-950 opacity-90 p-6 drop-shadow-xl rounded-lg'>
+					<h2 className='uppercase'>{mainText}</h2>
 					<ul className={`grid grid-cols-${classes.length} items-center`}>
 						{classes.map((classname, index) => (
 							<li
@@ -52,15 +50,15 @@ export const Hero = () => {
 									index === classes.length - 1
 										? ''
 										: 'border-neutral-800 border-r-2'
-								} text-center text-lg md:text-xl lg:text-2xl xl:text-3xl`}
+								}`}
 							>
 								{classname}
 							</li>
 						))}
 					</ul>
-					<h3 className='text-md md:text-lg lg:text-xl xl:text-2xl'>
+					{/* <h3 className='text-md md:text-lg lg:text-xl xl:text-2xl'>
 						@ Meersbrook, Sheffield
-					</h3>
+					</h3> */}
 					<Link href='#contact' className='mx-auto'>
 						<Button text='Get in touch' />
 					</Link>
