@@ -6,8 +6,8 @@ import { AuthContextProvider } from '../context/AuthContext';
 import './globals.css';
 import { Toaster } from 'sonner';
 import { play } from './fonts';
-import { metadata } from './metadata';
 import Head from 'next/head';
+import { metadata } from './metadata';
 
 export default function RootLayout({ children }) {
 	return (
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
 					sizes='16x16'
 					href='./favicon_io/favicon-16x16.png'
 				/>
-				<link rel='manifest' href='/site.webmanifest' />
+				<link rel='manifest' href='./favicon_io/site.webmanifest' />
 			</Head>
 			<body className={play.className}>
 				<NextUIProvider>

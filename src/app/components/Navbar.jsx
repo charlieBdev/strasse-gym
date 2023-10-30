@@ -42,7 +42,7 @@ export const Navbar = () => {
 							damping: 20,
 						}}
 					>
-						<span className='hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800'>
+						<span className='hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800 hover:bg-opacity-50'>
 							News
 						</span>
 						<NewsSVG />
@@ -60,7 +60,7 @@ export const Navbar = () => {
 							damping: 20,
 						}}
 					>
-						<span className='hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800'>
+						<span className='hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800 hover:bg-opacity-50'>
 							Timetable
 						</span>
 						<CalendarSVG />
@@ -78,7 +78,7 @@ export const Navbar = () => {
 							damping: 20,
 						}}
 					>
-						<span className='hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800'>
+						<span className='hidden md:block rounded-full px-3 py-1 hover:bg-neutral-800 hover:bg-opacity-50'>
 							Location
 						</span>
 						<PinSVG />
@@ -98,7 +98,7 @@ export const Navbar = () => {
 							}}
 							className={`${user ? 'text-green-500' : 'text-neutral-500'}`}
 						>
-							<span className='hidden md:block rounded-full px-3 py-1 select-none hover:bg-neutral-800'>
+							<span className='hidden md:block rounded-full px-3 py-1 select-none hover:bg-green-500 hover:bg-opacity-10'>
 								Admin
 							</span>
 							<AdminSVG />

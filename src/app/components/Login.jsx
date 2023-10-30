@@ -53,8 +53,9 @@ export const Login = () => {
 				className='w-72 p-2 rounded-lg mb-3 text-neutral-950 placeholder:italic'
 			/>
 			<motion.button
-				className='bg-blue-600 hover:bg-blue-400 text-neutral-50 font-medium rounded-full px-3 py-1 mx-auto'
-				whileHover={{ scale: 1.1 }}
+				// className='bg-blue-600 hover:bg-blue-400 text-neutral-50 font-medium rounded-full px-3 py-1 mx-auto'
+				className='bg-blue-600 text-neutral-900 hover:bg-blue-400 hover:ring-2 hover:ring-blue-600 ring-inset font-medium rounded-full px-3 py-1 mx-auto'
+				// whileHover={{ scale: 1.1 }}
 				whileTap={{ scale: 0.9 }}
 			>
 				Log In

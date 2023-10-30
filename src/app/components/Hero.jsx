@@ -7,8 +7,8 @@ import { UpDown } from './UpDown';
 
 export const Hero = () => {
 	const backgroundImageUrl = '/hero.jpg';
-	const mainText = 'Unleash Your Inner Warrior!';
-	const classes = ['Kickboxing', 'BJJ', 'KAPAP'];
+	const mainText = '"Unleash Your Inner Warrior!"';
+	const classes = ['Kickboxing', 'BJJ', 'KAPAP', 'Kids Classes'];
 
 	return (
 		<section
@@ -22,22 +22,26 @@ export const Hero = () => {
 		>
 			<div></div>
 			<div className='flex flex-col md:flex-row items-center justify-center w-full gap-3'>
-				<div className='flex flex-col gap-6 w-full select-none bg-neutral-950 opacity-90 p-3 drop-shadow-xl rounded-lg'>
-					<h2 className='text-xl md:text-2xl lg:text-3xl xl:text-4xl italic uppercase'>
+				<div className='flex flex-col gap-10 w-full select-none bg-neutral-950 opacity-90 p-3 drop-shadow-xl rounded-lg'>
+					<h2 className='text-lg md:text-xl lg:text-2xl xl:text-3xl italic uppercase'>
 						{mainText}
 					</h2>
-					<ul className='list-disc list-inside'>
-						{classes.map((classname) => (
+					<ul className='grid grid-cols-4 items-center'>
+						{classes.map((classname, index) => (
 							<li
 								key={classname}
-								className='text-lg md:text-xl lg:text-2xl xl:text-3xl'
+								className={`${
+									index === classes.length - 1
+										? ''
+										: 'border-neutral-800 border-r-2'
+								} text-center text-lg md:text-xl lg:text-2xl xl:text-3xl`}
 							>
 								{classname}
 							</li>
 						))}
 					</ul>
 					<h3 className='text-md md:text-lg lg:text-xl xl:text-2xl'>
-						Meersbrook, Sheffield
+						@ Meersbrook, Sheffield
 					</h3>
 					<Link href='#contact' className='mx-auto'>
 						<Button text='Get in touch' />
