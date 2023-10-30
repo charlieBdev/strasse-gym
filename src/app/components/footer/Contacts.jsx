@@ -24,7 +24,7 @@ export const Contacts = () => {
 	const whatsApp = `https://wa.me/${phone}`;
 
 	return (
-		<div className="flex flex-col lg:flex-row lg:justify-between lg:w-full items-center justify-center gap-6">
+		<div className='flex w-full justify-between items-center gap-6'>
 			<motion.a
 				// ref={ref}
 				// animate={controls}
@@ -34,11 +34,11 @@ export const Contacts = () => {
 				// 	visible: { ...onViewMotion.visible, transition: { delay: 0.25 } },
 				// }}
 				href={`tel:+44${Number(phone)}`}
-				className="flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-blue-500"
+				className='flex items-center justify-center mx-auto gap-1 p-1 px-3 rounded-full hover:bg-blue-500 hover:bg-opacity-10 text-blue-500'
 				whileTap={{ scale: 0.9 }}
 			>
 				<CallSVG />
-				<p>Call</p>
+				{/* <p>Call</p> */}
 			</motion.a>
 			<motion.a
 				// ref={ref}
@@ -49,11 +49,11 @@ export const Contacts = () => {
 				// 	visible: { ...onViewMotion.visible, transition: { delay: 0.5 } },
 				// }}
 				href={whatsApp}
-				className="flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-green-500"
+				className='flex items-center justify-center mx-auto gap-1 p-1 px-3 rounded-full hover:bg-green-500 hover:bg-opacity-10 text-green-500'
 				whileTap={{ scale: 0.9 }}
 			>
-				<AiOutlineWhatsApp className="w-6 h-6" />
-				<p>WhatsApp</p>
+				<AiOutlineWhatsApp className='w-6 h-6' />
+				{/* <p>WhatsApp</p> */}
 			</motion.a>
 			<motion.a
 				// ref={ref}
@@ -64,11 +64,11 @@ export const Contacts = () => {
 				// 	visible: { ...onViewMotion.visible, transition: { delay: 0.75 } },
 				// }}
 				href={`mailto:${email}`}
-				className="flex justify-center gap-1 p-1 px-3 rounded-full hover:bg-neutral-800 text-yellow-500"
+				className='flex items-center justify-center mx-auto gap-1 p-1 px-3 rounded-full hover:bg-yellow-500 hover:bg-opacity-10 text-yellow-500'
 				whileTap={{ scale: 0.9 }}
 			>
 				<EmailSVG />
-				<p>E-mail</p>
+				{/* <p>E-mail</p> */}
 			</motion.a>
 		</div>
 	);
