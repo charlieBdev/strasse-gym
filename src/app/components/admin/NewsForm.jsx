@@ -27,9 +27,6 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 	const isImageEditMode = !!imageToEdit.imageUrl;
 	const fileInputRef = useRef(null);
 
-	// console.log(isImageEditMode, 'isImageEditMode');
-	// console.log(isEditMode, 'isEditMode');
-
 	const [fileUploaded, setFileUploaded] = useState(false);
 	const [isSubmittingForm, setIsSubmittingForm] = useState(false);
 	const [isUploadingFile, setIsUploadingFile] = useState(false);
@@ -101,9 +98,9 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 			uploadTask.on(
 				'state_changed',
 				(snapshot) => {
-					const progress =
+					const snapshotProgress =
 						(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-					setProgress(progress);
+					setProgress(snapshotProgress);
 					// switch (snapshot.state) {
 					// 	case 'paused':
 					// 		console.log('Upload is paused');
@@ -184,9 +181,6 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 					// 	default:
 					// 		break;
 					// }
-					if (progress === 100) {
-						toast.success('Image uploaded!');
-					}
 				},
 				// unnsuccessful image uploads
 				(error) => {
@@ -196,6 +190,7 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 				},
 				// successful image uploads
 				async () => {
+					toast.success('Image uploaded!');
 					setIsUploadingFile(false);
 					setFileUploaded(true);
 					setIsSubmittingForm(true);
