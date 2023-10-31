@@ -41,7 +41,7 @@ export const Hero = () => {
 			<div></div>
 			<div className='flex flex-col md:flex-row items-center justify-center w-full gap-3'>
 				<div className='text-center text-lg md:text-xl lg:text-2xl xl:text-3xl flex flex-col gap-10 w-full select-none bg-neutral-950 opacity-90 p-6 drop-shadow-xl rounded-lg'>
-					<h2 className='uppercase'>{mainText}</h2>
+					<h2 className='opacity-100 uppercase'>{mainText}</h2>
 					<ul className={`grid grid-cols-${classes.length} items-center`}>
 						{classes.map((classname, index) => (
 							<li
@@ -49,8 +49,8 @@ export const Hero = () => {
 								className={`${
 									index === classes.length - 1
 										? ''
-										: 'border-neutral-800 border-r-2'
-								}`}
+										: 'border-neutral-600 border-r-2'
+								} opacity-100`}
 							>
 								{classname}
 							</li>
