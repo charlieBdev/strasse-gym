@@ -86,7 +86,7 @@ export const ChangeHero = () => {
 
 	return (
 		<div className='flex flex-col items-center justify-center gap-3 bg-neutral-800 rounded-lg p-3 w-full max-w-lg'>
-			<h2>Change Main Image</h2>
+			<h2>Change Hero</h2>
 			<input
 				type='file'
 				accept='image/*'

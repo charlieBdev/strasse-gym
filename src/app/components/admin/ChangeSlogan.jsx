@@ -59,7 +59,7 @@ export const ChangeSlogan = () => {
 				ref={inputRef}
 			/>
 			{errors.slogan && (
-				<div className='flex justify-center items-center gap-1 text-orange-500'>
+				<div className='flex items-center justify-center gap-1 text-orange-500'>
 					<WarningSVG />
 					<p>{errors.slogan}</p>
 				</div>

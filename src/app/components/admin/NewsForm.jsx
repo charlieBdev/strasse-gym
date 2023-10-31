@@ -233,16 +233,9 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 	};
 
 	return (
-		<div className='w-full md:max-w-lg flex flex-col items-center justify center gap-3'>
-			{/* {isSubmittingForm ? (
-				<Loading />
-			) : ( */}
-
-			{!isEditMode && !isImageEditMode && <ChangeSlogan />}
-			{!isEditMode && !isImageEditMode && <ChangeHero />}
-
+		<div className='w-full flex flex-col md:flex-row md:items-start items-center justify-center gap-3'>
 			<form
-				className='bg-neutral-800 flex flex-col items-center justify-center gap-3 rounded-lg p-3 w-full'
+				className='w-full max-w-lg bg-neutral-800 flex flex-col items-center justify-center gap-3 rounded-lg p-3'
 				onSubmit={handleSubmit}
 			>
 				<h2>
@@ -354,7 +347,10 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 					</p>
 				)}
 			</form>
-			{/* )} */}
+			<div className='w-full md:max-w-lg flex flex-col items-center justify-center gap-3'>
+				{!isEditMode && !isImageEditMode && <ChangeSlogan />}
+				{!isEditMode && !isImageEditMode && <ChangeHero />}
+			</div>
 		</div>
 	);
 };
