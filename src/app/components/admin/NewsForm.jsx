@@ -1,6 +1,7 @@
 'use client';
 
 import { ChangeHero } from '../admin/ChangeHero';
+import { ChangeSlogan } from '../admin/ChangeSlogan';
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { toast } from 'sonner';
@@ -237,6 +238,7 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 				<Loading />
 			) : ( */}
 
+			{!isEditMode && !isImageEditMode && <ChangeSlogan />}
 			{!isEditMode && !isImageEditMode && <ChangeHero />}
 
 			<form

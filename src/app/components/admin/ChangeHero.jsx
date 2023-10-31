@@ -32,7 +32,8 @@ export const ChangeHero = () => {
 		setErrors({});
 	};
 
-	const handleClick = async (e) => {
+	const handleClick = (e) => {
+		// const handleClick = async (e) => {
 		e.preventDefault();
 
 		let errors = validate();
@@ -40,9 +41,6 @@ export const ChangeHero = () => {
 		if (Object.keys(errors).length) {
 			return setErrors(errors);
 		}
-		console.log(errors, '<<< errors');
-		console.log(file, '<<< file');
-		console.log(progress, '<<< progress');
 
 		if (file) {
 			setIsUploading(true);
