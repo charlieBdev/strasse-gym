@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { replaceNewlinesWithBrTags } from '../../utils/replaceNewlinesWithBrTags';
 import {
 	Modal,
 	ModalContent,
@@ -28,42 +28,47 @@ export const NewsCardModal = ({
 				isOpen
 				shouldBlockScroll
 				hideCloseButton
-				className="bg-neutral-800 h-2/3 rounded-lg"
-				backdrop="blur"
-				placement="center"
+				className='bg-neutral-800 rounded-lg'
+				backdrop='blur'
+				placement='center'
 				// radius="small"
-				shadow="sm"
-				scrollBehavior="inside"
+				shadow='sm'
+				scrollBehavior='outside'
 			>
 				<ModalContent>
 					<ModalHeader></ModalHeader>
 					<ModalBody>
 						<Image
-							loading="lazy"
+							loading='lazy'
 							src={imageUrl}
 							alt={imageAlt}
 							style={{ objectFit: 'cover' }}
 							width={500}
 							height={500}
-							className="mx-auto w-full aspect-[16/9] rounded-sm hover:cursor-pointer hover:shadow-xl"
+							className='mx-auto w-full aspect-[16/9] rounded-sm hover:cursor-pointer hover:shadow-xl'
 
 							// priority
 						/>
 
-						<h2 className="text-md font-semibold">{title}</h2>
+						<h2 className='text-md font-semibold'>{title}</h2>
 						{/* Render content here */}
 
-						<p>{content}</p>
-						<div className="flex items-center gap-1 text-neutral-400 ">
+						{/* <p>{content}</p> */}
+						<p
+							dangerouslySetInnerHTML={{
+								__html: replaceNewlinesWithBrTags(content),
+							}}
+						/>
+						<div className='flex items-center gap-1 text-neutral-400 '>
 							<ClockSVG />
-							<p className="text-xs italic">{timeAgo}</p>
+							<p className='text-xs italic'>{timeAgo}</p>
 						</div>
 						{/* <p>{timeAgo}</p> */}
 					</ModalBody>
-					<ModalFooter className="text-left">
+					<ModalFooter className='text-left'>
 						<button
 							onClick={onClose}
-							className="rounded-full px-3 py-1 hover:bg-neutral-800"
+							className='rounded-full px-3 py-1 hover:bg-neutral-800'
 						>
 							Close
 						</button>

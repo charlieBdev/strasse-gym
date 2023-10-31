@@ -47,8 +47,8 @@ export const ChangeSlogan = () => {
 				type='text'
 				placeholder='Add a slogan'
 				className={`${
-					slogan.length ? ' border-2 border-green-500' : ''
-				} rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
+					slogan.length ? 'border-green-500' : 'border-transparent'
+				} border-2 rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
 				value={slogan}
 				name='slogan'
 				// className={`${

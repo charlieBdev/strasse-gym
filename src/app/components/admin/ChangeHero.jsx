@@ -91,8 +91,8 @@ export const ChangeHero = () => {
 				type='file'
 				accept='image/*'
 				className={`${
-					file ? 'border-2 border-green-500' : ''
-				} rounded-lg w-full`}
+					file ? 'border-green-500' : 'border-transparent'
+				} border-2 rounded-lg w-full`}
 				onChange={(e) => setFile(e.target.files[0])}
 				disabled={isUploading}
 				ref={fileInputRef}

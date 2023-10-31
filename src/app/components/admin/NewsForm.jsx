@@ -3,7 +3,7 @@
 import { ChangeHero } from '../admin/ChangeHero';
 import { ChangeSlogan } from '../admin/ChangeSlogan';
 import { motion } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { toast } from 'sonner';
 import { storage, db } from '../../../../config';
 import {
@@ -20,8 +20,6 @@ import {
 	updateDoc,
 } from 'firebase/firestore';
 import { WarningSVG } from '../svg/WarningSVG';
-// import { Loading } from '../Loading';
-// import Image from 'next/image';
 
 export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 	const isEditMode = !!newsToEdit.title;
@@ -233,7 +231,7 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 	};
 
 	return (
-		<div className='w-full flex flex-col md:flex-row md:items-start items-center justify-center gap-3'>
+		<div className='w-full flex flex-col items-center justify-center gap-3'>
 			<form
 				className='w-full max-w-lg bg-neutral-800 flex flex-col items-center justify-center gap-3 rounded-lg p-3'
 				onSubmit={handleSubmit}
@@ -249,8 +247,8 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 							type='text'
 							placeholder='Add a title'
 							className={`${
-								title.length ? ' border-2 border-green-500' : ''
-							} rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
+								title.length ? ' border-green-500' : 'border-transparent'
+							}  border-2 rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
 							value={title}
 							name='title'
 							onChange={handleChange}
@@ -266,8 +264,8 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 							type='text'
 							placeholder='Add content'
 							className={`${
-								content.length ? 'border-2 border-green-500' : ''
-							} rounded-lg px-2 py-1 text-neutral-950 w-full resize-none focus:outline-none  bg-neutral-200 focus:bg-neutral-50`}
+								content.length ? 'border-green-500' : 'border-transparent'
+							} border-2 rounded-lg px-2 py-1 text-neutral-950 w-full resize-none focus:outline-none  bg-neutral-200 focus:bg-neutral-50`}
 							value={content}
 							name='content'
 							onChange={handleChange}
@@ -285,8 +283,8 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 						type='file'
 						accept='image/*'
 						className={`${
-							file ? 'border-2 border-green-500' : ''
-						} rounded-lg w-full`}
+							file ? 'border-green-500' : 'border-transparent'
+						} border-2 rounded-lg w-full`}
 						onChange={(e) => setFile(e.target.files[0])}
 						disabled={isUploadingFile || isSubmittingForm}
 						ref={fileInputRef}
@@ -313,8 +311,8 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 							type='text'
 							placeholder='Add an image description'
 							className={`${
-								imageAlt.length ? 'border-2 border-green-500' : ''
-							} rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
+								imageAlt.length ? 'border-green-500' : 'border-transparent'
+							} border-2 rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
 							value={imageAlt}
 							name='imageAlt'
 							onChange={handleChange}
@@ -347,10 +345,8 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 					</p>
 				)}
 			</form>
-			<div className='w-full md:max-w-lg flex flex-col items-center justify-center gap-3'>
-				{!isEditMode && !isImageEditMode && <ChangeSlogan />}
-				{!isEditMode && !isImageEditMode && <ChangeHero />}
-			</div>
+			{!isEditMode && !isImageEditMode && <ChangeSlogan />}
+			{!isEditMode && !isImageEditMode && <ChangeHero />}
 		</div>
 	);
 };
