@@ -58,9 +58,9 @@ export const News = () => {
 	return (
 		<section
 			id='news'
-			className='snap-center h-[100vh] bg-neutral-900 flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32 gap-3'
+			className='snap-center min-h-[100vh] bg-neutral-900 flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3'
 		>
-			<UpDown href={'nav'} direction={'top'} bounce={false} />
+			{/* <UpDown href={'nav'} direction={'top'} bounce={false} /> */}
 			{/* <UpDown href={'nav'} direction={'up'} /> */}
 			<div className='flex flex-col items-center justify-center gap-3'>
 				<SectionHeading heading={'STRASSE NEWS'} />
@@ -114,7 +114,7 @@ export const News = () => {
 					</motion.div>
 				)}
 			</div>
-			<UpDown href={'timetable'} direction={'down'} bounce={false} />
+			{/* <UpDown href={'timetable'} direction={'down'} bounce={false} /> */}
 		</section>
 	);
 };
