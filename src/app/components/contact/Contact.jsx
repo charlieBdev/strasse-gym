@@ -6,7 +6,7 @@ export const Contact = () => {
 	return (
 		<div
 			id='contact'
-			className='snap-center h-[100dvh] bg-neutral-900 w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32'
+			className='snap-center h-[100vh] bg-neutral-900 w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32'
 		>
 			<UpDown href={'nav'} direction={'top'} bounce={false} />
 			{/* <UpDown href={'timetable'} direction={'up'} /> */}
