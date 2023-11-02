@@ -1,6 +1,5 @@
 import Table from './Table';
-import { Prices } from './Prices';
-import { UpDown } from '../UpDown';
+// import { UpDown } from '../UpDown';
 import { SectionHeading } from '../SectionHeading';
 
 export const Timetable = () => {
@@ -15,7 +14,6 @@ export const Timetable = () => {
 				<SectionHeading heading={'TIMETABLE & PRICES'} />
 				<div className='flex flex-col gap-1'>
 					<Table />
-					<Prices />
 				</div>
 			</div>
 
