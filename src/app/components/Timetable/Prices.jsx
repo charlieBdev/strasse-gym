@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useInView, motion, useAnimation } from 'framer-motion';
 import { onViewMotion } from '../../utils/onViewMotion';
 
-export const Prices = () => {
+const Prices = () => {
 	const ref = useRef(null);
 	const isInView = useInView(ref);
 
@@ -54,3 +54,5 @@ export const Prices = () => {
 		</div>
 	);
 };
+
+export default Prices;

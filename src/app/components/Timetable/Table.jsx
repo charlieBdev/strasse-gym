@@ -5,7 +5,6 @@ import { DaytimeSVG } from '../svg/DaytimeSVG';
 import { useEffect, useRef } from 'react';
 import { useInView, motion, useAnimation } from 'framer-motion';
 import { onViewMotion } from '../../utils/onViewMotion';
-import { Prices } from './Prices';
 
 const Table = () => {
 	const ref = useRef(null);
@@ -158,7 +157,6 @@ const Table = () => {
 						</div>
 					</div>
 				</motion.div>
-				<Prices />
 			</div>
 		</section>
 	);
