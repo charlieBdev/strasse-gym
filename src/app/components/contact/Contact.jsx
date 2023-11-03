@@ -1,4 +1,4 @@
-import { Form } from './Form';
+import { ContactForm } from './ContactForm';
 import { UpDown } from '../UpDown';
 import { SectionHeading } from '../SectionHeading';
 
@@ -15,7 +15,7 @@ export const Contact = () => {
 				<p className='text-center'>
 					Send us a message. We would love to hear from you!
 				</p>
-				<Form />
+				<ContactForm />
 			</div>
 
 			{/* <UpDown href={'footer'} direction={'down'} bounce={false} /> */}
