@@ -85,23 +85,9 @@ export const News = () => {
 				{loadingNews ? (
 					<p>Loading news...</p>
 				) : (
-					<>
-						<p className='text-neutral-500 text-xs italic'>
-							{hasMore ? `${news.length} articles loaded` : 'All news loaded'}
-						</p>
-						{/* <motion.button
-							className={`rounded-full px-3 py-1 ${
-								!hasMore
-									? 'text-neutral-500'
-									: 'hover:bg-neutral-800 hover:bg-opacity-50'
-							}`}
-							onClick={handleLoadMore}
-							whileTap={{ scale: 0.9 }}
-							disabled={!hasMore}
-						>
-							{hasMore ? 'Load more' : 'No more'}
-						</motion.button> */}
-					</>
+					<p className='text-neutral-500 text-xs italic'>
+						{hasMore ? `${news.length} articles loaded` : 'All news loaded'}
+					</p>
 				)}
 
 				{user && (

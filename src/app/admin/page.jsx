@@ -5,11 +5,6 @@ import { useAuthContext } from '../../context/AuthContext';
 import { AdminDash } from '../components/AdminDash';
 import { Login } from '../components/Login';
 
-// export const metadata = {
-// 	title: 'Strasse Admin',
-// 	description: 'Some say the best gym in Sheffield',
-// };
-
 export default function Admin() {
 	const { user } = useAuthContext();
 	const searchParams = useSearchParams();
