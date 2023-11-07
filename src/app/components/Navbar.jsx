@@ -13,7 +13,7 @@ import { useAuthContext } from '../../context/AuthContext';
 export const Navbar = () => {
 	const { user } = useAuthContext();
 	return (
-		<div
+		<nav
 			id='nav'
 			className='h-20 flex justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 bg-neutral-900 border-b-2'
 		>
@@ -30,7 +30,7 @@ export const Navbar = () => {
 				</motion.h1>
 			</Link>
 			<div className='flex gap-1 items-center'>
-				<Link href='#news'>
+				<Link href='#news' aria-label='Go to News section'>
 					<motion.div
 						// whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
@@ -48,7 +48,7 @@ export const Navbar = () => {
 						<NewsSVG />
 					</motion.div>
 				</Link>
-				<Link href='#timetable'>
+				<Link href='#timetable' aria-label='Go to Timetable section'>
 					<motion.div
 						// whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
@@ -66,7 +66,7 @@ export const Navbar = () => {
 						<CalendarSVG />
 					</motion.div>
 				</Link>
-				<Link href='#footer'>
+				<Link href='#footer' aria-label='Go to Footer section'>
 					<motion.div
 						// whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
@@ -109,6 +109,6 @@ export const Navbar = () => {
 					<Button text="Contact" />
 				</Link> */}
 			</div>
-		</div>
+		</nav>
 	);
 };

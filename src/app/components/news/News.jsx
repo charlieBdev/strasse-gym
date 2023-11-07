@@ -48,10 +48,12 @@ export const News = () => {
 					setNews(data);
 					setLastDocument(data[data.length - 1]);
 				}
-				setLoadingNews(false);
 			})
 			.catch((error) => {
 				setErrorFetchingNews(true);
+			})
+			.finally(() => {
+				setLoadingNews(false);
 			});
 	}, []);
 
@@ -69,8 +71,14 @@ export const News = () => {
 					<Loading />
 				) : (
 					<motion.div className='w-screen snap-mandatory snap-x grid gap-2 grid-flow-col auto-cols-[96%] sm:auto-cols-[76%] md:auto-cols-[56%] lg:auto-cols-[36%] overflow-x-auto overscroll-x-contain py-0 px-6 md:px-16 lg:px-24 xl:px-32 no-scrollbar'>
-						{news.map((item) => (
-							<NewsCard key={item.id} item={item} removeFromUI={removeFromUI} />
+						{news.map((item, index) => (
+							<NewsCard
+								key={item.id}
+								item={item}
+								removeFromUI={removeFromUI}
+								isLastCard={index === news.length - 1}
+								onLastCardInView={handleLoadMore}
+							/>
 						))}
 					</motion.div>
 				)}
@@ -81,7 +89,7 @@ export const News = () => {
 						<p className='text-neutral-500 text-xs italic'>
 							{hasMore ? `${news.length} articles loaded` : 'All news loaded'}
 						</p>
-						<motion.button
+						{/* <motion.button
 							className={`rounded-full px-3 py-1 ${
 								!hasMore
 									? 'text-neutral-500'
@@ -92,7 +100,7 @@ export const News = () => {
 							disabled={!hasMore}
 						>
 							{hasMore ? 'Load more' : 'No more'}
-						</motion.button>
+						</motion.button> */}
 					</>
 				)}
 

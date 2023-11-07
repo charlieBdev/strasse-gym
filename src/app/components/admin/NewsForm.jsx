@@ -260,7 +260,7 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 							</div>
 						)}
 						<textarea
-							rows='9'
+							rows='3'
 							type='text'
 							placeholder='Add content'
 							className={`${

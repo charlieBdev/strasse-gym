@@ -9,19 +9,24 @@ import { ConfirmDeleteSVG } from '../svg/ConfirmDeleteSVG';
 import { CancelDeleteSVG } from '../svg/CancelDeleteSVG';
 import { SwapImageSVG } from '../svg/SwapImageSVG';
 import { useAuthContext } from '../../../context/AuthContext';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { toast } from 'sonner';
 import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../../../config';
 import { getStorage, ref, deleteObject } from 'firebase/storage';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NewsCardModal } from './NewsCardModal';
 import Link from 'next/link';
 
 export const NewsCard = ({
 	item: { id, title, content, imageUrl, imageAlt, created },
 	removeFromUI,
+	isLastCard,
+	onLastCardInView,
 }) => {
+	const ref = useRef(null);
+	const isInView = useInView(ref, { amount: 0.9 });
+
 	const [isDeleteConfirmed, setDeleteConfirmed] = useState(false);
 	const [isModalOpen, setModalOpen] = useState(false);
 
@@ -30,6 +35,12 @@ export const NewsCard = ({
 
 	const jsDate = new Date(created.seconds * 1000);
 	const timeAgo = getTimeAgo(jsDate);
+
+	useEffect(() => {
+		if (isLastCard && isInView) {
+			onLastCardInView();
+		}
+	}, [isInView, isLastCard, onLastCardInView]);
 
 	const handleConfirmDelete = () => {
 		setDeleteConfirmed(true);
@@ -62,6 +73,7 @@ export const NewsCard = ({
 
 	return (
 		<div
+			ref={ref}
 			onClick={() => {
 				console.log('Card clicked');
 			}}
