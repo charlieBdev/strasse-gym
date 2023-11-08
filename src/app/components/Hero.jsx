@@ -15,7 +15,7 @@ export const Hero = () => {
 		offset: ['start start', 'end start'],
 	});
 	// const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-	const textY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+	const textY = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
 
 	const [slogan, setSlogan] = useState('...');
 	const [heroUrl, setHeroUrl] = useState('');
