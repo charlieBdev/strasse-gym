@@ -233,14 +233,25 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 	return (
 		<div className='w-full flex flex-col items-center justify-center gap-3'>
 			<form
-				className='w-full max-w-lg bg-neutral-800 flex flex-col items-center justify-center gap-3 rounded-lg p-3'
+				className='border-1 w-full max-w-lg bg-neutral-800 flex flex-col items-center justify-center gap-3 rounded-lg p-3'
 				onSubmit={handleSubmit}
 			>
-				<h2>
-					{isEditMode && 'Edit News'}
-					{isImageEditMode && 'Change Image'}
-					{!isEditMode && !isImageEditMode && 'Add News'}
-				</h2>
+				<div className='w-full flex flex-row items-center space-between'>
+					<h2>
+						{isEditMode && 'Edit News'}
+						{isImageEditMode && 'Change Image'}
+						{!isEditMode && !isImageEditMode && 'Add News'}
+					</h2>
+					<motion.button
+						className='bg-neutral-50 hover:bg-neutral-900 text-neutral-900 hover:text-neutral-50 hover:ring-2 hover:ring-neutral-50 ring-inset font-medium rounded-full px-3 py-1 ml-auto'
+						// whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						// disabled={progress !== null && progress < 100}
+						disabled={isUploadingFile || isSubmittingForm}
+					>
+						{isEditMode ? 'Edit' : isImageEditMode ? 'Change Image' : 'Add'}
+					</motion.button>
+				</div>
 				{!isImageEditMode && (
 					<>
 						<input
@@ -260,7 +271,7 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 							</div>
 						)}
 						<textarea
-							rows='3'
+							rows='2'
 							type='text'
 							placeholder='Add content'
 							className={`${
@@ -326,15 +337,6 @@ export const NewsForm = ({ newsToEdit, imageToEdit }) => {
 					</>
 				)}
 
-				<motion.button
-					className='bg-neutral-50 hover:bg-neutral-900 text-neutral-900 hover:text-neutral-50 hover:ring-2 hover:ring-neutral-50 ring-inset font-medium rounded-full px-3 py-1 mx-auto'
-					// whileHover={{ scale: 1.1 }}
-					whileTap={{ scale: 0.9 }}
-					// disabled={progress !== null && progress < 100}
-					disabled={isUploadingFile || isSubmittingForm}
-				>
-					{isEditMode ? 'Edit' : isImageEditMode ? 'Change Image' : 'Add'}
-				</motion.button>
 				{isSubmittingForm && (
 					<p>
 						{isEditMode

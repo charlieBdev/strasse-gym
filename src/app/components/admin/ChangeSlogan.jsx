@@ -41,8 +41,18 @@ export const ChangeSlogan = () => {
 	};
 
 	return (
-		<div className='flex flex-col items-center justify-center gap-3 bg-neutral-800 rounded-lg p-3 w-full max-w-lg'>
-			<h2>Change Slogan</h2>
+		<div className='border-1 flex flex-col items-center justify-center gap-3 bg-neutral-800 rounded-lg p-3 w-full max-w-lg'>
+			<div className='w-full flex flex-row items-center space-between'>
+				<h2>Change Slogan</h2>
+				<motion.button
+					onClick={handleClick}
+					className='bg-neutral-50 hover:bg-neutral-900 text-neutral-900 hover:text-neutral-50 hover:ring-2 hover:ring-neutral-50 ring-inset font-medium rounded-full px-3 py-1 ml-auto'
+					whileTap={{ scale: 0.9 }}
+					disabled={isUpdating}
+				>
+					Change
+				</motion.button>
+			</div>
 			<input
 				type='text'
 				placeholder='Add a slogan'
@@ -65,14 +75,6 @@ export const ChangeSlogan = () => {
 				</div>
 			)}
 			{isUpdating && <p>Updating slogan...</p>}
-			<motion.button
-				onClick={handleClick}
-				className='bg-neutral-50 hover:bg-neutral-900 text-neutral-900 hover:text-neutral-50 hover:ring-2 hover:ring-neutral-50 ring-inset font-medium rounded-full px-3 py-1 mx-auto'
-				whileTap={{ scale: 0.9 }}
-				disabled={isUpdating}
-			>
-				Change
-			</motion.button>
 		</div>
 	);
 };
