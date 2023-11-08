@@ -73,7 +73,7 @@ export const NewsCard = ({
 
 	return (
 		<div
-			ref={ref}
+			ref={reference}
 			// onClick={() => {
 			// 	console.log('Card clicked');
 			// }}
