@@ -4,6 +4,8 @@ export const Map = () => {
 	// const address =
 	// 	'Meersbrook Enterprise Centre, Unit 208, Valley Rd, Sheffield, S8 9FT';
 
+	const frameTitle = 'map of gym location';
+
 	return (
 		<div>
 			{/* <GoogleMapsEmbed
@@ -22,6 +24,7 @@ export const Map = () => {
 				allowFullScreen=''
 				loading='lazy'
 				referrerPolicy='no-referrer-when-downgrade'
+				title={frameTitle}
 			></iframe>
 
 			<iframe
@@ -33,6 +36,7 @@ export const Map = () => {
 				allowFullScreen=''
 				loading='lazy'
 				referrerPolicy='no-referrer-when-downgrade'
+				title={frameTitle}
 			></iframe>
 
 			{/* <iframe

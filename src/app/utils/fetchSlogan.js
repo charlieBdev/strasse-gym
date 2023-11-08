@@ -10,9 +10,9 @@ export async function fetchSlogan() {
 			const slogan = sloganData.slogan;
 			return slogan;
 		} else {
-			console.log('Document does not exist');
+			// console.log('Document does not exist');
 		}
 	} catch (error) {
-		console.error('Error getting slogan:', error);
+		// console.error('Error getting slogan:', error);
 	}
 }

@@ -7,6 +7,6 @@ export async function fetchHero() {
 		const url = await getDownloadURL(storageRef);
 		return url;
 	} catch (error) {
-		console.error('Error getting download URL:', error);
+		// console.error('Error getting download URL:', error);
 	}
 }

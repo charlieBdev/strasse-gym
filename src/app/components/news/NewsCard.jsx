@@ -74,9 +74,9 @@ export const NewsCard = ({
 	return (
 		<div
 			ref={ref}
-			onClick={() => {
-				console.log('Card clicked');
-			}}
+			// onClick={() => {
+			// 	console.log('Card clicked');
+			// }}
 			className='shadow-lg shadow-neutral-950 hover:shadow-xl hover:shadow-neutral-950 rounded-sm snap-center bg-neutral-800 flex flex-col justify-between gap-1 p-3 select-none'
 		>
 			<div className='flex flex-col gap-1'>
@@ -116,7 +116,7 @@ export const NewsCard = ({
 						</motion.div>
 					)}
 				</div>
-				<div className='flex items-center gap-1 text-neutral-400 '>
+				<div className='flex items-center gap-1 text-neutral-400'>
 					<ClockSVG />
 					<p className='text-xs italic'>{timeAgo}</p>
 				</div>

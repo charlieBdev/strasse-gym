@@ -84,7 +84,7 @@ export const Navbar = () => {
 						<PinSVG />
 					</motion.div>
 				</Link>
-				<Link href='/admin'>
+				<Link href='/admin' aria-label='Go to Admin page - only for admins'>
 					{user && (
 						<motion.div
 							// whileHover={{ scale: 1.1 }}

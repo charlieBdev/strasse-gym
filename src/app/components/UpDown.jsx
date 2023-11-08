@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-export const UpDown = ({ href, direction, bounce }) => {
+export const UpDown = ({ href, direction, bounce, aria }) => {
 	return (
-		<Link href={`#${href}`} className='mx-auto'>
+		<Link href={`#${href}`} className='mx-auto' aria-label={aria}>
 			<motion.div
 				// whileHover={{ scale: 1.1 }}
 				whileTap={{ scale: 0.9 }}

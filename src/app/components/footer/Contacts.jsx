@@ -36,6 +36,7 @@ export const Contacts = () => {
 				href={`tel:+44${Number(phone)}`}
 				className='flex items-center justify-center mx-auto gap-1 p-1 px-3 rounded-full hover:bg-blue-500 hover:bg-opacity-10 text-blue-500'
 				whileTap={{ scale: 0.9 }}
+				aria-label='call Craig'
 			>
 				<CallSVG />
 				{/* <p>Call</p> */}
@@ -51,6 +52,7 @@ export const Contacts = () => {
 				href={whatsApp}
 				className='flex items-center justify-center mx-auto gap-1 p-1 px-3 rounded-full hover:bg-green-500 hover:bg-opacity-10 text-green-500'
 				whileTap={{ scale: 0.9 }}
+				aria-label='WhatsApp Craig'
 			>
 				<AiOutlineWhatsApp className='w-6 h-6' />
 				{/* <p>WhatsApp</p> */}
@@ -66,6 +68,7 @@ export const Contacts = () => {
 				href={`mailto:${email}`}
 				className='flex items-center justify-center mx-auto gap-1 p-1 px-3 rounded-full hover:bg-yellow-500 hover:bg-opacity-10 text-yellow-500'
 				whileTap={{ scale: 0.9 }}
+				aria-label='email Craig'
 			>
 				<EmailSVG />
 				{/* <p>E-mail</p> */}

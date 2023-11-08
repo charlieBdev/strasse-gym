@@ -12,7 +12,7 @@ export const Footer = () => {
 			className='min-h-[100vh] w-full flex flex-col items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32 border-b-2'
 			id='footer'
 		>
-			<UpDown href={'nav'} direction={'top'} bounce={true} />
+			<UpDown href={'nav'} direction={'top'} bounce={true} aria={'go to top'} />
 			<div className='flex flex-col items-center justify-center gap-6'>
 				<div className='flex flex-col items-center justify-center gap-3'>
 					<Map />

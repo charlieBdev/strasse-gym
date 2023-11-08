@@ -87,7 +87,12 @@ export const Hero = () => {
 					</Link>
 				</div>
 			</motion.div>
-			<UpDown href={'news'} direction={'down'} bounce={true} />
+			<UpDown
+				href={'news'}
+				direction={'down'}
+				bounce={true}
+				aria={'page down'}
+			/>
 		</section>
 	);
 };

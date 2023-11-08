@@ -85,7 +85,7 @@ export const News = () => {
 				{loadingNews ? (
 					<p>Loading news...</p>
 				) : (
-					<p className='text-neutral-500 text-xs italic'>
+					<p className='text-neutral-400 text-xs italic'>
 						{hasMore ? `${news.length} articles loaded` : 'All news loaded'}
 					</p>
 				)}
