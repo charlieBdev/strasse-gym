@@ -24,8 +24,8 @@ export const NewsCard = ({
 	isLastCard,
 	onLastCardInView,
 }) => {
-	const ref = useRef(null);
-	const isInView = useInView(ref, { amount: 0.9 });
+	const reference = useRef(null);
+	const isInView = useInView(reference, { amount: 0.9 });
 
 	const [isDeleteConfirmed, setDeleteConfirmed] = useState(false);
 	const [isModalOpen, setModalOpen] = useState(false);
