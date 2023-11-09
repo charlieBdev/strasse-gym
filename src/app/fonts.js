@@ -1,4 +1,4 @@
-import { Inter, Play } from 'next/font/google';
+import { Play } from 'next/font/google';
 
 export const play = Play({
 	subsets: ['latin'],
@@ -7,7 +7,7 @@ export const play = Play({
 	// variable: '--font-play',
 });
 
-export const inter = Inter({
-	subsets: ['latin'],
-	// variable: '--font-inter',
-});
+// export const inter = Inter({
+// 	subsets: ['latin'],
+// 	// variable: '--font-inter',
+// });

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { WarningSVG } from '../svg/WarningSVG';
-import { toast } from 'sonner';
 import { updateSlogan } from '../../utils/updateSlogan';
 
 export const ChangeSlogan = () => {
@@ -35,7 +34,7 @@ export const ChangeSlogan = () => {
 			return setErrors(errors);
 		}
 		try {
-			updateSlogan(slogan);
+			await updateSlogan(slogan);
 			clearForm();
 		} catch (error) {}
 	};
@@ -61,9 +60,6 @@ export const ChangeSlogan = () => {
 				} border-2 rounded-lg px-2 py-1 text-neutral-950 w-full focus:outline-none bg-neutral-200 focus:bg-neutral-50`}
 				value={slogan}
 				name='slogan'
-				// className={`${
-				// 	slogan ? 'border-2 border-green-500' : ''
-				// } rounded-lg w-full`}
 				onChange={(e) => setSlogan(e.target.value)}
 				disabled={isUpdating}
 				ref={inputRef}

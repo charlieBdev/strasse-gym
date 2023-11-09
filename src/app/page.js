@@ -13,8 +13,8 @@ export default function Home() {
 	return (
 		<AuthContextProvider>
 			<NextUIProvider>
-				<main className='snap-y snap-proximity flex flex-col items-center justify-between overflow-x-hidden'>
-					<div className='snap-center min-h-[100svh] w-full'>
+				<main className='flex flex-col items-center justify-between overflow-x-hidden'>
+					<div id='nav' className='min-h-[100svh] w-full'>
 						<Navbar />
 						<Hero />
 					</div>

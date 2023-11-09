@@ -7,7 +7,7 @@ export const Timetable = () => {
 	return (
 		<div
 			id='timetable'
-			className='snap-center min-h-[100vh] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3'
+			className='snap-center min-h-[calc(100vh)] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3'
 		>
 			{/* <UpDown href={'nav'} direction={'top'} bounce={false} /> */}
 			{/* <UpDown href={'news'} direction={'up'} /> */}

@@ -5,8 +5,12 @@ export const Bottom = () => {
 		<div className='flex w-full items-center justify-between text-sm'>
 			<p>© 2023 Strasse Gym</p>
 			<p>
-				<Link href='https://charliebdev.vercel.app/' target='_blank'>
-					Made by
+				<Link
+					href='https://charliebdev.vercel.app/'
+					target='_blank'
+					rel='noopener noreferrer'
+				>
+					Site by
 				</Link>
 			</p>
 		</div>

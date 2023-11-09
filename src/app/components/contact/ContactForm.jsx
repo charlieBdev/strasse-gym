@@ -70,7 +70,7 @@ export const ContactForm = () => {
 							id='email'
 							name='email'
 							className='p-2 rounded-lg mb-3 text-neutral-900 border-none placeholder:italic'
-							placeholder='zuck@facebook.com'
+							placeholder='zuck@example.com'
 						/>
 						<ErrorMessage
 							name='email'

@@ -10,7 +10,7 @@ export const AdminDash = (props) => {
 	return (
 		<div className='flex flex-col items-center justify-center'>
 			<AdminNav />
-			<div className='min-h-[calc(100dvh-5rem)] w-full flex flex-col items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32'>
+			<main className='min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-center gap-3 p-6 md:px-16 lg:px-24 xl:px-32'>
 				<NewsForm {...props} />
 				{/* Back button */}
 				<motion.div
@@ -27,7 +27,7 @@ export const AdminDash = (props) => {
 						<BackSVG />
 					</Link>
 				</motion.div>
-			</div>
+			</main>
 		</div>
 	);
 };

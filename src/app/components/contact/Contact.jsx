@@ -1,15 +1,12 @@
 import { ContactForm } from './ContactForm';
-import { UpDown } from '../UpDown';
 import { SectionHeading } from '../SectionHeading';
 
 export const Contact = () => {
 	return (
 		<div
 			id='contact'
-			className='snap-center min-h-[100vh] bg-neutral-900 w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32'
+			className='snap-center min-h-[calc(100vh)] bg-neutral-900 w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32'
 		>
-			{/* <UpDown href={'nav'} direction={'top'} bounce={false} /> */}
-			{/* <UpDown href={'timetable'} direction={'up'} /> */}
 			<div className='flex flex-col w-full gap-3'>
 				<SectionHeading heading={'CONTACT US'} />
 				<p className='text-center'>
@@ -17,8 +14,6 @@ export const Contact = () => {
 				</p>
 				<ContactForm />
 			</div>
-
-			{/* <UpDown href={'footer'} direction={'down'} bounce={false} /> */}
 		</div>
 	);
 };

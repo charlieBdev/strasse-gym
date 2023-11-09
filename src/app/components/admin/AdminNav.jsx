@@ -31,7 +31,7 @@ export const AdminNav = () => {
 	};
 
 	return (
-		<div className='w-full flex items-center justify-between border-b-2 h-20 px-6 md:px-16 lg:px-24 xl:px-32'>
+		<nav className='w-full flex items-center justify-between border-b-2 h-20 px-6 md:px-16 lg:px-24 xl:px-32'>
 			<div className='flex items-center gap-3'>
 				<motion.button
 					onClick={() => router.push('/')}
@@ -65,6 +65,6 @@ export const AdminNav = () => {
 					<SignoutSVG />
 				</motion.button>
 			</div>
-		</div>
+		</nav>
 	);
 };

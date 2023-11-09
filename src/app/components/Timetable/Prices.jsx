@@ -17,7 +17,7 @@ const Prices = () => {
 	}, [controls, isInView]);
 
 	return (
-		<div className='flex flex-col w-full items-center gap-1 select-none'>
+		<section className='flex flex-col w-full items-center gap-1 select-none'>
 			<div className='flex flex-col w-full md:max-w-xl'>
 				<motion.div
 					ref={ref}
@@ -40,11 +40,6 @@ const Prices = () => {
 							<p>£6 / £10</p>
 							<p>1 hr / 2hrs</p>
 						</div>
-						{/* <div className="grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1">
-							<p>Adults</p>
-							<p>£10</p>
-							<p>2 hours</p>
-						</div> */}
 						<div className='grid grid-cols-3 hover:bg-purple-500 rounded-lg px-1'>
 							<p>Adults</p>
 							<p>£60</p>
@@ -53,7 +48,7 @@ const Prices = () => {
 					</div>
 				</motion.div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

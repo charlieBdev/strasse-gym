@@ -46,14 +46,8 @@ export const NewsCardModal = ({
 							width={500}
 							height={500}
 							className='mx-auto w-full aspect-[16/9] rounded-sm hover:cursor-pointer hover:shadow-xl'
-
-							// priority
 						/>
-
 						<h2 className='text-md font-semibold'>{title}</h2>
-						{/* Render content here */}
-
-						{/* <p>{content}</p> */}
 						<p
 							dangerouslySetInnerHTML={{
 								__html: replaceNewlinesWithBrTags(content),
@@ -63,7 +57,6 @@ export const NewsCardModal = ({
 							<ClockSVG />
 							<p className='text-xs italic'>{timeAgo}</p>
 						</div>
-						{/* <p>{timeAgo}</p> */}
 					</ModalBody>
 					<ModalFooter className='text-left'>
 						<button

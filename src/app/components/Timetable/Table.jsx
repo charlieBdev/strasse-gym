@@ -43,7 +43,6 @@ const Table = () => {
 							</div>
 							<div className='flex items-center justify-between'>
 								<p>Kickboxing</p>
-								{/* <p className="text-xl">🇳🇱</p> */}
 							</div>
 						</div>
 						<div className='grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1'>
@@ -53,7 +52,6 @@ const Table = () => {
 							</div>
 							<div className='flex items-center justify-between'>
 								<p>BJJ</p>
-								{/* <p className="text-xl">🇧🇷</p> */}
 							</div>
 						</div>
 					</div>
@@ -78,7 +76,6 @@ const Table = () => {
 							</div>
 							<div className='flex items-center justify-between'>
 								<p>BJJ</p>
-								{/* <p className="text-xl">🇧🇷</p> */}
 							</div>
 						</div>
 					</div>
@@ -103,7 +100,6 @@ const Table = () => {
 							</div>
 							<div className='flex items-center justify-between'>
 								<p>KAPAP</p>
-								{/* <p className="text-xl">🇮🇱</p> */}
 							</div>
 						</div>
 					</div>
@@ -128,11 +124,6 @@ const Table = () => {
 							</div>
 							<div className='flex items-center justify-between'>
 								<p>Kids KB & BJJ</p>
-								{/* <div className="flex gap-1">
-									<p className="text-xl">🧒</p>
-									<p className="text-xl">🇳🇱</p>
-									<p className="text-xl">🇧🇷</p>
-								</div> */}
 							</div>
 						</div>
 						<div className='grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1'>
@@ -142,7 +133,6 @@ const Table = () => {
 							</div>
 							<div className='flex items-center justify-between'>
 								<p>KB Sparring</p>
-								{/* <p className="text-xl">🇳🇱</p> */}
 							</div>
 						</div>
 						<div className='grid grid-cols-2 hover:bg-blue-500 rounded-lg px-1'>
@@ -152,7 +142,6 @@ const Table = () => {
 							</div>
 							<div className='flex items-center justify-between'>
 								<p>BJJ Sparring</p>
-								{/* <p className="text-xl">🇧🇷</p> */}
 							</div>
 						</div>
 					</div>
