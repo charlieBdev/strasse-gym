@@ -13,7 +13,7 @@ export const ChangeSlogan = () => {
 	const validate = () => {
 		let errors = {};
 		if (!slogan) {
-			errors.slogan = 'Please add a slogan';
+			errors.slogan = 'Slogan is required';
 		}
 		return errors;
 	};
