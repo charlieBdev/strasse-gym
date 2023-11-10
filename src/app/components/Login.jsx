@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import login from '../../firebase/auth/login';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 
 export const Login = () => {
 	const [email, setEmail] = useState('');
@@ -19,7 +20,7 @@ export const Login = () => {
 		const { result, error } = await login(email, password);
 
 		if (error) {
-			toast.error('Login error');
+			toast.error('Oops! That did not work. Check email and passsword');
 			return;
 		}
 		// else
@@ -27,9 +28,24 @@ export const Login = () => {
 		router.push('/admin');
 	};
 
-	const handleReset = async (e) => {
+	const handleReset = (e) => {
 		e.preventDefault();
-		toast.error('Cannot do this yet');
+
+		const auth = getAuth();
+		sendPasswordResetEmail(auth, email)
+			.then(() => {
+				// Password reset email sent!
+				// ..
+				toast.success('Password reset email sent!');
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				// ..
+				toast.error(
+					'Oops! That did not work. Did you enter the correct email?'
+				);
+			});
 	};
 
 	return (
