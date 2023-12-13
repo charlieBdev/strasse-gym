@@ -7,8 +7,9 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchHero } from '../utils/fetchHero';
 import { fetchSlogan } from '../utils/fetchSlogan';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { SectionWrapper } from '../hoc';
 
-export const Hero = () => {
+const Hero = () => {
 	const ref = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: ref,
@@ -96,3 +97,6 @@ export const Hero = () => {
 		</section>
 	);
 };
+
+// export default SectionWrapper(Hero, 'hero')
+export default Hero;

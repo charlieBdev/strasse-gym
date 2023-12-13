@@ -8,11 +8,12 @@ import { motion } from 'framer-motion';
 import { NewsCard } from './NewsCard';
 import { UpDown } from '../UpDown';
 import { SectionHeading } from '../SectionHeading';
-import { AddNewsSVG } from '../svg/AddNewsSVG';
+import { AddNewsSVG } from '../svg';
 import { useAuthContext } from '../../../context/AuthContext';
 import Link from 'next/link';
+import { SectionWrapper } from '../../hoc';
 
-export const News = () => {
+const News = () => {
 	const { user } = useAuthContext();
 	const subheading = 'Announcements, seminars, and more!';
 
@@ -59,7 +60,7 @@ export const News = () => {
 
 	return (
 		<section
-			id='news'
+			// id='news'
 			className='snap-center min-h-[calc(100vh)] bg-neutral-900 flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3'
 		>
 			{/* <UpDown href={'nav'} direction={'top'} bounce={false} /> */}
@@ -112,3 +113,5 @@ export const News = () => {
 		</section>
 	);
 };
+
+export default SectionWrapper(News, 'news');

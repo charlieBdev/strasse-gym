@@ -2,12 +2,13 @@ import Table from './Table';
 import Prices from './Prices';
 // import { UpDown } from '../UpDown';
 import { SectionHeading } from '../SectionHeading';
+import { SectionWrapper } from '../../hoc';
 
-export const Timetable = () => {
+const Timetable = () => {
 	return (
 		<div
-			id='timetable'
-			className='snap-center min-h-[calc(100vh)] w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3'
+			// id='timetable'
+			className='snap-center min-h-[calc(100vh)] w-screen flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3'
 		>
 			{/* <UpDown href={'nav'} direction={'top'} bounce={false} /> */}
 			{/* <UpDown href={'news'} direction={'up'} /> */}
@@ -23,3 +24,5 @@ export const Timetable = () => {
 		</div>
 	);
 };
+
+export default SectionWrapper(Timetable, 'timetable');

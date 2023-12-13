@@ -1,7 +1,8 @@
 import { ContactForm } from './ContactForm';
 import { SectionHeading } from '../SectionHeading';
+import { SectionWrapper } from '../../hoc';
 
-export const Contact = () => {
+const Contact = () => {
 	return (
 		<div
 			id='contact'
@@ -17,3 +18,5 @@ export const Contact = () => {
 		</div>
 	);
 };
+
+export default SectionWrapper(Contact, 'contact');

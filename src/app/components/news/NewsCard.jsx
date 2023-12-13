@@ -2,12 +2,14 @@
 
 import { getTimeAgo } from '../../utils/getTimeAgo';
 import Image from 'next/image';
-import { ClockSVG } from '../svg/ClockSVG';
-import { EditSVG } from '../svg/EditSVG';
-import { DeleteSVG } from '../svg/DeleteSVG';
-import { ConfirmDeleteSVG } from '../svg/ConfirmDeleteSVG';
-import { CancelDeleteSVG } from '../svg/CancelDeleteSVG';
-import { SwapImageSVG } from '../svg/SwapImageSVG';
+import {
+	ClockSVG,
+	EditSVG,
+	DeleteSVG,
+	ConfirmDeleteSVG,
+	CancelDeleteSVG,
+	SwapImageSVG,
+} from '../svg';
 import { useAuthContext } from '../../../context/AuthContext';
 import { motion, useInView } from 'framer-motion';
 import { toast } from 'sonner';

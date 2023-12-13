@@ -1,10 +1,10 @@
 'use client';
 
-import { Hero } from './components/Hero';
-import { News } from './components/news/News';
-import { Timetable } from './components/Timetable/Timetable';
-import { Contact } from './components/contact/Contact';
-import { Footer } from './components/footer/Footer';
+import Hero from './components/Hero';
+import News from './components/news/News';
+import Timetable from './components/Timetable/Timetable';
+import Contact from './components/contact/Contact';
+import Footer from './components/footer/Footer';
 import { Navbar } from './components/Navbar';
 import { NextUIProvider } from '@nextui-org/react';
 import { AuthContextProvider } from '../context/AuthContext';
