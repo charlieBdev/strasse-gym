@@ -10,8 +10,8 @@ const TestimonialCard = ({ testimonial, name, pic, index }) => {
 	return (
 		// <Tilt>
 		<motion.div
-			variants={fadeIn('', 'spring', index * 0.5, 0.75)}
-			className='w-full flex flex-col bg-neutral-800 p-3 rounded-lg hover:shadow-xl'
+			variants={fadeIn('', 'spring', index * 0.5 + 1, 0.75)}
+			className='select-none w-full flex flex-col bg-neutral-800 p-3 rounded-lg hover:shadow-xl'
 		>
 			<p className='text-white font-black text-5xl'>&quot;</p>
 			<div className='flex flex-col gap-3 justify-between h-full'>

@@ -25,7 +25,7 @@ const Prices = () => {
 					initial='hidden'
 					variants={{
 						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 1 } },
+						visible: { ...onViewMotion.visible, transition: { delay: 1.25 } },
 					}}
 					className='bg-neutral-800 rounded-lg p-2'
 				>

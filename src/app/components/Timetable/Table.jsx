@@ -28,7 +28,7 @@ const Table = () => {
 					initial='hidden'
 					variants={{
 						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 0 } },
+						visible: { ...onViewMotion.visible, transition: { delay: 0.25 } },
 					}}
 					className='bg-neutral-800 p-2 w-full rounded-t-lg md:rounded-tr-none md:rounded-tl-lg md:max-w-xl ml-auto'
 				>
@@ -63,7 +63,7 @@ const Table = () => {
 					initial='hidden'
 					variants={{
 						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 0.25 } },
+						visible: { ...onViewMotion.visible, transition: { delay: 0.5 } },
 					}}
 					className='bg-neutral-800 p-2 w-full md:max-w-xl mr-auto md:rounded-tr-lg'
 				>
@@ -87,7 +87,7 @@ const Table = () => {
 					initial='hidden'
 					variants={{
 						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 0.5 } },
+						visible: { ...onViewMotion.visible, transition: { delay: 0.75 } },
 					}}
 					className='bg-neutral-800 p-2 w-full md:max-w-xl ml-auto md:rounded-bl-lg'
 				>
@@ -111,7 +111,7 @@ const Table = () => {
 					initial='hidden'
 					variants={{
 						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 0.75 } },
+						visible: { ...onViewMotion.visible, transition: { delay: 1 } },
 					}}
 					className='bg-neutral-800 p-2 w-full md:max-w-xl mr-auto rounded-b-lg md:rounded-bl-none md:rounded-br-lg'
 				>

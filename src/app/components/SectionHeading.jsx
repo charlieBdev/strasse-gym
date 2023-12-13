@@ -4,7 +4,7 @@ import { slideIn, fadeIn } from '../utils/motion';
 export const SectionHeading = ({ heading, subheading }) => {
 	return (
 		<motion.div
-			variants={fadeIn('right', 'spring', 0.2, 1)}
+			variants={fadeIn('right', 'spring', 0.25, 1)}
 			className='flex flex-col gap-3 items-center'
 		>
 			<p
