@@ -12,10 +12,10 @@ import { AddNewsSVG } from '../svg';
 import { useAuthContext } from '../../../context/AuthContext';
 import Link from 'next/link';
 import { SectionWrapper } from '../../hoc';
+import { fadeIn } from '../../utils/motion';
 
 const News = () => {
 	const { user } = useAuthContext();
-	const subheading = 'Announcements, seminars, and more!';
 
 	const [news, setNews] = useState([]);
 	const [loadingNews, setLoadingNews] = useState(true);
@@ -66,8 +66,10 @@ const News = () => {
 			{/* <UpDown href={'nav'} direction={'top'} bounce={false} /> */}
 			{/* <UpDown href={'nav'} direction={'up'} /> */}
 			<div className='flex flex-col items-center justify-center gap-3'>
-				<SectionHeading heading={'STRASSE NEWS'} />
-				<p>{subheading}</p>
+				<SectionHeading
+					heading={'STRASSE NEWS'}
+					subheading={'Announcements, seminars, and more!'}
+				/>
 				{loadingNews ? (
 					<Loading />
 				) : (

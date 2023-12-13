@@ -35,10 +35,10 @@ const TestimonialCard = ({ testimonial, name, pic, index }) => {
 const Testimonials = () => {
 	return (
 		<div className='snap-center min-h-[calc(100vh)] bg-neutral-900 w-full flex flex-col items-center justify-center p-6 md:px-16 lg:px-24 xl:px-32 gap-3'>
-			<div className='flex flex-col w-full gap-3'>
-				<SectionHeading heading={'TESTIMONIALS'} />
-				<p className='text-center'>What our patrons say...</p>
-			</div>
+			<SectionHeading
+				heading={'TESTIMONIALS'}
+				subheading={'What our patrons say...'}
+			/>
 			<div className='flex flex-wrap md:grid md:grid-cols-3 gap-3'>
 				{testimonials.map((testimonial, index) => (
 					<TestimonialCard
