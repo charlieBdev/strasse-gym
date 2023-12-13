@@ -3,6 +3,7 @@
 import Hero from './components/Hero';
 import News from './components/news/News';
 import Timetable from './components/Timetable/Timetable';
+import Testimonials from './components/testimonials/Testimonials';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import { Navbar } from './components/Navbar';
@@ -20,6 +21,7 @@ export default function Home() {
 					</div>
 					<News />
 					<Timetable />
+					<Testimonials />
 					<Contact />
 					<Footer />
 				</main>
