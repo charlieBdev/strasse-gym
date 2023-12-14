@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useInView, motion, useAnimation } from 'framer-motion';
 import { onViewMotion } from '../../utils/onViewMotion';
+import { fadeIn } from '../../utils/motion';
 
 const Prices = () => {
 	const ref = useRef(null);
@@ -20,13 +21,14 @@ const Prices = () => {
 		<section className='flex flex-col w-full items-center gap-1 select-none'>
 			<div className='flex flex-col w-full md:max-w-xl'>
 				<motion.div
-					ref={ref}
-					animate={controls}
-					initial='hidden'
-					variants={{
-						...onViewMotion,
-						visible: { ...onViewMotion.visible, transition: { delay: 1.25 } },
-					}}
+					// ref={ref}
+					// animate={controls}
+					// initial='hidden'
+					// variants={{
+					// 	...onViewMotion,
+					// 	visible: { ...onViewMotion.visible, transition: { delay: 1.25 } },
+					// }}
+					variants={fadeIn('', 'spring', 4 * 0.5 + 1, 0.75)}
 					className='bg-neutral-800 rounded-lg p-2'
 				>
 					<div className='flex flex-col gap-1'>

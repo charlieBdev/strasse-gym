@@ -5,6 +5,7 @@ import { toast } from 'sonner';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
+import { fadeIn } from '../../utils/motion';
 
 export const ContactForm = () => {
 	const [isSending, setIsSending] = useState(false);

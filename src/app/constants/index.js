@@ -19,4 +19,62 @@ const testimonials = [
 	},
 ];
 
-export { testimonials };
+const timetable = [
+	{
+		day: 'MON-WED-FRI',
+		sessions: [
+			{
+				icon: 'EveningSVG',
+				time: '18:30 - 19:30',
+				type: 'Kickboxing',
+			},
+			{
+				icon: 'EveningSVG',
+				time: '19:30 - 12:30',
+				type: 'BJJ',
+			},
+		],
+	},
+	{
+		day: 'TUE',
+		sessions: [
+			{
+				icon: 'EveningSVG',
+				time: '18:30 - 19:30',
+				type: 'BJJ',
+			},
+		],
+	},
+	{
+		day: 'THUR',
+		sessions: [
+			{
+				icon: 'EveningSVG',
+				time: '18:30 - 19:30',
+				type: 'KAPAP',
+			},
+		],
+	},
+	{
+		day: 'SAT',
+		sessions: [
+			{
+				icon: 'DaytimeSVG',
+				time: '09:00 - 10:00',
+				type: 'Kids KB & BJJ',
+			},
+			{
+				icon: 'DaytimeSVG',
+				time: '13:00 - 14:00',
+				type: 'KB Sparring',
+			},
+			{
+				icon: 'DaytimeSVG',
+				time: '14:00 - 15:00',
+				type: 'BJJ Sparring',
+			},
+		],
+	},
+];
+
+export { testimonials, timetable };
