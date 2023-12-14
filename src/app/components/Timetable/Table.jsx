@@ -33,8 +33,8 @@ const Table = () => {
 								{day.day}
 							</p>
 							<div className='grid grid-cols-2 rounded-lg px-1 hover:bg-blue-500'>
-								{day.sessions.map((session) => (
-									<>
+								{day.sessions.map((session, index) => (
+									<div key={`session-${index}`}>
 										<div className='flex items-center gap-1'>
 											{session.icon === 'EveningSVG' ? (
 												<EveningSVG />
@@ -46,7 +46,7 @@ const Table = () => {
 										<div className='flex items-center justify-between'>
 											<p>{session.type}</p>
 										</div>
-									</>
+									</div>
 								))}
 							</div>
 						</div>
