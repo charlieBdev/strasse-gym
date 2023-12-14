@@ -20,6 +20,20 @@ const Table = () => {
 		}
 	}, [controls, isInView]);
 
+	const SessionCard = ({ icon, time, type }) => {
+		return (
+			<>
+				<div className='flex items-center gap-1'>
+					{icon === 'EveningSVG' ? <EveningSVG /> : <DaytimeSVG />}
+					<p>{time}</p>
+				</div>
+				<div className='flex items-center justify-between'>
+					<p>{type}</p>
+				</div>
+			</>
+		);
+	};
+
 	return (
 		<section className='flex flex-col w-full gap-3 select-none'>
 			<div className='flex flex-col md:grid md:grid-cols-2 gap-1 w-full'>
@@ -34,19 +48,7 @@ const Table = () => {
 							</p>
 							<div className='grid grid-cols-2 rounded-lg px-1 hover:bg-blue-500'>
 								{day.sessions.map((session, index) => (
-									<div key={`session-${index}`}>
-										<div className='flex items-center gap-1'>
-											{session.icon === 'EveningSVG' ? (
-												<EveningSVG />
-											) : (
-												<DaytimeSVG />
-											)}
-											<p>{session.time}</p>
-										</div>
-										<div className='flex items-center justify-between'>
-											<p>{session.type}</p>
-										</div>
-									</div>
+									<SessionCard key={`session-${index}`} {...session} />
 								))}
 							</div>
 						</div>
