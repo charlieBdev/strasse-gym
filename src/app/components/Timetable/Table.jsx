@@ -21,7 +21,7 @@ const Table = () => {
 	const TimetableCard = ({ day, index }) => {
 		return (
 			<motion.div
-				className='bg-neutral-800 p-2 w-full rounded-lg md:max-w-xl ml-auto'
+				className='bg-neutral-800 p-2 w-full rounded-lg'
 				variants={fadeIn('', 'spring', index * 0.5 + 1, 0.75)}
 			>
 				<div className='flex flex-col gap-1'>
